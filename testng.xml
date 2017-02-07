@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="IronMan Auotmation Test Suite">
+	<test name="IronMan Auotmation Tests">
+		<classes>
+			<class name="com.curaesoft.qa.selenium.Tests.LoginPageTest" />
+		</classes>
+	</test>
+</suite>
