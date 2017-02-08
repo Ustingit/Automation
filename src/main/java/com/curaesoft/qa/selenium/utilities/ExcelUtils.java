@@ -1,4 +1,4 @@
-package com.cvhcare.qa.selenium.utilities;
+package com.curaesoft.qa.selenium.utilities;
 
 import java.io.FileInputStream;
 

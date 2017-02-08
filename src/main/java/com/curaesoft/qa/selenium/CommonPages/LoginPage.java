@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 
 import com.curaesoft.qa.selenium.Config.Constant;
-import com.cvhcare.qa.selenium.utilities.ExcelUtils;
+import com.curaesoft.qa.selenium.utilities.ExcelUtils;
 
 public class LoginPage {
 	public WebDriver driver;

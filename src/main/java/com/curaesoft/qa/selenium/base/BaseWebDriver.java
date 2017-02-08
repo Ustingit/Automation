@@ -1,4 +1,4 @@
-package com.cvhcare.qa.selenium.base;
+package com.curaesoft.qa.selenium.base;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;

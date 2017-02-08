@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.curaesoft.qa.selenium.CommonPages.HomePage;
-import com.cvhcare.qa.selenium.base.BaseWebDriver;
+import com.curaesoft.qa.selenium.base.BaseWebDriver;
 
 public class LoginPageTest extends BaseWebDriver {
 	HomePage homePage;
@@ -18,7 +18,7 @@ public class LoginPageTest extends BaseWebDriver {
 			homePage = this.loginPage.login("qa");
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("Failed to login into the application");
+			System.out.println("Failed to login into the application !");
 		}
 	}
 
