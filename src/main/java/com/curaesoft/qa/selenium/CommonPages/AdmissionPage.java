@@ -23,7 +23,7 @@ public class AdmissionPage {
         driver.get(data.webURL);
 
         try {
-            xcel.reader(driver,"excel/admission.xlsx");
+            xcel.reader(driver,"resources/admission.xlsx");
         } catch (Exception e) {
             xcel.close(driver);
             e.printStackTrace();
