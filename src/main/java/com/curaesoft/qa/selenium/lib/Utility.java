@@ -70,19 +70,27 @@ public class Utility {
                     util.get_text(driver,field,xpath);
 
                 }else if(action.equals("control")){
-                    util.control(driver,field,xpath,value);
+                    util.control(driver,field,xpath,value,clicks);
 
                 }else if(action.equals("enable")){
                     util.enable(driver,field,xpath);
+
                 }else if(action.equals("get_value")){
                     util.get_value(driver,field,xpath);
+
+                }else if(action.equals("match_text")){
+                    util.match_text(driver,field,xpath,value);
+
+                }else if(action.equals("match_value")){
+                    util.match_value(driver,field,xpath,value);
+
                 }else{
                     System.out.printf("\n Action is not registered.", field);
                 }
 
             Thread.sleep(1000 * delay_a);
         } catch (Exception e) {
-           // e.printStackTrace();
+          e.printStackTrace();
         }
 
 
@@ -102,7 +110,7 @@ public class Utility {
 
     public void click(WebDriver driver, String field, String xpath, String value , int clicks) {
 
-        WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
+        WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
         if(element != null){
             for (int x = 0; x < clicks; x++) {
 
@@ -138,6 +146,24 @@ public class Utility {
         }
     }
 
+    public void match_text(WebDriver driver, String field, String xpath , String value) {
+
+        WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+        if(element != null){
+            System.out.printf("\n %s (%s : %s)", field, value , element.getText());
+        }else {
+            System.out.printf("\n Element %s does not exist.", field);
+        }
+    }
+    public void match_value(WebDriver driver, String field, String xpath , String value) {
+
+        WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+        if(element != null){
+            System.out.printf("\n %s (%s : %s)", field, value, element.getAttribute("value"));
+        }else {
+            System.out.printf("\n Element %s does not exist.", field);
+        }
+    }
     public void get_value(WebDriver driver, String field, String xpath) {
 
         WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
@@ -158,17 +184,27 @@ public class Utility {
         }
     }
 
-    public void control(WebDriver driver,String field, String xpath, String value) {
+    public void control(WebDriver driver,String field, String xpath, String value, int clicks) {
 
         WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
-
-        if(value=="escape"){
-            element.sendKeys(Keys.ESCAPE);
-        }else if(value=="enter"){
-            element.sendKeys(Keys.ENTER);
-        }else{
-            System.out.printf("\n Key is not registered.", field);
+        for (int x = 0; x < clicks; x++) {
+            if(value=="escape"){
+                element.sendKeys(Keys.ESCAPE);
+                System.out.printf("\n Key press escape.", field);
+            }else if(value=="enter"){
+                element.sendKeys(Keys.ENTER);
+                System.out.printf("\n Key press enter.", field);
+            }else if(value=="up"){
+                element.sendKeys(Keys.ARROW_UP);
+                System.out.printf("\n Key press up.", field);
+            }else if(value=="down"){
+                element.sendKeys(Keys.ARROW_DOWN);
+                System.out.printf("\n Key press down.", field);
+            }else{
+                System.out.printf("\n Key is not registered.", field);
+            }
         }
+
 
     }
 
