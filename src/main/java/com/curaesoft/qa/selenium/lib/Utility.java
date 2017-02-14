@@ -12,6 +12,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.SystemClock;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
@@ -19,7 +20,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class Utility {
 
 
-
+    static int error ;
+    static int match_error;
+    static int match_total;
     int timeout = 10;
     int close_delay = 3;
     Utility util;
@@ -47,6 +50,10 @@ public class Utility {
             );
 
         }
+        System.out.printf("\n--------------------------------");
+        System.out.printf("\n Success Field Checked : %s/%s", (match_total-match_error) , match_total);
+        System.out.printf("\n Success Execution : %s/%s", (num_rows-error) ,num_rows);
+        System.out.printf("\n--------------------------------");
         workbook.close();
         inputStream.close();
 
@@ -84,13 +91,17 @@ public class Utility {
                 }else if(action.equals("match_value")){
                     util.match_value(driver,field,xpath,value);
 
+                }else if(action.equals("validate_url")){
+                    util.validate_url(driver,field,value);
+
                 }else{
                     System.out.printf("\n Action is not registered.", field);
                 }
 
             Thread.sleep(1000 * delay_a);
         } catch (Exception e) {
-          e.printStackTrace();
+            error++;
+            e.printStackTrace();
         }
 
 
@@ -150,19 +161,52 @@ public class Utility {
 
         WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
         if(element != null){
-            System.out.printf("\n %s (%s : %s)", field, value , element.getText());
+            if(value.equals(element.getText())){
+                System.out.printf("\n %s (%s : %s)(Success) ", field, value , element.getText());
+            }else {
+                match_error++;
+                System.out.printf("\n %s (%s : %s)(Fail)", field, value , element.getText());
+            }
+
         }else {
+            match_error++;
             System.out.printf("\n Element %s does not exist.", field);
         }
+        match_total++;
     }
     public void match_value(WebDriver driver, String field, String xpath , String value) {
 
         WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
         if(element != null){
-            System.out.printf("\n %s (%s : %s)", field, value, element.getAttribute("value"));
+            if(value.equals(element.getText())){
+                System.out.printf("\n %s (%s : %s)(Success)", field, value, element.getAttribute("value"));
+            }else {
+                match_error++;
+                System.out.printf("\n %s (%s : %s)(Fail)", field, value, element.getAttribute("value"));
+            }
+
         }else {
+            match_error++;
             System.out.printf("\n Element %s does not exist.", field);
         }
+        match_total++;
+    }
+    public void validate_url(WebDriver driver, String field, String value) {
+
+        String weburl = driver.getCurrentUrl();
+        if(weburl != null){
+            if(weburl.equals(value)){
+                System.out.printf("\n URL Matched : %s", value);
+            }else {
+                match_error++;
+                System.out.printf("\n URL does not match.",value);
+            }
+
+        }else {
+            match_error++;
+            System.out.printf("\n Fail to get url.", field);
+        }
+        match_total++;
     }
     public void get_value(WebDriver driver, String field, String xpath) {
 

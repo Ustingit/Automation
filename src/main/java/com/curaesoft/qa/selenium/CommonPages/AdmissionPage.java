@@ -5,12 +5,13 @@ import com.curaesoft.qa.selenium.lib.Utility;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import javax.rmi.CORBA.Util;
+
 import java.util.concurrent.TimeUnit;
 
 public class AdmissionPage {
 
-    public static void main(String[] args) {
+
+	public static void main(String[] args) {
         Utility xcel = new Utility();
 
         Constant data= new Constant();
