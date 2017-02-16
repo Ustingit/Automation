@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 public class AdmissionPage {
 
 
-	public static void main(String[] args) {
+	public void execute() {
         Utility xcel = new Utility();
 
         Constant data= new Constant();

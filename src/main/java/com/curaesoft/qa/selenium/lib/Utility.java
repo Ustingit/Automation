@@ -21,8 +21,19 @@ public class Utility {
 
 
     static int error ;
-    static int match_error;
-    static int match_total;
+
+    static int[] inputError  = new int[2];
+    static int[] clickError  = new int[2];
+    static int[] visibleError  = new int[2];
+    static int[] getTextError  = new int[2];
+    static int[] controlError  = new int[2];
+    static int[] enableError  = new int[2];
+    static int[] getValueError  = new int[2];
+    static int[] matchTextError  = new int[2];
+    static int[] matchValueError  = new int[2];
+    static int[] urlError  = new int[2];
+
+
     int timeout = 10;
     int close_delay = 3;
     Utility util;
@@ -50,10 +61,19 @@ public class Utility {
             );
 
         }
-        System.out.printf("\n--------------------------------");
-        System.out.printf("\n Success Field Checked : %s/%s", (match_total-match_error) , match_total);
-        System.out.printf("\n Success Execution : %s/%s", (num_rows-error) ,num_rows);
-        System.out.printf("\n--------------------------------");
+        System.out.printf("\n--------------------------------------------------");
+        System.out.printf("\n Execute Input: %s/%s", (inputError[0]-inputError[1]) , inputError[0]);
+        System.out.printf("\n Execute Click: %s/%s", (clickError[0]-clickError[1]) , clickError[0]);
+        System.out.printf("\n Execute Get Text: %s/%s", (getTextError[0]-getTextError[1]) , getTextError[0]);
+        System.out.printf("\n Execute Get Value: %s/%s", (getValueError[0]-getValueError[1]) , getValueError[0]);
+        System.out.printf("\n Execute Send Keys: %s/%s", (controlError[0]-controlError[1]) , controlError[0]);
+        System.out.printf("\n Execute Match Text: %s/%s", (matchTextError[0]-matchTextError[1]) , matchTextError[0]);
+        System.out.printf("\n Execute Match Value: %s/%s", (matchValueError[0]-matchValueError[1]) , matchValueError[0]);
+        System.out.printf("\n Execute Match URL: %s/%s", (urlError[0]-urlError[1]) , urlError[0]);
+        System.out.printf("\n Visibility Field Checked: %s/%s", (visibleError[0]-visibleError[1]) , visibleError[0]);
+        System.out.printf("\n Enable Field Checked: %s/%s", (enableError[0]-enableError[1]) , enableError[0]);
+        System.out.printf("\n Execute Action : %s/%s", (num_rows-error) ,num_rows);
+        System.out.printf("\n--------------------------------------------------");
         workbook.close();
         inputStream.close();
 
@@ -94,9 +114,13 @@ public class Utility {
                 }else if(action.equals("validate_url")){
                     util.validate_url(driver,field,value);
 
+                }else if(action.equals("refresh")){
+                    util.refresh(driver);
+
                 }else{
                     System.out.printf("\n Action is not registered.", field);
                 }
+
 
             Thread.sleep(1000 * delay_a);
         } catch (Exception e) {
@@ -111,18 +135,20 @@ public class Utility {
     public void input( WebDriver driver,String field, String xpath, String value) {
 
         WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
-        if(element != null){
+        if(eCheck(element)){
             element.sendKeys(value);
             System.out.printf("\n Input text %s to %s.",value, field);
         }else {
+            inputError[1]++;
             System.out.printf("\n Element %s does not exist.", field);
         }
+        inputError[0]++;
     }
 
     public void click(WebDriver driver, String field, String xpath, String value , int clicks) {
 
         WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
-        if(element != null){
+        if(eCheck(element)){
             for (int x = 0; x < clicks; x++) {
 
                 try{
@@ -133,63 +159,69 @@ public class Utility {
             }
             System.out.printf("\n Element %s has been clicked.", field);
         }else {
+            clickError[1]++;
             System.out.printf("\n Element %s does not exist.", field);
         }
+        clickError[0]++;
     }
 
     public void visible(WebDriver driver, String field, String xpath) {
 
         WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
-        if(element != null){
+        if(eCheck(element)){
             System.out.printf("\n Element %s is visible.", field);
         }else {
+            visibleError[1]++;
             System.out.printf("\n Element %s does not exist.", field);
         }
+        visibleError[0]++;
     }
 
     public void get_text(WebDriver driver, String field, String xpath) {
 
         WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
-        if(element != null){
+        if(eCheck(element)){
             System.out.printf("\n %s = %s", field, element.getText());
         }else {
+            getTextError[1]++;
             System.out.printf("\n Element %s does not exist.", field);
         }
+        getTextError[0]++;
     }
 
     public void match_text(WebDriver driver, String field, String xpath , String value) {
 
         WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
-        if(element != null){
+        if(eCheck(element)){
             if(value.equals(element.getText())){
                 System.out.printf("\n %s (%s : %s)(Success) ", field, value , element.getText());
             }else {
-                match_error++;
+                matchTextError[1]++;
                 System.out.printf("\n %s (%s : %s)(Fail)", field, value , element.getText());
             }
 
         }else {
-            match_error++;
+            matchTextError[1]++;
             System.out.printf("\n Element %s does not exist.", field);
         }
-        match_total++;
+        matchTextError[0]++;
     }
     public void match_value(WebDriver driver, String field, String xpath , String value) {
 
         WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
-        if(element != null){
+        if(eCheck(element)){
             if(value.equals(element.getText())){
                 System.out.printf("\n %s (%s : %s)(Success)", field, value, element.getAttribute("value"));
             }else {
-                match_error++;
+                matchValueError[1]++;
                 System.out.printf("\n %s (%s : %s)(Fail)", field, value, element.getAttribute("value"));
             }
 
         }else {
-            match_error++;
+            matchValueError[1]++;
             System.out.printf("\n Element %s does not exist.", field);
         }
-        match_total++;
+        matchValueError[0]++;
     }
     public void validate_url(WebDriver driver, String field, String value) {
 
@@ -198,24 +230,26 @@ public class Utility {
             if(weburl.equals(value)){
                 System.out.printf("\n URL Matched : %s", value);
             }else {
-                match_error++;
+                urlError[1]++;
                 System.out.printf("\n URL does not match.",value);
             }
 
         }else {
-            match_error++;
+            urlError[1]++;
             System.out.printf("\n Fail to get url.", field);
         }
-        match_total++;
+        urlError[0]++;
     }
     public void get_value(WebDriver driver, String field, String xpath) {
 
         WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
-        if(element != null){
+        if(eCheck(element)){
             System.out.printf("\n %s = %s", field, element.getAttribute("value"));
         }else {
+            getValueError[1]++;
             System.out.printf("\n Element %s does not exist.", field);
         }
+        getValueError[0]++;
     }
 
     public void enable(WebDriver driver, String field, String xpath) {
@@ -224,33 +258,46 @@ public class Utility {
         if(result){
             System.out.printf("\n %s is enable.", field, element.getAttribute("value"));
         }else {
+            enableError[1]++;
             System.out.printf("\n Element %s does not exist.", field);
         }
+        enableError[0]++;
     }
 
     public void control(WebDriver driver,String field, String xpath, String value, int clicks) {
 
         WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
-        for (int x = 0; x < clicks; x++) {
-            if(value=="escape"){
-                element.sendKeys(Keys.ESCAPE);
-                System.out.printf("\n Key press escape.", field);
-            }else if(value=="enter"){
-                element.sendKeys(Keys.ENTER);
-                System.out.printf("\n Key press enter.", field);
-            }else if(value=="up"){
-                element.sendKeys(Keys.ARROW_UP);
-                System.out.printf("\n Key press up.", field);
-            }else if(value=="down"){
-                element.sendKeys(Keys.ARROW_DOWN);
-                System.out.printf("\n Key press down.", field);
-            }else{
-                System.out.printf("\n Key is not registered.", field);
+        if(eCheck(element)){
+            for (int x = 0; x < clicks; x++) {
+                if(value=="escape"){
+                    element.sendKeys(Keys.ESCAPE);
+                    System.out.printf("\n Key press escape.", field);
+                }else if(value=="enter"){
+                    element.sendKeys(Keys.ENTER);
+                    System.out.printf("\n Key press enter.", field);
+                }else if(value=="up"){
+                    element.sendKeys(Keys.ARROW_UP);
+                    System.out.printf("\n Key press up.", field);
+                }else if(value=="down"){
+                    element.sendKeys(Keys.ARROW_DOWN);
+                    System.out.printf("\n Key press down.", field);
+                }else{
+                    System.out.printf("\n Key is not registered.", field);
+                }
             }
+        }else {
+            controlError[1]++;
+            System.out.printf("\n Element %s does not exist.", field);
         }
-
+        controlError[0]++;
 
     }
+
+    public void refresh(WebDriver driver) {
+        driver.navigate().refresh();
+        System.out.printf("\n Page Refresh.");
+    }
+
 
     public String sformat(Row row,int column){
 
@@ -281,6 +328,13 @@ public class Utility {
 
     }
 
+    public boolean eCheck(WebElement element){
+        if(element.isDisplayed() || element.isEnabled() || element != null){
+            return true;
+        }else{
+            return  false;
+        }
+    }
 
     //close browser with delay
     public void close(WebDriver driver) {
