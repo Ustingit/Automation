@@ -15,6 +15,8 @@ import org.testng.Reporter;
 import com.curaesoft.qa.selenium.Config.Constant;
 import com.curaesoft.qa.selenium.utilities.ExcelUtils;
 
+import io.github.bonigarcia.wdm.ChromeDriverManager;
+
 import java.util.concurrent.TimeUnit;
 
 public class LoginPage {
@@ -121,8 +123,9 @@ public class LoginPage {
 		Utility xcel = new Utility();
 
 		Constant data= new Constant();
-		String exePath = "driver/chromedriver.exe";
-		System.setProperty("webdriver.chrome.driver", exePath);
+		//String exePath = "driver/chromedriver.exe";
+		//System.setProperty("webdriver.chrome.driver", exePath);
+		ChromeDriverManager.getInstance().setup();
 
 		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
