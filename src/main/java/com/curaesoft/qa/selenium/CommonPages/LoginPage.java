@@ -1,6 +1,7 @@
 package com.curaesoft.qa.selenium.CommonPages;
 
 
+import com.curaesoft.qa.selenium.base.BaseWebDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,44 +21,55 @@ import io.github.bonigarcia.wdm.ChromeDriverManager;
 import java.util.concurrent.TimeUnit;
 
 public class LoginPage {
-	public WebDriver driver;
+
+	public static WebDriver driver;
 
 	@FindBy(how = How.XPATH, using = "//*[@id='email']")
-	public WebElement userName;
+	public static WebElement userName;
 
 	@FindBy(how = How.XPATH, using = "//*[@id='password']")
-	public WebElement password;
+	public static WebElement password;
 
 	@FindBy(how = How.XPATH, using = "//div[@id='ui-login']/div/div/md-card/md-content/form/button")
-	public WebElement login;
+	public static WebElement login;
 
-	@FindBy(how = How.XPATH, using = "//md-menu/button")
-	public WebElement menuDropDown;
+	@FindBy(how = How.XPATH, using = "/html/body/div[1]/div/md-toolbar/div/md-menu/button")
+	public static WebElement menuDropDown;
 
 	@FindBy(how = How.XPATH, using = "//md-backdrop")
-	public WebElement menuBackDrop;
+	public static WebElement menuBackDrop;
 
-	String uName;
-	String pswd;
+	public static String uName;
+	public static String pswd;
 
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
 	}
 
+	public void LoginPage(WebDriver driver){
+		this.driver = driver;
+	}
+
 	public HomePage login(String role) {
 		try {
-			String excelPath = this.getClass().getClassLoader().getResource(Constant.File_TestData).getPath();
-			ExcelUtils.setExcelFile(excelPath, Constant.excelSheetName);
+
+			ExcelUtils exc = new ExcelUtils();
+			//String excelPath = this.getClass().getClassLoader().getResource(Constant.File_TestData).getPath();
+			exc.setExcelFile(Constant.File_TestData, Constant.excelSheetName);
+
 			if (role.equals(Constant.QA_ROLE)) {
-				uName = ExcelUtils.getCellData(1, 0);
-				pswd = ExcelUtils.getCellData(1, 1);
+				uName = exc.getCellData(1, 0);
+				pswd = exc.getCellData(1, 1);
 			} else if (role.equals(Constant.CLINICIAN_ROLE)) {
-				uName = ExcelUtils.getCellData(2, 0);
-				pswd = ExcelUtils.getCellData(2, 1);
+				uName = exc.getCellData(2, 0);
+				pswd = exc.getCellData(2, 1);
 			} else if (role.equals(Constant.MANAGER_ROLE)) {
-				uName = ExcelUtils.getCellData(3, 0);
-				pswd = ExcelUtils.getCellData(3, 1);
-			} else {
+				uName = exc.getCellData(3, 0);
+				pswd = exc.getCellData(3, 1);
+			} else if (role.equals(Constant.INTAKE_ROLE)) {
+				uName = exc.getCellData(6, 0);
+				pswd = exc.getCellData(6 , 1);
+			}else {
 				Reporter.log("Role not available");
 				return null;
 			}
@@ -80,6 +92,7 @@ public class LoginPage {
 		return PageFactory.initElements(driver, HomePage.class);
 	}
 
+
 	/**
 	 * Method to Click Login
 	 */
@@ -92,10 +105,6 @@ public class LoginPage {
 		}
 	}
 
-	/**
-	 * Method to invoke logout simulation
-	 *
-	 */
 	public boolean logout() {
 		try {
 			menuDropDown.click();
@@ -110,6 +119,7 @@ public class LoginPage {
 	 * Method to invoke logout simulation
 	 *
 	 */
+
 	public boolean userInfo() {
 		try {
 			driver.getPageSource().contains("Welcome");

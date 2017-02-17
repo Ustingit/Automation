@@ -26,6 +26,7 @@ public class ExcelUtils {
 		}
 	}
 
+
 	// This method is to read the test data from the Excel cell, in this we are
 	// passing parameters as Row num and Col num
 	public static String getCellData(int RowNum, int ColNum) throws Exception {
@@ -34,7 +35,8 @@ public class ExcelUtils {
 			String CellData = Cell.getStringCellValue();
 			return CellData;
 		} catch (Exception e) {
-			return "";
+			throw (e);
+
 		}
 	}
 }

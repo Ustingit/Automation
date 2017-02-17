@@ -1,6 +1,7 @@
 package com.curaesoft.qa.selenium.lib;
 import java.io.File;
 import java.io.FileInputStream;
+
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -12,7 +13,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.SystemClock;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
@@ -61,19 +61,19 @@ public class Utility {
             );
 
         }
-        System.out.printf("\n--------------------------------------------------");
-        System.out.printf("\n Execute Input: %s/%s", (inputError[0]-inputError[1]) , inputError[0]);
-        System.out.printf("\n Execute Click: %s/%s", (clickError[0]-clickError[1]) , clickError[0]);
-        System.out.printf("\n Execute Get Text: %s/%s", (getTextError[0]-getTextError[1]) , getTextError[0]);
-        System.out.printf("\n Execute Get Value: %s/%s", (getValueError[0]-getValueError[1]) , getValueError[0]);
-        System.out.printf("\n Execute Send Keys: %s/%s", (controlError[0]-controlError[1]) , controlError[0]);
-        System.out.printf("\n Execute Match Text: %s/%s", (matchTextError[0]-matchTextError[1]) , matchTextError[0]);
-        System.out.printf("\n Execute Match Value: %s/%s", (matchValueError[0]-matchValueError[1]) , matchValueError[0]);
-        System.out.printf("\n Execute Match URL: %s/%s", (urlError[0]-urlError[1]) , urlError[0]);
-        System.out.printf("\n Visibility Field Checked: %s/%s", (visibleError[0]-visibleError[1]) , visibleError[0]);
-        System.out.printf("\n Enable Field Checked: %s/%s", (enableError[0]-enableError[1]) , enableError[0]);
-        System.out.printf("\n Execute Action : %s/%s", (num_rows-error) ,num_rows);
-        System.out.printf("\n--------------------------------------------------");
+//        System.out.printf("\n--------------------------------------------------");
+//        System.out.printf("\n Execute Input: %s/%s", (inputError[0]-inputError[1]) , inputError[0]);
+//        System.out.printf("\n Execute Click: %s/%s", (clickError[0]-clickError[1]) , clickError[0]);
+//        System.out.printf("\n Execute Get Text: %s/%s", (getTextError[0]-getTextError[1]) , getTextError[0]);
+//        System.out.printf("\n Execute Get Value: %s/%s", (getValueError[0]-getValueError[1]) , getValueError[0]);
+//        System.out.printf("\n Execute Send Keys: %s/%s", (controlError[0]-controlError[1]) , controlError[0]);
+//        System.out.printf("\n Execute Match Text: %s/%s", (matchTextError[0]-matchTextError[1]) , matchTextError[0]);
+//        System.out.printf("\n Execute Match Value: %s/%s", (matchValueError[0]-matchValueError[1]) , matchValueError[0]);
+//        System.out.printf("\n Execute Match URL: %s/%s", (urlError[0]-urlError[1]) , urlError[0]);
+//        System.out.printf("\n Visibility Field Checked: %s/%s", (visibleError[0]-visibleError[1]) , visibleError[0]);
+//        System.out.printf("\n Enable Field Checked: %s/%s", (enableError[0]-enableError[1]) , enableError[0]);
+//        System.out.printf("\n Execute Action : %s/%s", (num_rows-error) ,num_rows);
+//        System.out.printf("\n--------------------------------------------------");
         workbook.close();
         inputStream.close();
 
@@ -134,10 +134,10 @@ public class Utility {
 
     public void input( WebDriver driver,String field, String xpath, String value) {
 
-        WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+        WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
         if(eCheck(element)){
             element.sendKeys(value);
-            System.out.printf("\n Input text %s to %s.",value, field);
+//            System.out.printf("\n Input text %s to %s.",value, field);
         }else {
             inputError[1]++;
             System.out.printf("\n Element %s does not exist.", field);
@@ -157,7 +157,7 @@ public class Utility {
                 }catch (Exception e){System.out.println(e);};
                 element.click();
             }
-            System.out.printf("\n Element %s has been clicked.", field);
+//            System.out.printf("\n Element %s has been clicked.", field);
         }else {
             clickError[1]++;
             System.out.printf("\n Element %s does not exist.", field);
@@ -169,7 +169,7 @@ public class Utility {
 
         WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
         if(eCheck(element)){
-            System.out.printf("\n Element %s is visible.", field);
+//            System.out.printf("\n Element %s is visible.", field);
         }else {
             visibleError[1]++;
             System.out.printf("\n Element %s does not exist.", field);
@@ -181,7 +181,7 @@ public class Utility {
 
         WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
         if(eCheck(element)){
-            System.out.printf("\n %s = %s", field, element.getText());
+//            System.out.printf("\n %s = %s", field, element.getText());
         }else {
             getTextError[1]++;
             System.out.printf("\n Element %s does not exist.", field);
@@ -194,15 +194,15 @@ public class Utility {
         WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
         if(eCheck(element)){
             if(value.equals(element.getText())){
-                System.out.printf("\n %s (%s : %s)(Success) ", field, value , element.getText());
+//                System.out.printf("\n %s (%s : %s)(Success) ", field, value , element.getText());
             }else {
                 matchTextError[1]++;
-                System.out.printf("\n %s (%s : %s)(Fail)", field, value , element.getText());
+//                System.out.printf("\n %s (%s : %s)(Fail)", field, value , element.getText());
             }
 
         }else {
             matchTextError[1]++;
-            System.out.printf("\n Element %s does not exist.", field);
+//            System.out.printf("\n Element %s does not exist.", field);
         }
         matchTextError[0]++;
     }
@@ -211,10 +211,10 @@ public class Utility {
         WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
         if(eCheck(element)){
             if(value.equals(element.getText())){
-                System.out.printf("\n %s (%s : %s)(Success)", field, value, element.getAttribute("value"));
+//                System.out.printf("\n %s (%s : %s)(Success)", field, value, element.getAttribute("value"));
             }else {
                 matchValueError[1]++;
-                System.out.printf("\n %s (%s : %s)(Fail)", field, value, element.getAttribute("value"));
+//                System.out.printf("\n %s (%s : %s)(Fail)", field, value, element.getAttribute("value"));
             }
 
         }else {
@@ -244,7 +244,7 @@ public class Utility {
 
         WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
         if(eCheck(element)){
-            System.out.printf("\n %s = %s", field, element.getAttribute("value"));
+//            System.out.printf("\n %s = %s", field, element.getAttribute("value"));
         }else {
             getValueError[1]++;
             System.out.printf("\n Element %s does not exist.", field);
@@ -256,7 +256,7 @@ public class Utility {
         WebElement element =driver.findElement(By.xpath(xpath));
         boolean result = element.isEnabled();
         if(result){
-            System.out.printf("\n %s is enable.", field, element.getAttribute("value"));
+//            System.out.printf("\n %s is enable.", field, element.getAttribute("value"));
         }else {
             enableError[1]++;
             System.out.printf("\n Element %s does not exist.", field);
@@ -271,18 +271,18 @@ public class Utility {
             for (int x = 0; x < clicks; x++) {
                 if(value=="escape"){
                     element.sendKeys(Keys.ESCAPE);
-                    System.out.printf("\n Key press escape.", field);
+//                    System.out.printf("\n Key press escape.", field);
                 }else if(value=="enter"){
                     element.sendKeys(Keys.ENTER);
-                    System.out.printf("\n Key press enter.", field);
+//                    System.out.printf("\n Key press enter.", field);
                 }else if(value=="up"){
                     element.sendKeys(Keys.ARROW_UP);
-                    System.out.printf("\n Key press up.", field);
+//                    System.out.printf("\n Key press up.", field);
                 }else if(value=="down"){
                     element.sendKeys(Keys.ARROW_DOWN);
-                    System.out.printf("\n Key press down.", field);
+//                    System.out.printf("\n Key press down.", field);
                 }else{
-                    System.out.printf("\n Key is not registered.", field);
+//                    System.out.printf("\n Key is not registered.", field);
                 }
             }
         }else {
@@ -295,7 +295,7 @@ public class Utility {
 
     public void refresh(WebDriver driver) {
         driver.navigate().refresh();
-        System.out.printf("\n Page Refresh.");
+//        System.out.printf("\n Page Refresh.");
     }
 
 
@@ -329,13 +329,22 @@ public class Utility {
     }
 
     public boolean eCheck(WebElement element){
-        if(element.isDisplayed() || element.isEnabled() || element != null){
+        if(element.isDisplayed() && element != null){
             return true;
         }else{
             return  false;
         }
     }
 
+    public void execute(WebDriver driver, String excelPath) {
+        util = new Utility();
+
+        try {
+            util.reader(driver,excelPath);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     //close browser with delay
     public void close(WebDriver driver) {
         try {
