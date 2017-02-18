@@ -2,11 +2,11 @@ package com.curaesoft.qa.selenium.Tests;
 
 import com.curaesoft.qa.selenium.CommonPages.HomePage;
 import com.curaesoft.qa.selenium.base.BaseWebDriver;
+import com.curaesoft.qa.selenium.utilities.ExcelUtils;
+import com.curaesoft.qa.selenium.CommonPages.AdmissionPage;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
-import com.curaesoft.qa.selenium.lib.Utility;
+import org.testng.annotations.*;
+
 /**
  * Created by SE on 2/17/2017.
  */
@@ -14,7 +14,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
     HomePage homePage;
     Boolean result;
 
-    @BeforeMethod(alwaysRun = true)
+    @BeforeClass
     public void login() {
 
         try {
@@ -26,12 +26,36 @@ public class AdmissionPageTest  extends BaseWebDriver {
     }
 
     @Test
-    public void createAdmission() {
-        Utility page = new Utility();
-        page.execute(this.driver, "resources/admission.xlsx");
+    public void createPatient() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "resources/admissionNewPatient.xlsx");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Failed to create patient.");
+        }
+
+
     }
 
-    @AfterMethod(alwaysRun = true)
+    @Test(priority=2)
+    public void createAdmissionForNewPatient() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "resources/admission.xlsx");
+        }catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Failed to create admission for new patient.");
+        }
+    }
+
+    @Test(priority=3)
+    public void createAdmissionForOldPatient() {
+        ExcelUtils eu = new ExcelUtils();
+        eu.execute(this.driver, "resources/admissionOldPatient.xlsx");
+    }
+
+    @AfterClass
     public void logout() {
         try {
             result = this.loginPage.logout();

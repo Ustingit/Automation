@@ -1,7 +1,7 @@
 package com.curaesoft.qa.selenium.Config;
 
 public class Constant {
-	public static final String webURL = "http://104.198.15.201:9999/#/login";
+	public static final String webURL = "https://104.196.248.241/#/login";
 	public static final String browserType = "*chrome";
 	public static final String File_TestData = "resources/Testdata.xlsx";
 	public static final String excelSheetName = "FirstSet";

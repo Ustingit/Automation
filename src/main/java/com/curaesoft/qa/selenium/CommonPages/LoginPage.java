@@ -46,34 +46,40 @@ public class LoginPage {
 		this.driver = driver;
 	}
 
-	public void LoginPage(WebDriver driver){
-		this.driver = driver;
-	}
-
 	public HomePage login(String role) {
+
 		try {
 
 			ExcelUtils exc = new ExcelUtils();
 			//String excelPath = this.getClass().getClassLoader().getResource(Constant.File_TestData).getPath();
-			exc.setExcelFile(Constant.File_TestData, Constant.excelSheetName);
-
-			if (role.equals(Constant.QA_ROLE)) {
-				uName = exc.getCellData(1, 0);
-				pswd = exc.getCellData(1, 1);
-			} else if (role.equals(Constant.CLINICIAN_ROLE)) {
-				uName = exc.getCellData(2, 0);
-				pswd = exc.getCellData(2, 1);
-			} else if (role.equals(Constant.MANAGER_ROLE)) {
-				uName = exc.getCellData(3, 0);
-				pswd = exc.getCellData(3, 1);
-			} else if (role.equals(Constant.INTAKE_ROLE)) {
-				uName = exc.getCellData(6, 0);
-				pswd = exc.getCellData(6 , 1);
+			String[] account = exc.getRole(Constant.File_TestData, Constant.excelSheetName , role);
+			if(account[0] != null && account[1] != null){
+				uName =account[0];
+				pswd = account[1];
 			}else {
 				Reporter.log("Role not available");
 				return null;
 			}
+
+
+//			if (role.equals(Constant.QA_ROLE)) {
+//				uName = exc.getCellData(1, 0);
+//				pswd = exc.getCellData(1, 1);
+//			} else if (role.equals(Constant.CLINICIAN_ROLE)) {
+//				uName = exc.getCellData(2, 0);
+//				pswd = exc.getCellData(2, 1);
+//			} else if (role.equals(Constant.MANAGER_ROLE)) {
+//				uName = exc.getCellData(3, 0);
+//				pswd = exc.getCellData(3, 1);
+//			} else if (role.equals(Constant.INTAKE_ROLE)) {
+//				uName = exc.getCellData(6, 0);
+//				pswd = exc.getCellData(6 , 1);
+//			}else {
+//				Reporter.log("Role not available");
+//				return null;
+//			}
 		} catch (Exception e) {
+			System.out.println(e);
 			Reporter.log("No role selected");
 		}
 		try {
@@ -82,6 +88,7 @@ public class LoginPage {
 			userName.sendKeys(uName);
 			password.sendKeys(pswd);
 		} catch (Exception e) {
+			System.out.println(e);
 			Reporter.log("Failed to enter the username and password  in the login page");
 		}
 		/**
