@@ -3,6 +3,8 @@
 	<test name="IronMan Auotmation Tests">
 		<classes>
 			<class name="com.curaesoft.qa.selenium.Tests.LoginPageTest" />
+			<class name="com.curaesoft.qa.selenium.Tests.AdmissionPageTest" />
+			<class name="com.curaesoft.qa.selenium.Tests.ProfilePageTest" />
 		</classes>
 	</test>
 </suite>
