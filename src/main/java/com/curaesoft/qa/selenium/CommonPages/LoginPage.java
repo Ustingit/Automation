@@ -18,7 +18,7 @@ import com.curaesoft.qa.selenium.utilities.ExcelUtils;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 
-import java.util.concurrent.TimeUnit;
+import java.util.*;
 
 public class LoginPage {
 
@@ -114,9 +114,11 @@ public class LoginPage {
 
 	public boolean logout() {
 		try {
-			menuDropDown.click();
-			driver.findElement(By.linkText("Logout")).click();
+			//menuDropDown.click();
+			//driver.findElement(By.xpath("//a[contains(@href,'login')")).click();
+			driver.navigate().to(Constant.webURL);
 		} catch (Exception e) {
+			System.out.println(e);
 			Reporter.log("Failed to logout from the application");
 		}
 		return true;

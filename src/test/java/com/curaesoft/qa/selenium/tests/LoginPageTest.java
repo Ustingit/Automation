@@ -16,7 +16,7 @@ public class LoginPageTest extends BaseWebDriver {
 	public void login() {
 
 		try {
-			homePage = this.loginPage.login("qa");
+			homePage = this.loginPage.login("intake");
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Failed to login into the application !");
