@@ -132,7 +132,7 @@ public class ExcelUtils {
 			Thread.sleep(1000 * delay_a);
 		} catch (Exception e) {
 //			error++;
-			Assert.fail("Fail to locate xpath on excel row number "+rownum );
+			Assert.fail("Fail to locate xpath on excel row number "+(rownum+1) );
 			throw e;
 		}
 
