@@ -34,8 +34,6 @@ public class AdmissionPageTest  extends BaseWebDriver {
             e.printStackTrace();
             System.out.println("Failed to create patient.");
         }
-
-
     }
 
     @Test(priority=2)
