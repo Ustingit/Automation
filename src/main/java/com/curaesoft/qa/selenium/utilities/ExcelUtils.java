@@ -18,6 +18,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import com.curaesoft.qa.selenium.Config.Constant;
+import sun.invoke.empty.Empty;
+
+
 public class ExcelUtils {
 	private static FileInputStream ExcelFile;
 	private static XSSFSheet ExcelWSheet;
@@ -65,6 +69,7 @@ public class ExcelUtils {
 					iformat(rows,4),
 					iformat(rows,5),
 					iformat(rows,6),
+					sformat(rows,7),
 					i
 			);
 
@@ -86,14 +91,19 @@ public class ExcelUtils {
 		inputStream.close();
 
 	}
-	public void action(WebDriver driver, String field, String xpath, String action, String value, int clicks, int delay_b , int delay_a, int rownum) throws Exception {
+	public void action(WebDriver driver, String field, String xpath, String action, String value, int clicks, int delay_b , int delay_a, String deflt ,int rownum) throws Exception {
 		util = new ExcelUtils();
 		try {
 			Thread.sleep(1000 * delay_b);
 
 			if(action.equals("input")){
-				this.input(driver,field,xpath,value);
+				Constant con = new Constant();
+				if(!deflt.equals("")){
+					this.input(driver,field,xpath,con.map(deflt));
 
+				}else{
+					this.input(driver,field,xpath,value);
+				}
 			}else if(action.equals("click")){
 				this.click(driver,field,xpath,value,clicks);
 
@@ -132,8 +142,11 @@ public class ExcelUtils {
 			Thread.sleep(1000 * delay_a);
 		} catch (Exception e) {
 //			error++;
-			Assert.fail("Fail to locate xpath on excel row number "+(rownum+1) );
+
+			Assert.fail("Fail to locate xpath on row number "+(rownum+1));
 			throw e;
+
+
 		}
 
 

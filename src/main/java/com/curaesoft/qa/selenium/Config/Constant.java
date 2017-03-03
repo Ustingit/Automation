@@ -1,5 +1,8 @@
 package com.curaesoft.qa.selenium.Config;
 
+import java.util.Date;
+import java.util.HashMap;
+
 public class Constant {
 	public static final String webURL = "http://104.198.15.201:9999/#/login";
 	public static final String browserType = "*chrome";
@@ -10,4 +13,15 @@ public class Constant {
 	public static final String CLINICIAN_ROLE = "clinician";
 	public static final String MANAGER_ROLE = "manager";
 	public static final String INTAKE_ROLE = "Intake";
+
+	public static final HashMap<String,String> edata = new HashMap<String, String>();
+
+	public static String map (String val){
+		edata.put("firstname","p332017");
+		edata.put("lastname","u900");
+		edata.put("date","03-03-2017");
+
+
+		return edata.get(val);
+	}
 }
