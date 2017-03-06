@@ -4,14 +4,13 @@ import com.curaesoft.qa.selenium.CommonPages.HomePage;
 import com.curaesoft.qa.selenium.base.BaseWebDriver;
 import com.curaesoft.qa.selenium.utilities.ExcelUtils;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 /**
- * Created by SE on 3/2/2017.
+ * Created by SE on 3/4/2017.
  */
-public class SchedulingPageTest extends BaseWebDriver {
+public class ClinicianPageTest extends BaseWebDriver {
 
     HomePage homePage;
     Boolean result;
@@ -20,7 +19,7 @@ public class SchedulingPageTest extends BaseWebDriver {
     public void login() {
 
         try {
-            homePage = this.loginPage.login("Scheduler");
+            homePage = this.loginPage.login("Clinician");
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Failed to login into the application !");
@@ -28,13 +27,13 @@ public class SchedulingPageTest extends BaseWebDriver {
     }
 
     @Test
-    public void SetPatientSchedule() {
+    public void CreateMyPlan() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "resources/scheduling.xlsx");
+            eu.execute(this.driver, "resources/clinicianToDoVisit.xlsx");
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Failed to set patient schedule.");
+            System.out.println("Failed to create patient.");
         }
     }
 

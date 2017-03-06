@@ -107,6 +107,9 @@ public class ExcelUtils {
 			}else if(action.equals("click")){
 				this.click(driver,field,xpath,value,clicks);
 
+			}else if(action.equals("checked")){
+				this.checked(driver,field,xpath,value);
+
 			}else if(action.equals("visible")){
 				this.visible(driver,field,xpath);
 
@@ -142,7 +145,7 @@ public class ExcelUtils {
 			Thread.sleep(1000 * delay_a);
 		} catch (Exception e) {
 //			error++;
-
+			System.out.println(e);
 			Assert.fail("Fail to locate xpath on row number "+(rownum+1));
 			throw e;
 
@@ -157,6 +160,7 @@ public class ExcelUtils {
 
 		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
 		if(eCheck(element)){
+			element.clear();
 			element.sendKeys(value);
 //            System.out.printf("\n Input text %s to %s.",value, field);
 		}else {
@@ -183,6 +187,25 @@ public class ExcelUtils {
 			System.out.printf("\n Element %s does not exist.", field);
 		}
 		clickError[0]++;
+	}
+
+	public void checked(WebDriver driver, String field, String xpath, String value ) {
+
+		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+		if(eCheck(element)){
+			String result = element.getAttribute("aria-checked");
+			if(result.equals("false")){
+				try{
+					int tdelay = value.equals("") ? 0 : Integer.parseInt(value);
+					Thread.sleep(1000 * tdelay);
+				}catch (Exception e){System.out.println(e);};
+				element.click();
+			}
+
+		}else {
+			System.out.printf("\n Element %s does not exist.", field);
+		}
+
 	}
 
 	public void visible(WebDriver driver, String field, String xpath) {
