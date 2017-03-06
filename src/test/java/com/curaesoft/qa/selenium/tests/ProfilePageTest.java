@@ -30,7 +30,7 @@ public class ProfilePageTest extends BaseWebDriver {
     public void UpdateSettings() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "resources/profile.xlsx");
+            eu.execute(this.driver, "profile.xlsx");
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Failed to create patient.");

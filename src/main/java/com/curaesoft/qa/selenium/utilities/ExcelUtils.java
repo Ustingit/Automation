@@ -45,18 +45,19 @@ public class ExcelUtils {
 
 
 	static String[] account = new String[2];
-
+	static String srcfile;
 	int timeout = 10;
 	int close_delay = 3;
 	ExcelUtils util;
 
 	public void reader(WebDriver driver, String excel_link)throws Exception {
-		FileInputStream inputStream = new FileInputStream(new File(excel_link));
+		FileInputStream inputStream = new FileInputStream(new File("resources/"+excel_link));
 
 		Workbook workbook = new XSSFWorkbook(inputStream);
 		Sheet firstSheet = workbook.getSheetAt(0);
 		int num_rows = firstSheet.getLastRowNum();
 
+		srcfile = excel_link;
 
 		for(int i = 1; i <= num_rows; i++) {
 			Row rows = firstSheet.getRow(i);
@@ -146,7 +147,7 @@ public class ExcelUtils {
 		} catch (Exception e) {
 //			error++;
 			System.out.println(e);
-			Assert.fail("Fail to locate xpath on row number "+(rownum+1));
+			Assert.fail("Fail to locate xpath on row number "+(rownum+1)+" in "+ srcfile);
 			throw e;
 
 

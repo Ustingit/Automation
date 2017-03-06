@@ -30,7 +30,7 @@ public class ClinicianPageTest extends BaseWebDriver {
     public void CreateMyPlan() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "resources/clinicianToDoVisit.xlsx");
+            eu.execute(this.driver, "clinicianToDoVisit.xlsx");
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Failed to create patient.");

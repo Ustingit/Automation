@@ -31,7 +31,7 @@ public class SchedulingPageTest extends BaseWebDriver {
     public void SetPatientSchedule() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "resources/scheduling.xlsx");
+            eu.execute(this.driver, "scheduling.xlsx");
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Failed to set patient schedule.");

@@ -29,7 +29,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
     public void createPatient() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "resources/admissionCreatePatient.xlsx");
+            eu.execute(this.driver, "admissionCreatePatient.xlsx");
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Failed to create patient.");
@@ -40,7 +40,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
     public void createAdmissionForNewPatient() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "resources/admissionForNewPatient.xlsx");
+            eu.execute(this.driver, "admissionForNewPatient.xlsx");
         }catch (Exception e) {
             e.printStackTrace();
             System.out.println("Failed to create admission for new patient.");
@@ -50,7 +50,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
     @Test(priority=3)
     public void createAdmissionForOldPatient() {
         ExcelUtils eu = new ExcelUtils();
-        eu.execute(this.driver, "resources/admissionForOldPatient.xlsx");
+        eu.execute(this.driver, "admissionForOldPatient.xlsx");
     }
 
     @AfterMethod
