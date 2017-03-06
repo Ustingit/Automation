@@ -39,7 +39,7 @@ public class SchedulingPageTest extends BaseWebDriver {
     }
 
 
-    //@AfterMethod
+    @AfterMethod
     public void logout() {
         try {
             result = this.loginPage.logout();

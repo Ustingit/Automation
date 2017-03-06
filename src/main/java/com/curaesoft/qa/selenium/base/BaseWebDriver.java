@@ -32,7 +32,7 @@ public class BaseWebDriver {
 		loginPage = PageFactory.initElements(driver, LoginPage.class);
 	}
 
-	@AfterTest
+	//@AfterTest
 	public void tearDown() {
 		driver.quit();
 	}
