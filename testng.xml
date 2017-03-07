@@ -2,9 +2,11 @@
 <suite name="IronMan Auotmation Test Suite">
 	<test name="IronMan Auotmation Tests">
 		<classes>
-			<class name="com.curaesoft.qa.selenium.tests.LoginPageTest" />
-			<class name="com.curaesoft.qa.selenium.tests.AdmissionPageTest" />
-			<class name="com.curaesoft.qa.selenium.tests.ProfilePageTest" />
+			<class name="tests.LoginPageTest" />
+			<class name="tests.AdmissionPageTest" />
+			<class name="tests.SchedulingPageTest" />
+			<class name="tests.ClinicianPageTest" />
+			<class name="tests.ProfilePageTest" />
 		</classes>
 	</test>
 </suite>

@@ -1,4 +1,4 @@
-package com.curaesoft.qa.selenium.tests;
+package tests;
 
 import com.curaesoft.qa.selenium.CommonPages.HomePage;
 import com.curaesoft.qa.selenium.base.BaseWebDriver;
@@ -19,7 +19,7 @@ public class ProfilePageTest extends BaseWebDriver {
     public void login() {
 
         try {
-            homePage = this.loginPage.login("qa");
+            homePage = this.loginPage.login("intake");
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Failed to login into the application !");
