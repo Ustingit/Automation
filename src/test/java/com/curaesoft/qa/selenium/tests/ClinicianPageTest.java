@@ -1,11 +1,13 @@
 package tests;
 
+import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
 import com.curaesoft.qa.selenium.CommonPages.HomePage;
 import com.curaesoft.qa.selenium.base.BaseWebDriver;
 import com.curaesoft.qa.selenium.utilities.ExcelUtils;
-import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
 
 /**
  * Created by SE on 3/4/2017.
@@ -26,7 +28,9 @@ public class ClinicianPageTest extends BaseWebDriver {
         }
     }
 
-    @Test (priority = 6)
+
+    @Test (priority=5)
+
     public void CreateMyPlan() {
         try {
             ExcelUtils eu = new ExcelUtils();
@@ -38,7 +42,7 @@ public class ClinicianPageTest extends BaseWebDriver {
     }
 
 
-    //@AfterMethod
+    @AfterMethod
     public void logout() {
         try {
             result = this.loginPage.logout();

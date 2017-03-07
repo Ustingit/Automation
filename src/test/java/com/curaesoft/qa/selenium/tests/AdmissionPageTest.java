@@ -1,11 +1,13 @@
 package tests;
 
+import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
 import com.curaesoft.qa.selenium.CommonPages.HomePage;
 import com.curaesoft.qa.selenium.base.BaseWebDriver;
 import com.curaesoft.qa.selenium.utilities.ExcelUtils;
-import com.curaesoft.qa.selenium.CommonPages.AdmissionPage;
-import org.testng.Assert;
-import org.testng.annotations.*;
 
 /**
  * Created by SE on 2/17/2017.
@@ -24,7 +26,9 @@ public class AdmissionPageTest  extends BaseWebDriver {
         }
     }
 
-    @Test(priority = 2)
+
+    @Test(priority=1 , groups = {"patientdetails"})
+
     public void createPatient() {
         try {
             ExcelUtils eu = new ExcelUtils();
@@ -36,7 +40,8 @@ public class AdmissionPageTest  extends BaseWebDriver {
     }
 
 
-    @Test(priority = 3)
+    @Test(priority=2,groups = {"patientdetails"})
+
     public void createAdmissionForNewPatient() {
         try {
             ExcelUtils eu = new ExcelUtils();
@@ -47,7 +52,8 @@ public class AdmissionPageTest  extends BaseWebDriver {
         }
     }
 
-    @Test(priority = 4)
+    @Test(priority=3 ,dependsOnGroups = "patientdetails" )
+
     public void createAdmissionForOldPatient() {
         ExcelUtils eu = new ExcelUtils();
         eu.execute(this.driver, "admissionForOldPatient.xlsx");

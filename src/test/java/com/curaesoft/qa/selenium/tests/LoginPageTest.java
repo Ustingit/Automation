@@ -23,13 +23,9 @@ public class LoginPageTest extends BaseWebDriver {
 		}
 	}
 
-//	@Test
-//	public void TestLogin() {
-//		LoginPage page = new LoginPage();
-//		page.execute();
-//	}
 
-	@Test(priority = 0)
+	@Test (priority= 0)
+
 	public void verifyUserLoggedin() {
 		try {
 			result = this.loginPage.userInfo();

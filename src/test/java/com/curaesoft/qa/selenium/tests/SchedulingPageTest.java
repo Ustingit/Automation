@@ -1,12 +1,13 @@
 package tests;
 
-import com.curaesoft.qa.selenium.CommonPages.HomePage;
-import com.curaesoft.qa.selenium.base.BaseWebDriver;
-import com.curaesoft.qa.selenium.utilities.ExcelUtils;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import com.curaesoft.qa.selenium.CommonPages.HomePage;
+import com.curaesoft.qa.selenium.base.BaseWebDriver;
+import com.curaesoft.qa.selenium.utilities.ExcelUtils;
 
 /**
  * Created by SE on 3/2/2017.
@@ -27,7 +28,7 @@ public class SchedulingPageTest extends BaseWebDriver {
         }
     }
 
-    @Test (priority = 5)
+    @Test (priority=4)
     public void SetPatientSchedule() {
         try {
             ExcelUtils eu = new ExcelUtils();
