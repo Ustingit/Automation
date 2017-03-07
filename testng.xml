@@ -1,11 +1,15 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="IronMan Auotmation Test Suite">
-	<test name="IronMan Auotmation Tests">
+	<test name="IronMan Auotmation Tests" parallel="false" preserve-order="true">
 		<classes>
 			<class name="tests.LoginPageTest" />
+			 
 			<class name="tests.AdmissionPageTest" />
+			
 			<class name="tests.SchedulingPageTest" />
+		
 			<class name="tests.ClinicianPageTest" />
+			
 			<class name="tests.ProfilePageTest" />
 		</classes>
 	</test>
