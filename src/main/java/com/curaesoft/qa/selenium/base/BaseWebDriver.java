@@ -1,24 +1,23 @@
 package com.curaesoft.qa.selenium.base;
 
-import io.github.bonigarcia.wdm.FirefoxDriverManager;
-import io.github.bonigarcia.wdm.ChromeDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 
 import com.curaesoft.qa.selenium.CommonPages.LoginPage;
 import com.curaesoft.qa.selenium.Config.Constant;
-import org.testng.annotations.BeforeTest;
+
+import io.github.bonigarcia.wdm.ChromeDriverManager;
+import io.github.bonigarcia.wdm.FirefoxDriverManager;
 
 public class BaseWebDriver {
 	protected WebDriver driver;
 	protected LoginPage loginPage;
 
-	@BeforeTest
+	@BeforeClass
 	public void setUp() {
 		if (Constant.browserType.equals("*firefox")) {
 			FirefoxDriverManager.getInstance().setup();
@@ -32,7 +31,7 @@ public class BaseWebDriver {
 		loginPage = PageFactory.initElements(driver, LoginPage.class);
 	}
 
-	@AfterTest
+	@AfterClass
 	public void tearDown() {
 		driver.quit();
 	}
