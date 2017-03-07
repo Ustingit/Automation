@@ -27,7 +27,7 @@ public class SchedulingPageTest extends BaseWebDriver {
         }
     }
 
-    @Test
+    @Test (priority = 5)
     public void SetPatientSchedule() {
         try {
             ExcelUtils eu = new ExcelUtils();

@@ -29,7 +29,7 @@ public class LoginPageTest extends BaseWebDriver {
 //		page.execute();
 //	}
 
-	@Test
+	@Test(priority = 0)
 	public void verifyUserLoggedin() {
 		try {
 			result = this.loginPage.userInfo();

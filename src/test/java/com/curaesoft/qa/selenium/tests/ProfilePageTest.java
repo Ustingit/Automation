@@ -19,7 +19,7 @@ public class ProfilePageTest extends BaseWebDriver {
     public void login() {
 
         try {
-            homePage = this.loginPage.login("intake");
+            homePage = this.loginPage.login("qa");
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Failed to login into the application !");

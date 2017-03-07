@@ -26,7 +26,7 @@ public class ClinicianPageTest extends BaseWebDriver {
         }
     }
 
-    @Test
+    @Test (priority = 6)
     public void CreateMyPlan() {
         try {
             ExcelUtils eu = new ExcelUtils();

@@ -33,7 +33,7 @@ public class LoginPage {
 	@FindBy(how = How.XPATH, using = "//div[@id='ui-login']/div/div/md-card/md-content/form/button")
 	public static WebElement login;
 
-	@FindBy(how = How.XPATH, using = "/html/body/div[1]/div/md-toolbar/div/md-menu/button")
+	@FindBy(how = How.XPATH, using = "//button[@aria-label=\"Open user menu\"]")
 	public static WebElement menuDropDown;
 
 	@FindBy(how = How.XPATH, using = "//md-backdrop")
@@ -115,7 +115,7 @@ public class LoginPage {
 	public boolean logout() {
 		try {
 			//menuDropDown.click();
-			//driver.findElement(By.xpath("//a[contains(@href,'login')")).click();
+			//(new WebDriverWait(driver, 10)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@href=\"#/login\"]"))).click();
 			driver.navigate().to(Constant.webURL);
 		} catch (Exception e) {
 			System.out.println(e);

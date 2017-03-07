@@ -19,6 +19,7 @@ public class BaseWebDriver {
 
 	@BeforeClass
 	public void setUp() {
+
 		if (Constant.browserType.equals("*firefox")) {
 			FirefoxDriverManager.getInstance().setup();
 			driver = new FirefoxDriver();

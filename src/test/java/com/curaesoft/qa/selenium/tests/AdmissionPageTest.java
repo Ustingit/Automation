@@ -16,7 +16,6 @@ public class AdmissionPageTest  extends BaseWebDriver {
 
     @BeforeMethod
     public void login() {
-
         try {
             homePage = this.loginPage.login("Intake");
         } catch (Exception e) {
@@ -25,7 +24,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
         }
     }
 
-    @Test
+    @Test(priority = 2)
     public void createPatient() {
         try {
             ExcelUtils eu = new ExcelUtils();
@@ -36,7 +35,8 @@ public class AdmissionPageTest  extends BaseWebDriver {
         }
     }
 
-    @Test(priority=2)
+
+    @Test(priority = 3)
     public void createAdmissionForNewPatient() {
         try {
             ExcelUtils eu = new ExcelUtils();
@@ -47,7 +47,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
         }
     }
 
-    @Test(priority=3)
+    @Test(priority = 4)
     public void createAdmissionForOldPatient() {
         ExcelUtils eu = new ExcelUtils();
         eu.execute(this.driver, "admissionForOldPatient.xlsx");
