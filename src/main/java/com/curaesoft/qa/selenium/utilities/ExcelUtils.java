@@ -71,6 +71,7 @@ public class ExcelUtils {
 					iformat(rows,5),
 					iformat(rows,6),
 					sformat(rows,7),
+					iformat(rows,8),
 					i
 			);
 
@@ -92,7 +93,7 @@ public class ExcelUtils {
 		inputStream.close();
 
 	}
-	public void action(WebDriver driver, String field, String xpath, String action, String value, int clicks, int delay_b , int delay_a, String deflt ,int rownum) throws Exception {
+	public void action(WebDriver driver, String field, String xpath, String action, String value, int clicks, int delay_b , int delay_a, String deflt,int skip ,int rownum) throws Exception {
 		util = new ExcelUtils();
 		try {
 			Thread.sleep(1000 * delay_b);
@@ -146,9 +147,16 @@ public class ExcelUtils {
 			Thread.sleep(1000 * delay_a);
 		} catch (Exception e) {
 //			error++;
-			System.out.println(e);
-			Assert.fail("Fail to locate xpath on row number "+(rownum+1)+" in "+ srcfile);
-			throw e;
+
+			if(skip ==1){
+				System.out.println(e);
+				Assert.fail("Fail to locate xpath on row number "+(rownum+1)+" in "+ srcfile);
+				throw e;
+			}else{
+				System.out.println(e);
+			}
+
+
 
 
 		}
