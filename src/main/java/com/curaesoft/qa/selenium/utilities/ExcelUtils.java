@@ -37,7 +37,8 @@ public class ExcelUtils {
 	static int[] visibleError  = new int[2];
 	static int[] getTextError  = new int[2];
 	static int[] controlError  = new int[2];
-	static int[] enableError  = new int[2];
+	static int[] enableError  = new int[2]
+			;
 	static int[] getValueError  = new int[2];
 	static int[] matchTextError  = new int[2];
 	static int[] matchValueError  = new int[2];
@@ -148,7 +149,7 @@ public class ExcelUtils {
 		} catch (Exception e) {
 //			error++;
 
-			if(skip ==1){
+			if(skip == 0){
 				System.out.println(e);
 				Assert.fail("Fail to locate xpath on row number "+(rownum+1)+" in "+ srcfile);
 				throw e;
@@ -201,6 +202,7 @@ public class ExcelUtils {
 	public void checked(WebDriver driver, String field, String xpath, String value ) {
 
 		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+
 		if(eCheck(element)){
 			String result = element.getAttribute("aria-checked");
 			if(result.equals("false")){

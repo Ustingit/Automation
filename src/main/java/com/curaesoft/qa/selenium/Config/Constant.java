@@ -14,11 +14,14 @@ public class Constant {
 	public static final String MANAGER_ROLE = "manager";
 	public static final String INTAKE_ROLE = "Intake";
 
+	public static final int width = 1440;
+	public static final int height = 900;
+
 	public static final HashMap<String,String> edata = new HashMap<String, String>();
 
 	public static String map (String val){
-		edata.put("firstname","q123");
-		edata.put("lastname","a123");
+		edata.put("firstname","Mok");
+		edata.put("lastname","Zyvn");
 		edata.put("date","03-08-2017");
 
 

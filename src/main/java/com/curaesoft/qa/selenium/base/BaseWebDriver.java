@@ -12,7 +12,7 @@ import com.curaesoft.qa.selenium.Config.Constant;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
-
+import org.openqa.selenium.Dimension;
 public class BaseWebDriver {
 	protected WebDriver driver;
 	protected LoginPage loginPage;
@@ -27,8 +27,13 @@ public class BaseWebDriver {
 			ChromeDriverManager.getInstance().setup();
 			driver = new ChromeDriver();
 		}
+
 		driver.get(Constant.webURL);
-		driver.manage().window().maximize();
+		if(Constant.width != 0 && Constant.height !=0){
+			driver.manage().window().setSize(new Dimension(Constant.width,Constant.height));
+		}else{
+			driver.manage().window().maximize();
+		}
 		loginPage = PageFactory.initElements(driver, LoginPage.class);
 	}
 
