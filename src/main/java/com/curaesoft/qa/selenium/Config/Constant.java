@@ -21,7 +21,7 @@ public class Constant {
 
 	public static String map (String val){
 		edata.put("firstname","Mok");
-		edata.put("lastname","Zyvn");
+		edata.put("lastname","Zyvn01");
 		edata.put("date","03-08-2017");
 
 
