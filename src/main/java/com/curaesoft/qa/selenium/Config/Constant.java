@@ -17,9 +17,9 @@ public class Constant {
 	public static final HashMap<String,String> edata = new HashMap<String, String>();
 
 	public static String map (String val){
-		edata.put("firstname","p332017");
-		edata.put("lastname","u900");
-		edata.put("date","03-03-2017");
+		edata.put("firstname","p382017");
+		edata.put("lastname","u1231");
+		edata.put("date","03-08-2017");
 
 
 		return edata.get(val);

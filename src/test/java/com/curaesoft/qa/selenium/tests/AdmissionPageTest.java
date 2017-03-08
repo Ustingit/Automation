@@ -37,6 +37,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
             e.printStackTrace();
             System.out.println("Failed to create patient.");
         }
+
     }
 
 
@@ -50,6 +51,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
             e.printStackTrace();
             System.out.println("Failed to create admission for new patient.");
         }
+
     }
 
     @Test(priority=3 ,dependsOnGroups = "patientdetails" )
