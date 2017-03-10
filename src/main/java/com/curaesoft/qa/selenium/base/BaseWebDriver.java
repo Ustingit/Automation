@@ -39,6 +39,9 @@ public class BaseWebDriver {
 
 	@AfterClass
 	public void tearDown() {
-		driver.quit();
+		if (Constant.Debugging == false){
+			driver.quit();
+		}
+
 	}
 }

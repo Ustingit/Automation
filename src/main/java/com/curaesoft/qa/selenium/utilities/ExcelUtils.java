@@ -150,15 +150,12 @@ public class ExcelUtils {
 //			error++;
 
 			if(skip == 0){
-				System.out.println(e);
-				Assert.fail("Fail to locate xpath on row number "+(rownum+1)+" in "+ srcfile);
+
+				Assert.fail("Fail to locate xpath on row number "+(rownum+1)+" in "+ srcfile + "\n\n"+e);
 				throw e;
 			}else{
 				System.out.println(e);
 			}
-
-
-
 
 		}
 
@@ -168,7 +165,7 @@ public class ExcelUtils {
 
 	public void input( WebDriver driver,String field, String xpath, String value) {
 
-		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
 		if(eCheck(element)){
 			element.clear();
 			element.sendKeys(value);
@@ -182,7 +179,7 @@ public class ExcelUtils {
 
 	public void click(WebDriver driver, String field, String xpath, String value , int clicks) {
 
-		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
 		if(eCheck(element)){
 			for (int x = 0; x < clicks; x++) {
 				try{
@@ -201,7 +198,7 @@ public class ExcelUtils {
 
 	public void checked(WebDriver driver, String field, String xpath, String value ) {
 
-		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
 
 		if(eCheck(element)){
 			String result = element.getAttribute("aria-checked");
@@ -233,7 +230,7 @@ public class ExcelUtils {
 
 	public void get_text(WebDriver driver, String field, String xpath) {
 
-		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
 		if(eCheck(element)){
 //            System.out.printf("\n %s = %s", field, element.getText());
 		}else {
@@ -245,7 +242,7 @@ public class ExcelUtils {
 
 	public void match_text(WebDriver driver, String field, String xpath , String value) {
 
-		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
 		if(eCheck(element)){
 			if(value.equals(element.getText())){
 //                System.out.printf("\n %s (%s : %s)(Success) ", field, value , element.getText());
@@ -262,7 +259,7 @@ public class ExcelUtils {
 	}
 	public void match_value(WebDriver driver, String field, String xpath , String value) {
 
-		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
 		if(eCheck(element)){
 			if(value.equals(element.getText())){
 //                System.out.printf("\n %s (%s : %s)(Success)", field, value, element.getAttribute("value"));
@@ -296,7 +293,7 @@ public class ExcelUtils {
 	}
 	public void get_value(WebDriver driver, String field, String xpath) {
 
-		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
 		if(eCheck(element)){
 //            System.out.printf("\n %s = %s", field, element.getAttribute("value"));
 		}else {
@@ -320,7 +317,7 @@ public class ExcelUtils {
 
 	public void control(WebDriver driver,String field, String xpath, String value, int clicks) {
 
-		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
 		if(eCheck(element)){
 			for (int x = 0; x < clicks; x++) {
 				if(value=="escape"){

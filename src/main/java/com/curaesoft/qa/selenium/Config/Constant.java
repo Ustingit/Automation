@@ -2,9 +2,14 @@ package com.curaesoft.qa.selenium.Config;
 
 import java.util.Date;
 import java.util.HashMap;
-
+import java.text.SimpleDateFormat;
 public class Constant {
+
+	//QA Site
 	public static final String webURL = "http://104.198.15.201:9999/#/login";
+	//Dev Site
+	//public static final String webURL = "http://104.199.117.46:9999/#/login";
+
 	public static final String browserType = "*chrome";
 	public static final String File_TestData = "resources/Testdata.xlsx";
 	public static final String excelSheetName = "FirstSet";
@@ -19,12 +24,22 @@ public class Constant {
 
 	public static final HashMap<String,String> edata = new HashMap<String, String>();
 
+	public static final boolean Debugging  = false;
+
+
+	public static final String lname = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()).toString();
+
 	public static String map (String val){
-		edata.put("firstname","Mok");
-		edata.put("lastname","Zyvn01");
+
+
+		edata.put("firstname","Test");
+		edata.put("lastname",lname);
 		edata.put("date","03-08-2017");
 
 
 		return edata.get(val);
 	}
+
+
+
 }

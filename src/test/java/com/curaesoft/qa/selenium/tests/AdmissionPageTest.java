@@ -1,5 +1,6 @@
 package tests;
 
+import com.curaesoft.qa.selenium.Config.Constant;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -15,12 +16,13 @@ import com.curaesoft.qa.selenium.utilities.ExcelUtils;
 public class AdmissionPageTest  extends BaseWebDriver {
     HomePage homePage;
     Boolean result;
-
+    Boolean success = true;
     @BeforeMethod
     public void login() {
         try {
             homePage = this.loginPage.login("Intake");
         } catch (Exception e) {
+            success = false;
             e.printStackTrace();
             System.out.println("Failed to login into the application !");
         }
@@ -34,6 +36,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
             ExcelUtils eu = new ExcelUtils();
             eu.execute(this.driver, "admissionCreatePatient.xlsx");
         } catch (Exception e) {
+            success = false;
             e.printStackTrace();
             System.out.println("Failed to create patient.");
         }
@@ -41,32 +44,44 @@ public class AdmissionPageTest  extends BaseWebDriver {
     }
 
 
-    @Test(priority=2,groups = {"patientdetails"})
+    //@Test(priority=2,groups = {"patientdetails"})
 
     public void createAdmissionForNewPatient() {
         try {
             ExcelUtils eu = new ExcelUtils();
             eu.execute(this.driver, "admissionForNewPatient.xlsx");
         }catch (Exception e) {
+            success = false;
             e.printStackTrace();
             System.out.println("Failed to create admission for new patient.");
         }
 
     }
 
-    @Test(priority=3 ,dependsOnGroups = "patientdetails" )
+    //@Test(priority=3 ,dependsOnGroups = "patientdetails" )
 
     public void createAdmissionForOldPatient() {
-        ExcelUtils eu = new ExcelUtils();
-        eu.execute(this.driver, "admissionForOldPatient.xlsx");
+        try {
+
+        }catch (Exception e){
+            success = false;
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "admissionForOldPatient.xlsx");
+        }
+
     }
 
     @AfterMethod
     public void logout() {
         try {
-            result = this.loginPage.logout();
-            Assert.assertTrue(result);
+            if(Constant.Debugging == false ){
+                if(success){
+                    result = this.loginPage.logout();
+                    Assert.assertTrue(result);
+                }
+            }
         } catch (Exception e) {
+            success = false;
             e.printStackTrace();
             System.out.println("Failed to login into the application");
         }
