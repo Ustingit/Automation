@@ -19,7 +19,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import com.curaesoft.qa.selenium.Config.Constant;
-
+import com.curaesoft.qa.selenium.CommonPages.LoginPage;
 
 
 public class ExcelUtils {
@@ -47,6 +47,7 @@ public class ExcelUtils {
 
 	static String[] account = new String[2];
 	static String srcfile;
+	static int grownumber =0;
 	int timeout = 10;
 	int close_delay = 3;
 	ExcelUtils util;
@@ -62,6 +63,7 @@ public class ExcelUtils {
 
 		for(int i = 1; i <= num_rows; i++) {
 			Row rows = firstSheet.getRow(i);
+			grownumber = i+1;
 			this.action(
 					driver,
 					sformat(rows,0),
@@ -75,6 +77,7 @@ public class ExcelUtils {
 					iformat(rows,8),
 					i
 			);
+
 
 		}
 //        System.out.printf("\n--------------------------------------------------");
@@ -141,7 +144,7 @@ public class ExcelUtils {
 				this.refresh(driver);
 
 			}else if(action.equals("function")){
-				this.function(field,value);
+				this.function(driver,xpath,value);
 			}else{
 				System.out.printf("\n Action is not registered.", field);
 			}
@@ -245,36 +248,20 @@ public class ExcelUtils {
 	public void match_text(WebDriver driver, String field, String xpath , String value) {
 
 		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
-		if(eCheck(element)){
-			if(value.equals(element.getText())){
-//                System.out.printf("\n %s (%s : %s)(Success) ", field, value , element.getText());
-			}else {
-				matchTextError[1]++;
-//                System.out.printf("\n %s (%s : %s)(Fail)", field, value , element.getText());
-			}
 
-		}else {
-			matchTextError[1]++;
-//            System.out.printf("\n Element %s does not exist.", field);
+		if(!value.equals(element.getText())){
+			Assert.fail("Fail to locate xpath on row number "+grownumber+" in "+ srcfile );
 		}
-		matchTextError[0]++;
+
 	}
 	public void match_value(WebDriver driver, String field, String xpath , String value) {
 
 		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
-		if(eCheck(element)){
-			if(value.equals(element.getText())){
-//                System.out.printf("\n %s (%s : %s)(Success)", field, value, element.getAttribute("value"));
-			}else {
-				matchValueError[1]++;
-//                System.out.printf("\n %s (%s : %s)(Fail)", field, value, element.getAttribute("value"));
-			}
 
-		}else {
-			matchValueError[1]++;
-			System.out.printf("\n Element %s does not exist.", field);
+		if(value.equals(element.getText())){
+			Assert.fail("Fail to locate xpath on row number "+grownumber+" in "+ srcfile );
 		}
-		matchValueError[0]++;
+
 	}
 	public void validate_url(WebDriver driver, String field, String value) {
 
@@ -350,11 +337,13 @@ public class ExcelUtils {
 		driver.navigate().refresh();
 //        System.out.printf("\n Page Refresh.");
 	}
-	public void function(String field,String value) {
+	public void function(WebDriver driver,String field,String value) {
+		LoginPage lp = new LoginPage(driver);
+
 		if(field.equals("login")){
-
+			lp.login(value);
 		}else if(field.equals("logout")){
-
+			lp.logout();
 		}
 	}
 

@@ -28,7 +28,7 @@ public class AccountCreation extends BaseWebDriver{
     }
 
 
-    @Test
+   // @Test
 
     public void createAccount() {
         try {
@@ -46,7 +46,7 @@ public class AccountCreation extends BaseWebDriver{
     public void createClinicainAccount() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "AccountCreation.xlsx");
+            eu.execute(this.driver, "ClinicianAccount.xlsx");
         } catch (Exception e) {
             success = false;
             e.printStackTrace();
