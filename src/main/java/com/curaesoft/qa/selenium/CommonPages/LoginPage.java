@@ -114,9 +114,9 @@ public class LoginPage {
 
 	public boolean logout() {
 		try {
-			//menuDropDown.click();
-			//(new WebDriverWait(driver, 10)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@href=\"#/login\"]"))).click();
-			driver.navigate().to(Constant.webURL);
+			menuDropDown.click();
+			(new WebDriverWait(driver, 10)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@href=\"#/login\" and @role=\"menuitem\"]"))).click();
+			//driver.navigate().to(Constant.webURL);
 		} catch (Exception e) {
 			System.out.println(e);
 			Reporter.log("Failed to logout from the application");

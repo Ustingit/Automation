@@ -140,6 +140,8 @@ public class ExcelUtils {
 			}else if(action.equals("refresh")){
 				this.refresh(driver);
 
+			}else if(action.equals("function")){
+				this.function(field,value);
 			}else{
 				System.out.printf("\n Action is not registered.", field);
 			}
@@ -320,20 +322,20 @@ public class ExcelUtils {
 		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
 		if(eCheck(element)){
 			for (int x = 0; x < clicks; x++) {
-				if(value=="escape"){
+				if(value.equals("escape")){
 					element.sendKeys(Keys.ESCAPE);
 //                    System.out.printf("\n Key press escape.", field);
-				}else if(value=="enter"){
+				}else if(value.equals("escape")){
 					element.sendKeys(Keys.ENTER);
 //                    System.out.printf("\n Key press enter.", field);
-				}else if(value=="up"){
+				}else if(value.equals("up")){
 					element.sendKeys(Keys.ARROW_UP);
 //                    System.out.printf("\n Key press up.", field);
-				}else if(value=="down"){
+				}else if(value.equals("down")){
 					element.sendKeys(Keys.ARROW_DOWN);
 //                    System.out.printf("\n Key press down.", field);
 				}else{
-//                    System.out.printf("\n Key is not registered.", field);
+					element.sendKeys(Keys.chord(value));
 				}
 			}
 		}else {
@@ -348,7 +350,13 @@ public class ExcelUtils {
 		driver.navigate().refresh();
 //        System.out.printf("\n Page Refresh.");
 	}
+	public void function(String field,String value) {
+		if(field.equals("login")){
 
+		}else if(field.equals("logout")){
+
+		}
+	}
 
 	public String sformat(Row row,int column){
 

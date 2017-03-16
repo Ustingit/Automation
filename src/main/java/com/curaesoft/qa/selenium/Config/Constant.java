@@ -28,6 +28,7 @@ public class Constant {
 
 
 	public static final String lname = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()).toString();
+	//public static final String lname ="20170316082058";
 
 	public static String map (String val){
 
