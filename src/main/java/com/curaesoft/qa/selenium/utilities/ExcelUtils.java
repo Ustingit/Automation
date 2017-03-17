@@ -231,7 +231,7 @@ public class ExcelUtils {
 			Assert.fail("Text did not matched on the given value in row "+grownumber+" in "+ srcfile );
 		}
 		if (Constant.Debugging == true){
-			System.out.println("Element value is "+element.getText());
+			System.out.println(grownumber+" : Element value is "+element.getText());
 		}
 	}
 	public void match_value(WebDriver driver, String field, String xpath , String value) {
