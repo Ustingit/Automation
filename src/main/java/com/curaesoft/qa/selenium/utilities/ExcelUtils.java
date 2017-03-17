@@ -285,7 +285,7 @@ public class ExcelUtils {
 			for (int x = 0; x < clicks; x++) {
 				if(value.equals("escape")){
 					element.sendKeys(Keys.ESCAPE);
-				}else if(value.equals("escape")){
+				}else if(value.equals("enter")){
 					element.sendKeys(Keys.ENTER);
 				}else if(value.equals("up")){
 					element.sendKeys(Keys.ARROW_UP);
