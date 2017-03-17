@@ -152,7 +152,7 @@ public class ExcelUtils {
 
 			Thread.sleep(1000 * delay_a);
 		} catch (Exception e) {
-//			error++;
+
 
 			if(skip == 0){
 
@@ -174,12 +174,7 @@ public class ExcelUtils {
 		if(eCheck(element)){
 			element.clear();
 			element.sendKeys(value);
-//            System.out.printf("\n Input text %s to %s.",value, field);
-		}else {
-			inputError[1]++;
-			System.out.printf("\n Element %s does not exist.", field);
 		}
-		inputError[0]++;
 	}
 
 	public void click(WebDriver driver, String field, String xpath, String value , int clicks) {
@@ -193,12 +188,7 @@ public class ExcelUtils {
 				}catch (Exception e){System.out.println(e);};
 				element.click();
 			}
-//            System.out.printf("\n Element %s has been clicked.", field);
-		}else {
-			clickError[1]++;
-			System.out.printf("\n Element %s does not exist.", field);
 		}
-		clickError[0]++;
 	}
 
 	public void checked(WebDriver driver, String field, String xpath, String value ) {
@@ -214,35 +204,23 @@ public class ExcelUtils {
 				}catch (Exception e){System.out.println(e);};
 				element.click();
 			}
-
-		}else {
-			System.out.printf("\n Element %s does not exist.", field);
 		}
-
 	}
 
 	public void visible(WebDriver driver, String field, String xpath) {
 
 		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
 		if(eCheck(element)){
-//            System.out.printf("\n Element %s is visible.", field);
-		}else {
-			visibleError[1]++;
-			System.out.printf("\n Element %s does not exist.", field);
+
 		}
-		visibleError[0]++;
 	}
 
 	public void get_text(WebDriver driver, String field, String xpath) {
 
 		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
 		if(eCheck(element)){
-//            System.out.printf("\n %s = %s", field, element.getText());
-		}else {
-			getTextError[1]++;
-			System.out.printf("\n Element %s does not exist.", field);
+
 		}
-		getTextError[0]++;
 	}
 
 	public void match_text(WebDriver driver, String field, String xpath , String value) {
@@ -250,18 +228,22 @@ public class ExcelUtils {
 		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
 
 		if(!value.equals(element.getText())){
-			Assert.fail("Fail to locate xpath on row number "+grownumber+" in "+ srcfile );
+			Assert.fail("Text did not matched on the given value in row "+grownumber+" in "+ srcfile );
 		}
-
+		if (Constant.Debugging == true){
+			System.out.println("Element value is "+element.getText());
+		}
 	}
 	public void match_value(WebDriver driver, String field, String xpath , String value) {
 
 		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
 
-		if(value.equals(element.getText())){
-			Assert.fail("Fail to locate xpath on row number "+grownumber+" in "+ srcfile );
+		if(value.equals(element.getAttribute("value"))){
+			Assert.fail("Value did not matched on the given value in row "+grownumber+" in "+ srcfile );
 		}
-
+		if (Constant.Debugging == true){
+			System.out.println(grownumber+" : Element value is "+element.getAttribute("value"));
+		}
 	}
 	public void validate_url(WebDriver driver, String field, String value) {
 
@@ -269,27 +251,19 @@ public class ExcelUtils {
 		if(weburl != null){
 			if(weburl.equals(value)){
 				System.out.printf("\n URL Matched : %s", value);
-			}else {
-				urlError[1]++;
-				System.out.printf("\n URL does not match.",value);
 			}
 
-		}else {
-			urlError[1]++;
-			System.out.printf("\n Fail to get url.", field);
 		}
-		urlError[0]++;
+		if (Constant.Debugging == true){
+			System.out.println(grownumber+" : Current url is "+weburl);
+		}
 	}
 	public void get_value(WebDriver driver, String field, String xpath) {
 
 		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
 		if(eCheck(element)){
-//            System.out.printf("\n %s = %s", field, element.getAttribute("value"));
-		}else {
-			getValueError[1]++;
-			System.out.printf("\n Element %s does not exist.", field);
+			System.out.println(grownumber+" : Element value is "+element.getAttribute("value"));
 		}
-		getValueError[0]++;
 	}
 
 	public void enable(WebDriver driver, String field, String xpath) {
@@ -311,16 +285,12 @@ public class ExcelUtils {
 			for (int x = 0; x < clicks; x++) {
 				if(value.equals("escape")){
 					element.sendKeys(Keys.ESCAPE);
-//                    System.out.printf("\n Key press escape.", field);
 				}else if(value.equals("escape")){
 					element.sendKeys(Keys.ENTER);
-//                    System.out.printf("\n Key press enter.", field);
 				}else if(value.equals("up")){
 					element.sendKeys(Keys.ARROW_UP);
-//                    System.out.printf("\n Key press up.", field);
 				}else if(value.equals("down")){
 					element.sendKeys(Keys.ARROW_DOWN);
-//                    System.out.printf("\n Key press down.", field);
 				}else{
 					element.sendKeys(Keys.chord(value));
 				}
@@ -335,7 +305,6 @@ public class ExcelUtils {
 
 	public void refresh(WebDriver driver) {
 		driver.navigate().refresh();
-//        System.out.printf("\n Page Refresh.");
 	}
 	public void function(WebDriver driver,String field,String value) {
 		LoginPage lp = new LoginPage(driver);
