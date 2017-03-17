@@ -24,7 +24,7 @@ public class Constant {
 
 	public static final HashMap<String,String> edata = new HashMap<String, String>();
 
-	public static final boolean Debugging  = true;
+	public static final boolean Debugging  = false;
 
 
 	public static final String lname = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()).toString();
