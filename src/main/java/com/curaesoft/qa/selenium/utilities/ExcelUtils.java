@@ -137,8 +137,11 @@ public class ExcelUtils {
 			}else if(action.equals("match_value")){
 				this.match_value(driver,field,xpath,value);
 
-			}else if(action.equals("validate_url")){
-				this.validate_url(driver,field,value);
+			}else if(action.equals("match_value")){
+				this.match_value(driver,field,xpath,value);
+
+			}else if(action.equals("match_custom")){
+				this.match_custom(driver,field,xpath,value);
 
 			}else if(action.equals("refresh")){
 				this.refresh(driver);
@@ -238,11 +241,22 @@ public class ExcelUtils {
 
 		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
 
-		if(value.equals(element.getAttribute("value"))){
+		if(!value.equals(element.getAttribute("value"))){
 			Assert.fail("Value did not matched on the given value in row "+grownumber+" in "+ srcfile );
 		}
 		if (Constant.Debugging == true){
 			System.out.println(grownumber+" : Element value is "+element.getAttribute("value"));
+		}
+	}
+	public void match_custom(WebDriver driver, String field, String xpath , String value) {
+
+		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+
+		if(!value.equals(element.getAttribute(field))){
+			Assert.fail("Value did not matched on the given value in row "+grownumber+" in "+ srcfile );
+		}
+		if (Constant.Debugging == true){
+			System.out.println(grownumber+" : Element "+field+" value is "+element.getAttribute(value));
 		}
 	}
 	public void validate_url(WebDriver driver, String field, String value) {
