@@ -1,4 +1,4 @@
-package com.curaesoft.qa.selenium.tests;
+package tests;
 
 import com.curaesoft.qa.selenium.CommonPages.HomePage;
 import com.curaesoft.qa.selenium.Config.Constant;
