@@ -114,7 +114,9 @@ public class LoginPage {
 
 	public boolean logout() {
 		try {
+			Thread.sleep(1000);
 			menuDropDown.click();
+			Thread.sleep(1000);
 			(new WebDriverWait(driver, 10)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@href=\"#/login\" and @role=\"menuitem\"]"))).click();
 			//driver.navigate().to(Constant.webURL);
 		} catch (Exception e) {

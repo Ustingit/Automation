@@ -16,8 +16,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
-
+import org.openqa.selenium.interactions.Actions;
 import com.curaesoft.qa.selenium.Config.Constant;
 import com.curaesoft.qa.selenium.CommonPages.LoginPage;
 
@@ -113,6 +114,17 @@ public class ExcelUtils {
 			}else if(action.equals("click")){
 				this.click(driver,field,xpath,value,clicks);
 
+			}else if(action.equals("dragY")){
+				this.dragY(driver,field,xpath,value);
+
+			}else if(action.equals("click_custom")){
+				Constant con = new Constant();
+				if(!deflt.equals("")){
+					this.click_custom(driver,field,xpath,con.map(deflt),clicks);
+				}else{
+					this.click_custom(driver,field,xpath,value,clicks);
+				}
+
 			}else if(action.equals("checked")){
 				this.checked(driver,field,xpath,value);
 
@@ -142,6 +154,9 @@ public class ExcelUtils {
 
 			}else if(action.equals("match_custom")){
 				this.match_custom(driver,field,xpath,value);
+
+			}else if(action.equals("setAttribute")){
+				this.setAttribute(driver,field,xpath,value);
 
 			}else if(action.equals("refresh")){
 				this.refresh(driver);
@@ -193,7 +208,28 @@ public class ExcelUtils {
 			}
 		}
 	}
+	public void dragY(WebDriver driver, String field, String xpath, String value) {
 
+		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+		if(eCheck(element)){
+			Actions move = new Actions(driver);
+			move.dragAndDropBy(element, 0,Integer.parseInt(value)).build() .perform();
+
+		}
+	}
+	public void click_custom(WebDriver driver, String field, String xpath, String value , int clicks) {
+		xpath = String.format(xpath,value);
+		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+		if(eCheck(element)){
+			for (int x = 0; x < clicks; x++) {
+				try{
+					int tdelay = value.equals("") ? 0 : Integer.parseInt(value);
+					Thread.sleep(1000 * tdelay);
+				}catch (Exception e){System.out.println(e);};
+				element.click();
+			}
+		}
+	}
 	public void checked(WebDriver driver, String field, String xpath, String value ) {
 
 		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
@@ -291,7 +327,13 @@ public class ExcelUtils {
 		}
 		enableError[0]++;
 	}
+	public void setAttribute(WebDriver driver, String field, String xpath , String value)
+	{
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		WebElement element = driver.findElement(By.xpath(xpath));
+		js.executeScript("arguments[0].setAttribute('"+field+"', '"+value+"')",element);
 
+	}
 	public void control(WebDriver driver,String field, String xpath, String value, int clicks) {
 
 		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
@@ -331,14 +373,21 @@ public class ExcelUtils {
 	}
 
 	public String sformat(Row row,int column){
+		try{
+			DataFormatter formatter = new DataFormatter();
+			String val = formatter.formatCellValue(row.getCell(column));
+			if(val.equals("") || val == null){
+				return  "";
+			}else{
+				return val;
+			}
+		}catch (Exception e){
 
-		DataFormatter formatter = new DataFormatter();
-		String val = formatter.formatCellValue(row.getCell(column));
-		if(val.equals("") || val == null){
+			e.printStackTrace();
+			System.out.println(grownumber);
 			return  "";
-		}else{
-			return val;
 		}
+
 	}
 	public Integer iformat(Row row,int column){
 
@@ -353,7 +402,7 @@ public class ExcelUtils {
 		}catch (Exception e){
 
 			e.printStackTrace();
-			System.out.printf("\n diri nag error.");
+			System.out.println(grownumber);
 			return 0;
 		}
 

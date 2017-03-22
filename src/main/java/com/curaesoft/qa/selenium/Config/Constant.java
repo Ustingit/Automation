@@ -6,9 +6,9 @@ import java.text.SimpleDateFormat;
 public class Constant {
 
 	//QA Site
-	public static final String webURL = "http://104.198.15.201:9999/#/login";
+	//public static final String webURL = "http://104.198.15.201:9999/#/login";
 	//Dev Site
-	//public static final String webURL = "http://104.199.117.46:9999/#/login";
+	public static final String webURL = "http://104.199.117.46:9999/#/login";
 
 	public static final String browserType = "*chrome";
 	public static final String File_TestData = "resources/Testdata.xlsx";
@@ -32,10 +32,14 @@ public class Constant {
 
 	public static String map (String val){
 
+		Date today = new Date();
+		Date tomorrow = new Date(today.getTime() + (1000 * 60 * 60 * 24));
 
 		edata.put("firstname","Test");
 		edata.put("lastname",lname);
-		edata.put("date","03-08-2017");
+		//edata.put("lastname","20170323012748");
+
+		edata.put("date",new SimpleDateFormat("MM-dd-yyyy").format(tomorrow).toString());
 
 
 		return edata.get(val);

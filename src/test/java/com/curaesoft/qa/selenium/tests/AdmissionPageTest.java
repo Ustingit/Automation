@@ -22,7 +22,6 @@ public class AdmissionPageTest  extends BaseWebDriver {
         try {
             homePage = this.loginPage.login("Intake");
         } catch (Exception e) {
-            success = false;
             e.printStackTrace();
             System.out.println("Failed to login into the application !");
         }
@@ -49,7 +48,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
     public void createAdmissionForNewPatient() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "admissionForNewPatient.xlsx");
+             eu.execute(this.driver, "admissionForNewPatient.xlsx");
         }catch (Exception e) {
             success = false;
             e.printStackTrace();
@@ -62,11 +61,12 @@ public class AdmissionPageTest  extends BaseWebDriver {
 
     public void createAdmissionForOldPatient() {
         try {
-
-        }catch (Exception e){
-            success = false;
             ExcelUtils eu = new ExcelUtils();
             eu.execute(this.driver, "admissionForOldPatient.xlsx");
+        }catch (Exception e){
+            success = false;
+            e.printStackTrace();
+            System.out.println("Failed to create admission for old patient.");
         }
 
     }
@@ -81,7 +81,6 @@ public class AdmissionPageTest  extends BaseWebDriver {
                 }
             }
         } catch (Exception e) {
-            success = false;
             e.printStackTrace();
             System.out.println("Failed to login into the application");
         }
