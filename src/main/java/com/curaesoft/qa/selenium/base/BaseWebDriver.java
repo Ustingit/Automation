@@ -40,7 +40,7 @@ public class BaseWebDriver {
 	@AfterClass
 	public void tearDown() {
 		if (Constant.Debugging == false){
-			driver.quit();
+			driver.close();
 		}
 
 	}
