@@ -67,15 +67,16 @@ public class ExcelUtils {
 			grownumber = i+1;
 			this.action(
 					driver,
-					sformat(rows,0),
-					sformat(rows,1),
-					sformat(rows,2),
-					sformat(rows,3),
-					iformat(rows,4),
-					iformat(rows,5),
-					iformat(rows,6),
-					sformat(rows,7),
-					iformat(rows,8),
+					sformat(rows,0),	// Element name or attribute name(only for match_custom)
+					sformat(rows,1),	//xpath
+					sformat(rows,2),	//action
+					sformat(rows,3),	//value
+					iformat(rows,4),	//click
+					iformat(rows,5),	//delay before click second
+					iformat(rows,6),	//delay after click second
+					sformat(rows,7),	//Skip on error
+					iformat(rows,8),	//custom_value
+					sformat(rows,9),	//error notice
 					i
 			);
 
@@ -98,7 +99,7 @@ public class ExcelUtils {
 		inputStream.close();
 
 	}
-	public void action(WebDriver driver, String field, String xpath, String action, String value, int clicks, int delay_b , int delay_a, String deflt,int skip ,int rownum) throws Exception {
+	public void action(WebDriver driver, String field, String xpath, String action, String value, int clicks, int delay_b , int delay_a, String deflt,int skip ,String error_notice ,int rownum) throws Exception {
 		util = new ExcelUtils();
 		try {
 			Thread.sleep(1000 * delay_b);
@@ -183,8 +184,12 @@ public class ExcelUtils {
 
 
 			if(skip == 0){
+				if(!error_notice.equals("")){
+					Assert.fail("Fail to locate xpath on row number "+(rownum+1)+" in "+ srcfile + "\n\n"+e);
+				}else{
+					Assert.fail((rownum+1)+":"+error_notice);
+				}
 
-				Assert.fail("Fail to locate xpath on row number "+(rownum+1)+" in "+ srcfile + "\n\n"+e);
 				throw e;
 			}else{
 				System.out.println(e);

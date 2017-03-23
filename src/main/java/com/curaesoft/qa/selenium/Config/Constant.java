@@ -8,7 +8,9 @@ public class Constant {
 	//QA Site
 	//public static final String webURL = "http://104.198.15.201:9999/#/login";
 	//Dev Site
-	public static final String webURL = "http://104.199.117.46:9999/#/login";
+	//public static final String webURL = "http://104.199.117.46:9999/#/login";
+	//Dev Site secure
+	public static final String webURL = "https://104.199.117.46/#/login";
 
 	public static final String browserType = "*chrome";
 	public static final String File_TestData = "resources/Testdata.xlsx";
@@ -37,7 +39,8 @@ public class Constant {
 
 		edata.put("firstname","Test");
 		edata.put("lastname",lname);
-		//edata.put("lastname","20170323012748");
+		edata.put("clinician_lastname","marc");
+		//edata.put("lastname","20170324040531");
 
 		edata.put("date",new SimpleDateFormat("MM-dd-yyyy").format(tomorrow).toString());
 
