@@ -144,17 +144,27 @@ public class ExcelUtils {
 				this.get_value(driver,field,xpath);
 
 			}else if(action.equals("match_text")){
-				this.match_text(driver,field,xpath,value);
+				Constant con = new Constant();
+				if(!deflt.equals("")){
+					this.match_text(driver,field,xpath,con.map(deflt));
+				}else{
+					this.match_text(driver,field,xpath,value);
+				}
 
 			}else if(action.equals("match_value")){
-				this.match_value(driver,field,xpath,value);
-
-			}else if(action.equals("match_value")){
-				this.match_value(driver,field,xpath,value);
-
+				Constant con = new Constant();
+				if(!deflt.equals("")){
+					this.match_value(driver,field,xpath,con.map(deflt));
+				}else{
+					this.match_value(driver,field,xpath,value);
+				}
 			}else if(action.equals("match_custom")){
-				this.match_custom(driver,field,xpath,value);
-
+				Constant con = new Constant();
+				if(!deflt.equals("")){
+					this.match_custom(driver,field,xpath,con.map(deflt));
+				}else{
+					this.match_custom(driver,field,xpath,value);
+				}
 			}else if(action.equals("setAttribute")){
 				this.setAttribute(driver,field,xpath,value);
 
