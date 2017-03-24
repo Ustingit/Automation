@@ -28,7 +28,7 @@ public class AccountCreation extends BaseWebDriver{
     }
 
 
-   // @Test
+  // @Test (priority=1)
 
     public void createAccount() {
         try {
@@ -41,7 +41,7 @@ public class AccountCreation extends BaseWebDriver{
         }
 
     }
-    @Test
+    @Test(priority=2)
 
     public void createClinicainAccount() {
         try {

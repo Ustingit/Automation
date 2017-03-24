@@ -39,7 +39,7 @@ public class Constant {
 
 		edata.put("firstname","Test");
 		edata.put("lastname",lname);
-		edata.put("clinician_lastname","marc");
+		edata.put("clinician_lastname","pt1");
 		//edata.put("lastname","20170324040531");
 
 		edata.put("date",new SimpleDateFormat("MM-dd-yyyy").format(tomorrow).toString());

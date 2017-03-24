@@ -27,7 +27,7 @@ public class CQTestPage  extends BaseWebDriver {
     }
 
 
-    @Test (priority=5)
+    @Test (priority=8)
 
     public void CQTesting() {
         try {
