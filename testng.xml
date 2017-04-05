@@ -12,7 +12,10 @@
 
 			<class name="tests.AuditTestPage" />
 
+			<class name="tests.CQTestPage" />
+
 			<class name="tests.ProfilePageTest" />
+
 		</classes>
 	</test>
 </suite>

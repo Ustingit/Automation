@@ -28,7 +28,7 @@ public class AccountCreation extends BaseWebDriver{
     }
 
 
-  // @Test (priority=1)
+  @Test (priority=1)
 
     public void createAccount() {
         try {
