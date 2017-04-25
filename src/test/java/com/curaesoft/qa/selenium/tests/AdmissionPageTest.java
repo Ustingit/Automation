@@ -33,6 +33,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
     public void createPatient() {
         try {
             ExcelUtils eu = new ExcelUtils();
+            eu.account();
             eu.execute(this.driver, "admissionCreatePatient.xlsx");
         } catch (Exception e) {
             success = false;
@@ -57,7 +58,8 @@ public class AdmissionPageTest  extends BaseWebDriver {
 
     }
 
-    @Test(priority=3 ,dependsOnGroups = "patientdetails" )
+    // this is not applicable on the new bisuness flow since it wont accept 2 scheduling
+    //@Test(priority=3 ,dependsOnGroups = "patientdetails" )
 
     public void createAdmissionForOldPatient() {
         try {
