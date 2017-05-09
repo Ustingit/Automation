@@ -21,7 +21,7 @@ import org.testng.Assert;
 import org.openqa.selenium.interactions.Actions;
 import com.curaesoft.qa.selenium.Config.Constant;
 import com.curaesoft.qa.selenium.CommonPages.LoginPage;
-
+import java.util.List;
 
 public class ExcelUtils {
 	private static FileInputStream ExcelFile;
@@ -116,7 +116,7 @@ public class ExcelUtils {
 				this.click(driver,field,xpath,value,clicks);
 
 			}else if(action.equals("dragY")){
-				this.dragY(driver,field,xpath,value);
+				this.dragY(driver,xpath,value);
 
 			}else if(action.equals("click_custom")){
 				Constant con = new Constant();
@@ -174,6 +174,10 @@ public class ExcelUtils {
 
 			}else if(action.equals("function")){
 				this.function(driver,xpath,value);
+
+			}else if(action.equals("scrollY")){
+				this.scrollY(driver,xpath,value);
+
 			}else{
 				System.out.printf("\n"+(rownum+1)+": Action is not registered.", field);
 			}
@@ -209,10 +213,16 @@ public class ExcelUtils {
 			element.sendKeys(value);
 		}
 	}
+	public void scrollY( WebDriver driver, String xpath, String value) {
 
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("scroll(\"+value+\", );");
+
+
+	}
 	public void click(WebDriver driver, String field, String xpath, String value , int clicks) {
 
-		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+		WebElement element = isExisting(driver,xpath);
 		if(eCheck(element)){
 			for (int x = 0; x < clicks; x++) {
 				try{
@@ -223,13 +233,12 @@ public class ExcelUtils {
 			}
 		}
 	}
-	public void dragY(WebDriver driver, String field, String xpath, String value) {
+	public void dragY(WebDriver driver, String xpath, String value) {
 
 		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
 		if(eCheck(element)){
 			Actions move = new Actions(driver);
-			move.dragAndDropBy(element, 0,Integer.parseInt(value)).build() .perform();
-
+			move.dragAndDropBy(element, 0,Integer.parseInt(value)).build().perform();
 		}
 	}
 	public void click_custom(WebDriver driver, String field, String xpath, String value , int clicks) {
@@ -428,7 +437,7 @@ public class ExcelUtils {
 	}
 
 	public boolean eCheck(WebElement element){
-		if(element.isDisplayed() && element != null){
+		if(element != null){
 			return true;
 		}else{
 			return  false;
@@ -506,6 +515,20 @@ public class ExcelUtils {
 			ExcelFile.close();
 		} catch (Exception e) {
 			throw (e);
+		}
+
+	}
+
+	public WebElement isExisting(WebDriver driver, String xpath) {
+		try {
+			List<WebElement> count = driver.findElements(By.xpath(xpath));
+			if(count.size() > 0){
+				return count.get(0);
+			}else {
+				return null;
+			}
+		} catch (Exception e) {
+			return null;
 		}
 
 	}

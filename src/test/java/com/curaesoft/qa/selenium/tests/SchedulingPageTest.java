@@ -1,5 +1,6 @@
 package tests;
 
+import com.curaesoft.qa.selenium.Config.Constant;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -16,13 +17,14 @@ public class SchedulingPageTest extends BaseWebDriver {
 
     HomePage homePage;
     Boolean result;
-
+    Boolean success = true;
     @BeforeMethod
     public void login() {
 
         try {
             homePage = this.loginPage.login("Scheduler");
         } catch (Exception e) {
+            success = false;
             e.printStackTrace();
             System.out.println("Failed to login into the application !");
         }
@@ -34,6 +36,7 @@ public class SchedulingPageTest extends BaseWebDriver {
             ExcelUtils eu = new ExcelUtils();
             eu.execute(this.driver, "scheduling.xlsx");
         } catch (Exception e) {
+            success = false;
             e.printStackTrace();
             System.out.println("Failed to set patient schedule.");
         }
@@ -43,8 +46,12 @@ public class SchedulingPageTest extends BaseWebDriver {
     @AfterMethod
     public void logout() {
         try {
-            result = this.loginPage.logout();
-            Assert.assertTrue(result);
+            if(Constant.Debugging == false ){
+                if(success){
+                    result = this.loginPage.logout();
+                    Assert.assertTrue(result);
+                }
+            }
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Failed to login into the application");
