@@ -6,13 +6,13 @@ import java.text.SimpleDateFormat;
 public class Constant {
 
 	//QA Site
-	public static final String webURL = "http://104.198.15.201:9999/#/login";
+	//public static final String webURL = "http://104.198.15.201:9999/#/login";
 	//Dev Site
 	//public static final String webURL = "http://104.199.117.46:9999/#/login";
 	//Dev Site secure
 	//public static final String webURL = "https://104.199.117.46/#/login";
 
-	//public static final String webURL = "http://35.185.205.136:9999";
+	public static final String webURL = "https://35.185.205.136";
 
 	public static final String browserType = "*chrome";
 	public static final String File_TestData = "resources/Testdata.xlsx";
@@ -28,7 +28,7 @@ public class Constant {
 
 	public static final HashMap<String,String> edata = new HashMap<String, String>();
 
-	public static final boolean Debugging  = false;
+	public static final boolean Debugging  = true;
 
 
 	public static final String lname = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()).toString();

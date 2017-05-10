@@ -5,6 +5,7 @@ import com.curaesoft.qa.selenium.Config.Constant;
 import com.curaesoft.qa.selenium.base.BaseWebDriver;
 import com.curaesoft.qa.selenium.utilities.ExcelUtils;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org
         .testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -22,14 +23,14 @@ public class AuditTestPage  extends BaseWebDriver {
     public void login() {
 
         try {
-            homePage = this.loginPage.login("Auditor");
+            homePage = this.loginPage.login("qa");
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Failed to login into the application !");
         }
     }
 
-    //@Test
+    @Test (priority=6)
 
     public void NoteApproval() {
         try {
@@ -41,7 +42,7 @@ public class AuditTestPage  extends BaseWebDriver {
             System.out.println("Failed to create patient.");
         }
     }
-    @Test(priority=6)
+    @Test(priority=7)
     public void OrderNotes() {
         try {
             ExcelUtils eu = new ExcelUtils();
@@ -56,14 +57,13 @@ public class AuditTestPage  extends BaseWebDriver {
     @AfterMethod
     public void logout() {
         try {
-            if(Constant.Debugging == true ){
+            if(Constant.Debugging == false ){
                 if(success){
                     result = this.loginPage.logout();
                     Assert.assertTrue(result);
                 }
             }
         } catch (Exception e) {
-            success = false;
             e.printStackTrace();
             System.out.println("Failed to login into the application");
         }
