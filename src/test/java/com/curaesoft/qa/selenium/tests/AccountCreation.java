@@ -54,7 +54,18 @@ public class AccountCreation extends BaseWebDriver{
         }
 
     }
+    @Test(priority=3)
+    public void SetClinicianrole() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "ClinicianAccountRole.xlsx");
+        } catch (Exception e) {
+            success = false;
+            e.printStackTrace();
+            System.out.println("Failed to create accounts.");
+        }
 
+    }
     @AfterMethod
     public void logout() {
         try {
