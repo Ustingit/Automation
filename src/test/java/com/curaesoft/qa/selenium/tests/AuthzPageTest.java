@@ -5,7 +5,7 @@ import java.util.List;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.lang.Character;
-
+import java.awt.datatransfer.StringSelection;
 
 import com.curaesoft.qa.selenium.Config.Constant;
 import org.testng.Assert;
@@ -17,7 +17,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Alert;
-
+import java.awt.Toolkit;
 import com.curaesoft.qa.selenium.CommonPages.HomePage;
 import com.curaesoft.qa.selenium.base.BaseWebDriver;
 import com.curaesoft.qa.selenium.utilities.ExcelUtils;
@@ -56,18 +56,18 @@ public class AuthzPageTest extends BaseWebDriver {
             this.driver.findElement(By.xpath("//*[@id=\"ui-admin-email\"]/md-content/md-card/md-card-content/md-list-item/div[1]/md-card/md-card-content/div/div[2]/md-content/md-tabs/md-tabs-wrapper/md-tabs-canvas/md-pagination-wrapper/md-tab-item[2]/span[2]")).click();
 
             //assind visit
-            assignVisit(dlCount,1,"1");
-            assignVisit(dlCount,2,"1");
-            assignVisit(dlCount,3,"1");
-            assignVisit(dlCount,4,"1");
-            assignVisit(dlCount,5,"1");
-            assignVisit(dlCount,6,"1");
-            assignVisit(dlCount,7,"1");
+            assignVisit(dlCount,1,"0");
+            assignVisit(dlCount,2,"0");
+            assignVisit(dlCount,3,"0");
+            assignVisit(dlCount,4,"0");
+            assignVisit(dlCount,5,"0");
+            assignVisit(dlCount,6,"0");
+            assignVisit(dlCount,7,"0");
 
 
             driver.findElement(By.xpath("(//a[@ngf-select=\"vm.upload($files, exchange)\"])[1]")).click();
             Robot r = new Robot();
-            sendKeys(r,"D://SE/Documents/test.png");
+            sendKeys(r,"D:\\SE/Documents/test.png");
             eu.execute(this.driver, "authz2.xlsx");
         } catch (Exception e) {
             System.out.println(e);
@@ -82,23 +82,16 @@ public class AuthzPageTest extends BaseWebDriver {
         this.driver.findElement(By.xpath("//md-edit-dialog//md-input-container/input")).sendKeys(value);
         this.driver.findElement(By.xpath("/html/body/md-edit-dialog/div[2]/button[2]")).click();
     }
-    public void sendKeys(Robot robot, String keys) {
+    public void sendKeys( Robot robot  ,String keys) {
+        StringSelection ss = new StringSelection("D:/Test/Test1.docx");
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
 
-        for (int i = 0; i < keys.length(); i++) {
-            char c = keys.charAt(i);
-            if (Character.isUpperCase(c)) {
-                robot.keyPress(KeyEvent.VK_SHIFT);
-            }
-            robot.keyPress(Character.toUpperCase(c));
-            robot.delay(500);
-            robot.keyRelease(Character.toUpperCase(c));
-
-            if (Character.isUpperCase(c)) {
-                robot.keyRelease(KeyEvent.VK_SHIFT);
-            }
-            robot.delay(500);
-        }
-
+        robot.keyPress(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
 
     }
 
