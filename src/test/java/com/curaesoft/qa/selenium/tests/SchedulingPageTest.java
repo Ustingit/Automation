@@ -63,6 +63,17 @@ public class SchedulingPageTest extends BaseWebDriver {
             System.out.println("Failed to set patient schedule.");
         }
     }
+    @Test (priority=7)
+    public void CreateNotes() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "Scheduling - Notes.xlsx");
+        } catch (Exception e) {
+            Constant.Success  = false;
+            e.printStackTrace();
+            System.out.println("Failed to set patient schedule.");
+        }
+    }
     @AfterMethod
     public void logout() {
         System.out.println(Constant.Debugging);
