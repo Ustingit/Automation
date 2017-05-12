@@ -29,7 +29,7 @@ public class Constant {
 	public static final HashMap<String,String> edata = new HashMap<String, String>();
 
 	public static final boolean Debugging  = true;
-
+	public static boolean Success= true;
 
 	public static final String lname = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()).toString();
 	//public static final String lname ="20170316082058";
@@ -40,9 +40,9 @@ public class Constant {
 		Date tomorrow = new Date(today.getTime() + (1000 * 60 * 60 * 24));
 
 		edata.put("firstname","Test");
-		edata.put("lastname",lname);
-		edata.put("clinician_lastname","pt1");
-		//edata.put("lastname","20170324040531");
+		//edata.put("lastname",lname);
+		edata.put("clinician","");
+		edata.put("lastname","20170513025312");
 
 		edata.put("date",new SimpleDateFormat("MM-dd-yyyy").format(tomorrow).toString());
 

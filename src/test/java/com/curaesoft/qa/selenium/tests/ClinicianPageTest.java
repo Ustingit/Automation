@@ -32,7 +32,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 
     @Test (priority=5)
 
-    public void CreateMyPlan() {
+    public void SigninClinician() {
         try {
             ExcelUtils eu = new ExcelUtils();
             eu.execute(this.driver, "clinicianToDoVisit.xlsx");
@@ -43,7 +43,18 @@ public class ClinicianPageTest extends BaseWebDriver {
         }
     }
 
+    @Test (priority=5)
 
+    public void OASISNotes() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "Clinician - Plan of care.xlsx");
+        } catch (Exception e) {
+            success = false;
+            e.printStackTrace();
+            System.out.println("Failed to create patient.");
+        }
+    }
     @AfterMethod
     public void logout() {
         try {

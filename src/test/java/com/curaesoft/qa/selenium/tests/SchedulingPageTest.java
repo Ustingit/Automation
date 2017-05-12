@@ -17,14 +17,14 @@ public class SchedulingPageTest extends BaseWebDriver {
 
     HomePage homePage;
     Boolean result;
-    Boolean success = true;
+
     @BeforeMethod
     public void login() {
 
         try {
             homePage = this.loginPage.login("Scheduler");
         } catch (Exception e) {
-            success = false;
+            Constant.Success = false;
             e.printStackTrace();
             System.out.println("Failed to login into the application !");
         }
@@ -36,21 +36,47 @@ public class SchedulingPageTest extends BaseWebDriver {
             ExcelUtils eu = new ExcelUtils();
             eu.execute(this.driver, "scheduling.xlsx");
         } catch (Exception e) {
-            success = false;
+            Constant.Success  = false;
             e.printStackTrace();
             System.out.println("Failed to set patient schedule.");
         }
     }
-
-
+    @Test (priority=5)
+    public void SetFrequencyVisit() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "Scheduling - Visit Frequency.xlsx");
+        } catch (Exception e) {
+            Constant.Success  = false;
+            e.printStackTrace();
+            System.out.println("Failed to set patient schedule.");
+        }
+    }
+    @Test (priority=6)
+    public void SetVisitType() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "Scheduling - Sort by Visit Type.xlsx");
+        } catch (Exception e) {
+            Constant.Success  = false;
+            e.printStackTrace();
+            System.out.println("Failed to set patient schedule.");
+        }
+    }
     @AfterMethod
     public void logout() {
+        System.out.println(Constant.Debugging);
+        System.out.println(Constant.Success );
         try {
             if(Constant.Debugging == false){
-                if(success){
+                    result = this.loginPage.logout();
+                    Assert.assertTrue(result);
+            }else{
+                if(Constant.Success){
                     result = this.loginPage.logout();
                     Assert.assertTrue(result);
                 }
+
             }
         } catch (Exception e) {
             e.printStackTrace();

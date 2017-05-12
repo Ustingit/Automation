@@ -175,8 +175,11 @@ public class ExcelUtils {
 			}else if(action.equals("function")){
 				this.function(driver,xpath,value);
 
-			}else if(action.equals("scrollY")){
-				this.scrollY(driver,xpath,value);
+			}else if(action.equals("focus")){
+				this.focus(driver,xpath,value);
+
+			}else if(action.equals("hover")){
+				this.hover(driver,xpath);
 
 			}else{
 				System.out.printf("\n"+(rownum+1)+": Action is not registered.", field);
@@ -186,7 +189,7 @@ public class ExcelUtils {
 			Thread.sleep(1000 * delay_a);
 		} catch (Exception e) {
 
-
+			Constant.Success = false;
 			if(skip == 0){
 				if(error_notice.equals("")){
 					Assert.fail("Fail to locate xpath on row number "+(rownum+1)+" in "+ srcfile + "\n\n"+e);
@@ -213,11 +216,10 @@ public class ExcelUtils {
 			element.sendKeys(value);
 		}
 	}
-	public void scrollY( WebDriver driver, String xpath, String value) {
+	public void focus( WebDriver driver, String xpath, String value) {
 
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		jse.executeScript("scroll(\"+value+\", );");
-
+		WebElement element = driver.findElement(By.xpath(xpath));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 
 	}
 	public void click(WebDriver driver, String field, String xpath, String value , int clicks) {
@@ -240,6 +242,15 @@ public class ExcelUtils {
 			Actions move = new Actions(driver);
 			move.dragAndDropBy(element, 0,Integer.parseInt(value)).build().perform();
 		}
+	}
+	public void hover(WebDriver driver, String xpath) {
+
+		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+		if(eCheck(element)){
+			Actions builder = new Actions(driver);
+			builder.moveToElement(element).perform();
+		}
+
 	}
 	public void click_custom(WebDriver driver, String field, String xpath, String value , int clicks) {
 		xpath = String.format(xpath,value);
