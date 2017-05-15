@@ -76,8 +76,7 @@ public class SchedulingPageTest extends BaseWebDriver {
     }
     @AfterMethod
     public void logout() {
-        System.out.println(Constant.Debugging);
-        System.out.println(Constant.Success );
+
         try {
             if(Constant.Debugging == false){
                     result = this.loginPage.logout();
