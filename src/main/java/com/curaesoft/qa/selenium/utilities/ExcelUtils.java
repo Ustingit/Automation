@@ -104,6 +104,17 @@ public class ExcelUtils {
 		try {
 			Thread.sleep(1000 * delay_b);
 
+			if(xpath.contains("%1$2s")){
+				if(!deflt.equals("")){
+					xpath = String.format(xpath,Constant.map(deflt));
+				}else{
+					xpath = String.format(xpath,value);
+				}
+			}
+
+
+
+
 			if(action.equals("input")){
 				Constant con = new Constant();
 				if(!deflt.equals("")){
@@ -119,12 +130,7 @@ public class ExcelUtils {
 				this.dragY(driver,xpath,value);
 
 			}else if(action.equals("click_custom")){
-				Constant con = new Constant();
-				if(!deflt.equals("")){
-					this.click_custom(driver,field,xpath,con.map(deflt),clicks);
-				}else{
-					this.click_custom(driver,field,xpath,value,clicks);
-				}
+				this.click_custom(driver,field,xpath,value,clicks);
 
 			}else if(action.equals("checked")){
 				this.checked(driver,field,xpath,value);
@@ -181,6 +187,9 @@ public class ExcelUtils {
 			}else if(action.equals("hover")){
 				this.hover(driver,xpath);
 
+			}else if(action.equals("signature")){
+				this.signature(driver,xpath);
+
 			}else{
 				System.out.printf("\n"+(rownum+1)+": Action is not registered.", field);
 			}
@@ -235,6 +244,21 @@ public class ExcelUtils {
 			}
 		}
 	}
+	public void signature(WebDriver driver, String xpath) {
+
+		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+		if(eCheck(element)){
+			Actions builder = new Actions(driver);
+			builder.moveToElement(element,100,100) //start points x axis and y axis.
+					.clickAndHold()
+					.moveByOffset(50,0)
+					.moveByOffset(0,50)
+					.moveByOffset(-50,0)
+					.moveByOffset(0,-50)
+					.release()
+					.build().perform();
+		}
+	}
 	public void dragY(WebDriver driver, String xpath, String value) {
 
 		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
@@ -253,7 +277,7 @@ public class ExcelUtils {
 
 	}
 	public void click_custom(WebDriver driver, String field, String xpath, String value , int clicks) {
-		xpath = String.format(xpath,value);
+
 		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
 		if(eCheck(element)){
 			for (int x = 0; x < clicks; x++) {

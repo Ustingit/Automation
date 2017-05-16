@@ -28,10 +28,32 @@ public class ClinicianPageTest extends BaseWebDriver {
             System.out.println("Failed to login into the application !");
         }
     }
-
-
     @Test (priority=5)
 
+    public void ViewOfficeNotes() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "Clinician Office Notes.xlsx");
+        } catch (Exception e) {
+            success = false;
+            e.printStackTrace();
+            System.out.println("Failed to View Office Notes.");
+        }
+    }
+    @Test (priority=5)
+
+    public void CreateMyPlan() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "Clinician Task.xlsx");
+        } catch (Exception e) {
+            success = false;
+            e.printStackTrace();
+            System.out.println("Failed to View Office Notes.");
+        }
+    }
+
+    @Test (priority=5)
     public void SigninClinician() {
         try {
             ExcelUtils eu = new ExcelUtils();
@@ -42,10 +64,22 @@ public class ClinicianPageTest extends BaseWebDriver {
             System.out.println("Failed to create patient.");
         }
     }
+    @Test (priority=6)
 
-    @Test (priority=5)
+    public void OASIS_Administrative() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "Clinician - OASIS.xlsx");
+            eu.execute(this.driver, "Clinician - Administrative.xlsx");
+        } catch (Exception e) {
+            success = false;
+            e.printStackTrace();
+            System.out.println("Failed to create patient.");
+        }
+    }
+    @Test (priority=6)
 
-    public void OASISNotes() {
+    public void PlanOfCare() {
         try {
             ExcelUtils eu = new ExcelUtils();
             eu.execute(this.driver, "Clinician - Plan of care.xlsx");
@@ -57,12 +91,17 @@ public class ClinicianPageTest extends BaseWebDriver {
     }
     @AfterMethod
     public void logout() {
+
         try {
-            if (Constant.Debugging == false) {
-                if (success) {
+            if(Constant.Debugging == false){
+                result = this.loginPage.logout();
+                Assert.assertTrue(result);
+            }else{
+                if(Constant.Success){
                     result = this.loginPage.logout();
                     Assert.assertTrue(result);
                 }
+
             }
         } catch (Exception e) {
             e.printStackTrace();
