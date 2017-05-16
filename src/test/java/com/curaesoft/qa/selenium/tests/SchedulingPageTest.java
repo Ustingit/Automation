@@ -29,8 +29,18 @@ public class SchedulingPageTest extends BaseWebDriver {
             System.out.println("Failed to login into the application !");
         }
     }
-
     @Test (priority=11)
+    public void CheckPreauthVisit() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "Scheduling - Check Preauth.xlsx");
+        } catch (Exception e) {
+            Constant.Success  = false;
+            e.printStackTrace();
+            System.out.println("Failed to set patient schedule.");
+        }
+    }
+    @Test (priority=12)
     public void SetPatientSchedule() {
         try {
             ExcelUtils eu = new ExcelUtils();
@@ -42,7 +52,7 @@ public class SchedulingPageTest extends BaseWebDriver {
         }
     }
 
-    @Test (priority=12)
+    @Test (priority=13)
     public void SetFrequencyVisit() {
         try {
             ExcelUtils eu = new ExcelUtils();
@@ -54,7 +64,7 @@ public class SchedulingPageTest extends BaseWebDriver {
         }
     }
 
-    @Test (priority=13)
+    @Test (priority=14)
     public void CreateNotes() {
         try {
             ExcelUtils eu = new ExcelUtils();
@@ -65,7 +75,7 @@ public class SchedulingPageTest extends BaseWebDriver {
             System.out.println("Failed to set patient schedule.");
         }
     }
-    @Test (priority=14)
+    @Test (priority=15)
     public void SortVisit() {
         try {
             ExcelUtils eu = new ExcelUtils();
