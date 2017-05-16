@@ -22,14 +22,14 @@ public class ProfilePageTest extends BaseWebDriver {
     public void login() {
 
         try {
-            homePage = this.loginPage.login("qa");
+            homePage = this.loginPage.login("changepass");
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Failed to login into the application !");
         }
     }
 
-    @Test (priority=15)
+    @Test (priority=51)
     public void UpdateSettings() {
         try {
             ExcelUtils eu = new ExcelUtils();

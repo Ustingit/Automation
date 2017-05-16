@@ -28,7 +28,7 @@ public class ClinicianPageTest extends BaseWebDriver {
             System.out.println("Failed to login into the application !");
         }
     }
-    @Test (priority=5)
+    @Test (priority=31)
 
     public void ViewOfficeNotes() {
         try {
@@ -40,7 +40,7 @@ public class ClinicianPageTest extends BaseWebDriver {
             System.out.println("Failed to View Office Notes.");
         }
     }
-    @Test (priority=5)
+    @Test (priority=32)
 
     public void CreateMyPlan() {
         try {
@@ -53,7 +53,7 @@ public class ClinicianPageTest extends BaseWebDriver {
         }
     }
 
-    @Test (priority=5)
+    @Test (priority=33)
     public void SigninClinician() {
         try {
             ExcelUtils eu = new ExcelUtils();
@@ -64,7 +64,7 @@ public class ClinicianPageTest extends BaseWebDriver {
             System.out.println("Failed to create patient.");
         }
     }
-    @Test (priority=6)
+    @Test (priority=34)
 
     public void OASIS_Administrative() {
         try {
@@ -77,11 +77,12 @@ public class ClinicianPageTest extends BaseWebDriver {
             System.out.println("Failed to create patient.");
         }
     }
-    @Test (priority=6)
+    //@Test (priority=35)
 
     public void PlanOfCare() {
         try {
             ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "Clinician - OASIS.xlsx");
             eu.execute(this.driver, "Clinician - Plan of care.xlsx");
         } catch (Exception e) {
             success = false;
