@@ -35,7 +35,7 @@ public class AuditTestPage  extends BaseWebDriver {
     public void NoteApproval() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "NoteAudit.xlsx");
+            eu.execute(this.driver, "NoteAudit.xlsx","Sheet1");
         } catch (Exception e) {
             success = true;
             e.printStackTrace();
@@ -46,7 +46,7 @@ public class AuditTestPage  extends BaseWebDriver {
     public void OrderNotes() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "OrderAudit.xlsx");
+            eu.execute(this.driver, "OrderAudit.xlsx","Sheet1");
         } catch (Exception e) {
             success = true;
             e.printStackTrace();
