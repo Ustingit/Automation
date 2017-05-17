@@ -53,11 +53,11 @@ public class ExcelUtils {
 	int close_delay = 3;
 	ExcelUtils util;
 
-	public void reader(WebDriver driver, String excel_link)throws Exception {
+	public void reader(WebDriver driver, String excel_link, String Sheetname)throws Exception {
 		FileInputStream inputStream = new FileInputStream(new File("resources/"+excel_link));
 
 		Workbook workbook = new XSSFWorkbook(inputStream);
-		Sheet firstSheet = workbook.getSheetAt(0);
+		Sheet firstSheet = workbook.getSheet(Sheetname);
 		int num_rows = firstSheet.getLastRowNum();
 
 		srcfile = excel_link;
@@ -479,11 +479,11 @@ public class ExcelUtils {
 		}
 	}
 
-	public void execute(WebDriver driver, String excelPath) {
+	public void execute(WebDriver driver, String excelPath, String Sheet) {
 		util = new ExcelUtils();
 
 		try {
-			this.reader(driver,excelPath);
+			this.reader(driver,excelPath,Sheet);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

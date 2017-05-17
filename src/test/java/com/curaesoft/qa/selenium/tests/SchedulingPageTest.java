@@ -33,7 +33,7 @@ public class SchedulingPageTest extends BaseWebDriver {
     public void CheckPreauthVisit() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "Scheduling - Check Preauth.xlsx");
+            eu.execute(this.driver, "scheduling.xlsx","CheckPreAuth");
         } catch (Exception e) {
             Constant.Success  = false;
             e.printStackTrace();
@@ -44,7 +44,7 @@ public class SchedulingPageTest extends BaseWebDriver {
     public void SetPatientSchedule() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "scheduling.xlsx");
+            eu.execute(this.driver, "scheduling.xlsx","Scheduling");
         } catch (Exception e) {
             Constant.Success  = false;
             e.printStackTrace();
@@ -56,7 +56,7 @@ public class SchedulingPageTest extends BaseWebDriver {
     public void SetFrequencyVisit() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "Scheduling - Visit Frequency.xlsx");
+            eu.execute(this.driver, "scheduling.xlsx","VisitFrequency");
         } catch (Exception e) {
             Constant.Success  = false;
             e.printStackTrace();
@@ -68,7 +68,7 @@ public class SchedulingPageTest extends BaseWebDriver {
     public void CreateNotes() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "Scheduling - Notes.xlsx");
+            eu.execute(this.driver, "scheduling.xlsx","Notes");
         } catch (Exception e) {
             Constant.Success  = false;
             e.printStackTrace();
@@ -79,7 +79,7 @@ public class SchedulingPageTest extends BaseWebDriver {
     public void SortVisit() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "Scheduling - Sort by Visit Type.xlsx");
+            eu.execute(this.driver, "scheduling.xlsx","SortViisit");
         } catch (Exception e) {
             Constant.Success  = false;
             e.printStackTrace();

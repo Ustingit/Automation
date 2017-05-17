@@ -33,7 +33,7 @@ public class ProfilePageTest extends BaseWebDriver {
     public void UpdateSettings() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "profile.xlsx");
+            eu.execute(this.driver, "profile.xlsx","profile");
         } catch (Exception e) {
             success = false;
             e.printStackTrace();
@@ -42,7 +42,32 @@ public class ProfilePageTest extends BaseWebDriver {
 
 
     }
+    @Test (priority=52)
+    public void UpdatePassword() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "profile.xlsx","password");
+        } catch (Exception e) {
+            success = false;
+            e.printStackTrace();
+            System.out.println("Failed to create patient.");
+        }
 
+
+    }
+    @Test (priority=53)
+    public void UpdateNotification() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "profile.xlsx","notification");
+        } catch (Exception e) {
+            success = false;
+            e.printStackTrace();
+            System.out.println("Failed to create patient.");
+        }
+
+
+    }
 
     @AfterMethod
     public void logout() {
