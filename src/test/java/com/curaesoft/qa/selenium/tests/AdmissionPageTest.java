@@ -33,7 +33,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
         try {
             ExcelUtils eu = new ExcelUtils();
             eu.account();
-            eu.execute(this.driver, "admissionCreatePatient.xlsx");
+            eu.execute(this.driver, "Admission.xlsx","CreatePatient");
         } catch (Exception e) {
             success = false;
             e.printStackTrace();
@@ -42,13 +42,12 @@ public class AdmissionPageTest  extends BaseWebDriver {
 
     }
 
-
     @Test(priority=2,groups = {"patientdetails"})
 
     public void createAdmissionForNewPatient() {
         try {
             ExcelUtils eu = new ExcelUtils();
-             eu.execute(this.driver, "admissionForNewPatient.xlsx");
+             eu.execute(this.driver, "Admission.xlsx","Inprocessing01");
         }catch (Exception e) {
             success = false;
             e.printStackTrace();
@@ -58,14 +57,104 @@ public class AdmissionPageTest  extends BaseWebDriver {
     }
 
 
+    @Test(priority=3 , groups = {"patientdetails"})
 
-    // this is not applicable on the new bisuness flow since it wont accept 2 scheduling
-    //@Test(priority=3 ,dependsOnGroups = "patientdetails" )
-
-    public void createAdmissionForOldPatient() {
+    public void createPatient2() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "admissionForOldPatient.xlsx");
+            eu.account();
+            eu.execute(this.driver, "Admission.xlsx", "InApprocal01");
+        } catch (Exception e) {
+            success = false;
+            e.printStackTrace();
+            System.out.println("Failed to create patient.");
+        }
+
+    }
+
+
+    @Test(priority=4,groups = {"patientdetails"})
+
+    public void createAdmissionForNewPatient2() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "Admission.xlsx","InProcessing02");
+        }catch (Exception e) {
+            success = false;
+            e.printStackTrace();
+            System.out.println("Failed to create admission for new patient.");
+        }
+
+    }
+
+    @Test(priority=5 , groups = {"patientdetails"})
+
+    public void AdmissionInApproval2() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.account();
+            eu.execute(this.driver, "Admission.xlsx","InApproval");
+        } catch (Exception e) {
+            success = false;
+            e.printStackTrace();
+            System.out.println("Failed to create patient.");
+        }
+
+    }
+
+
+
+   // @Test(priority=6 , groups = {"patientdetails"})
+
+    public void createPatient3() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.account();
+            eu.execute(this.driver, "admissionCreatePatient.xlsx","Sheet1");
+        } catch (Exception e) {
+            success = false;
+            e.printStackTrace();
+            System.out.println("Failed to create patient.");
+        }
+
+    }
+
+
+   // @Test(priority=7,groups = {"patientdetails"})
+
+    public void createAdmissionForNewPatient3() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "AdmissionInprocessing.xlsx","Sheet1");
+        }catch (Exception e) {
+            success = false;
+            e.printStackTrace();
+            System.out.println("Failed to create admission for new patient.");
+        }
+
+    }
+
+   // @Test(priority=8,groups = {"patientdetails"})
+
+    public void createAdmissionForNewPatient4() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "AdmissionInApproval3.xlsx","Sheet1");
+        }catch (Exception e) {
+            success = false;
+            e.printStackTrace();
+            System.out.println("Failed to create admission for new patient.");
+        }
+
+    }
+
+
+   // @Test(priority=6 ,dependsOnGroups = "patientdetails" )
+
+    public void Inscheduling() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "AdmissionInApproval2.xlsx","Sheet1");
         }catch (Exception e){
             success = false;
             e.printStackTrace();
@@ -73,6 +162,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
         }
 
     }
+
 
     @AfterMethod
     public void logout() {
