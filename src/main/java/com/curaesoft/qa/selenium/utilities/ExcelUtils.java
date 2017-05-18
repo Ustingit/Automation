@@ -308,7 +308,7 @@ public class ExcelUtils {
 	public void visible(WebDriver driver, String field, String xpath) {
 
 		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
-		if(eCheck(element)){
+		if(!eCheck(element)){
 			Assert.fail(grownumber+": Element Not Visible");
 		}
 	}
