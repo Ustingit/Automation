@@ -59,11 +59,11 @@ public class AdmissionPageTest  extends BaseWebDriver {
 
     @Test(priority=3 , groups = {"patientdetails"})
 
-    public void createPatient2() {
+    public void Approval01() {
         try {
             ExcelUtils eu = new ExcelUtils();
             eu.account();
-            eu.execute(this.driver, "Admission.xlsx", "InApprocal01");
+            eu.execute(this.driver, "Admission.xlsx", "InApproval01");
         } catch (Exception e) {
             success = false;
             e.printStackTrace();
@@ -75,7 +75,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
 
     @Test(priority=4,groups = {"patientdetails"})
 
-    public void createAdmissionForNewPatient2() {
+    public void InProcessing02() {
         try {
             ExcelUtils eu = new ExcelUtils();
             eu.execute(this.driver, "Admission.xlsx","InProcessing02");
@@ -93,7 +93,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
         try {
             ExcelUtils eu = new ExcelUtils();
             eu.account();
-            eu.execute(this.driver, "Admission.xlsx","InApproval");
+            eu.execute(this.driver, "Admission.xlsx","InApproval02");
         } catch (Exception e) {
             success = false;
             e.printStackTrace();
@@ -104,13 +104,13 @@ public class AdmissionPageTest  extends BaseWebDriver {
 
 
 
-   // @Test(priority=6 , groups = {"patientdetails"})
+    @Test(priority=6 , groups = {"patientdetails"})
 
     public void createPatient3() {
         try {
             ExcelUtils eu = new ExcelUtils();
             eu.account();
-            eu.execute(this.driver, "admissionCreatePatient.xlsx","Sheet1");
+            eu.execute(this.driver, "Admission.xlsx","CreatePatient2");
         } catch (Exception e) {
             success = false;
             e.printStackTrace();
@@ -120,12 +120,12 @@ public class AdmissionPageTest  extends BaseWebDriver {
     }
 
 
-   // @Test(priority=7,groups = {"patientdetails"})
+    @Test(priority=7,groups = {"patientdetails"})
 
-    public void createAdmissionForNewPatient3() {
+    public void createAdmission2() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "AdmissionInprocessing.xlsx","Sheet1");
+            eu.execute(this.driver, "Admission.xlsx","CreateAdmission2");
         }catch (Exception e) {
             success = false;
             e.printStackTrace();
@@ -134,12 +134,12 @@ public class AdmissionPageTest  extends BaseWebDriver {
 
     }
 
-   // @Test(priority=8,groups = {"patientdetails"})
+    @Test(priority=8,groups = {"patientdetails"})
 
     public void createAdmissionForNewPatient4() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "AdmissionInApproval3.xlsx","Sheet1");
+            eu.execute(this.driver, "Admission.xlsx","Non-Admit");
         }catch (Exception e) {
             success = false;
             e.printStackTrace();
