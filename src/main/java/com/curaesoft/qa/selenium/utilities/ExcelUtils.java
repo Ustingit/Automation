@@ -309,7 +309,7 @@ public class ExcelUtils {
 
 		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
 		if(eCheck(element)){
-
+			Assert.fail(grownumber+": Element Not Visible");
 		}
 	}
 
@@ -472,12 +472,13 @@ public class ExcelUtils {
 	}
 
 	public boolean eCheck(WebElement element){
-		if(element != null){
+		if(element != null && element.isDisplayed()){
 			return true;
 		}else{
 			return  false;
 		}
 	}
+
 
 	public void execute(WebDriver driver, String excelPath, String Sheet) {
 		util = new ExcelUtils();

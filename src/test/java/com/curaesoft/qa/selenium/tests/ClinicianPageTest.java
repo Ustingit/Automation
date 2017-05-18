@@ -35,11 +35,12 @@ public class ClinicianPageTest extends BaseWebDriver {
             ExcelUtils eu = new ExcelUtils();
             eu.execute(this.driver, "Clinician.xlsx","VerifyClinician");
         } catch (Exception e) {
-            success = false;
+            Constant.Success = false;
             e.printStackTrace();
             System.out.println("Failed to View Office Notes.");
         }
     }
+
     @Test (priority=32)
 
     public void ViewOfficeNotes() {
@@ -47,7 +48,7 @@ public class ClinicianPageTest extends BaseWebDriver {
             ExcelUtils eu = new ExcelUtils();
             eu.execute(this.driver, "Clinician.xlsx","OfficeNotes");
         } catch (Exception e) {
-            success = false;
+            Constant.Success = false;
             e.printStackTrace();
             System.out.println("Failed to View Office Notes.");
         }
@@ -59,7 +60,7 @@ public class ClinicianPageTest extends BaseWebDriver {
             ExcelUtils eu = new ExcelUtils();
             eu.execute(this.driver, "Clinician.xlsx","Myplan");
         } catch (Exception e) {
-            success = false;
+            Constant.Success = false;
             e.printStackTrace();
             System.out.println("Failed to View Office Notes.");
         }
@@ -71,35 +72,73 @@ public class ClinicianPageTest extends BaseWebDriver {
             ExcelUtils eu = new ExcelUtils();
             eu.execute(this.driver, "Clinician.xlsx","Clinician");
         } catch (Exception e) {
-            success = false;
+            Constant.Success = false;
             e.printStackTrace();
             System.out.println("Failed to create patient.");
         }
     }
     @Test (priority=35)
 
-    public void OASIS_Administrative() {
+    public void OasisAdministrative() {
         try {
             ExcelUtils eu = new ExcelUtils();
             eu.execute(this.driver, "Clinician.xlsx","oasis");
             eu.execute(this.driver, "Clinician.xlsx","Administrative");
         } catch (Exception e) {
-            success = false;
+            Constant.Success = false;
             e.printStackTrace();
             System.out.println("Failed to create patient.");
         }
     }
-    //@Test (priority=35)
+    @Test (priority=35)
 
-    public void PlanOfCare() {
+    public void OasisGeneral() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "Clinician - OASIS.xlsx","oasis");
-            eu.execute(this.driver, "Clinician - Plan of care.xlsx","PlanofCare");
+            eu.execute(this.driver, "Clinician.xlsx","oasis");
+            eu.execute(this.driver, "Clinician.xlsx","General");
         } catch (Exception e) {
-            success = false;
+            Constant.Success = false;
             e.printStackTrace();
             System.out.println("Failed to create patient.");
+        }
+    }
+   // @Test (priority=35)
+
+//    public void OasisPlanOfCare() {
+//        try {
+//            ExcelUtils eu = new ExcelUtils();
+//            eu.execute(this.driver, "Clinician.xlsx","oasis");
+//            eu.execute(this.driver, "Clinician.xlsx","PlanofCare");
+//        } catch (Exception e) {
+//            success = false;
+//            e.printStackTrace();
+//            System.out.println("Failed to create patient.");
+//        }
+//    }
+
+    @Test (priority=36)
+
+    public void CreateComm() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "Clinician.xlsx","Comm");
+        } catch (Exception e) {
+            Constant.Success = false;
+            e.printStackTrace();
+            System.out.println("Failed to Create Comm.");
+        }
+    }
+    @Test (priority=37)
+
+    public void CreateOrder() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "Clinician.xlsx","Order");
+        } catch (Exception e) {
+            Constant.Success = false;
+            e.printStackTrace();
+            System.out.println("Failed to Create Comm.");
         }
     }
     @AfterMethod
