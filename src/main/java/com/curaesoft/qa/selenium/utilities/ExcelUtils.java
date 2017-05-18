@@ -48,6 +48,7 @@ public class ExcelUtils {
 
 	static String[] account = new String[2];
 	static String srcfile;
+	static String sheetn;
 	static int grownumber =0;
 	int timeout = 10;
 	int close_delay = 3;
@@ -61,7 +62,7 @@ public class ExcelUtils {
 		int num_rows = firstSheet.getLastRowNum();
 
 		srcfile = excel_link;
-
+		sheetn = Sheetname;
 		for(int i = 1; i <= num_rows; i++) {
 			Row rows = firstSheet.getRow(i);
 			grownumber = i+1;
@@ -201,7 +202,7 @@ public class ExcelUtils {
 			Constant.Success = false;
 			if(skip == 0){
 				if(error_notice.equals("")){
-					Assert.fail("Fail to locate xpath on row number "+(rownum+1)+" in "+ srcfile + "\n\n"+e);
+					Assert.fail("Fail to locate xpath on row number "+(rownum+1)+" in "+ srcfile +"("+ sheetn+")"+"\n\n"+e);
 				}else{
 					Assert.fail((rownum+1)+":"+error_notice);
 				}

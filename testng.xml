@@ -7,10 +7,10 @@
 			<class name="tests.AdmissionPageTest" />
 			
 			<class name="tests.SchedulingPageTest" />
+
+			<class name="tests.AuthzPageTest" />
 		
 			<class name="tests.ClinicianPageTest" />
-
-			<class name="tests.AuditTestPage" />
 
 			<class name="tests.CQTestPage" />
 

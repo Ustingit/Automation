@@ -105,17 +105,17 @@ public class ClinicianPageTest extends BaseWebDriver {
     }
    // @Test (priority=35)
 
-//    public void OasisPlanOfCare() {
-//        try {
-//            ExcelUtils eu = new ExcelUtils();
-//            eu.execute(this.driver, "Clinician.xlsx","oasis");
-//            eu.execute(this.driver, "Clinician.xlsx","PlanofCare");
-//        } catch (Exception e) {
-//            success = false;
-//            e.printStackTrace();
-//            System.out.println("Failed to create patient.");
-//        }
-//    }
+    public void OasisPlanOfCare() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "Clinician.xlsx","oasis");
+            eu.execute(this.driver, "Clinician.xlsx","PlanofCare");
+        } catch (Exception e) {
+            success = false;
+            e.printStackTrace();
+            System.out.println("Failed to create patient.");
+        }
+    }
 
     @Test (priority=36)
 
