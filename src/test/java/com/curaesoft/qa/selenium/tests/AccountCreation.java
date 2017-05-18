@@ -19,7 +19,7 @@ public class AccountCreation extends BaseWebDriver{
     @BeforeMethod
     public void login() {
         try {
-            homePage = this.loginPage.login("admin");
+            homePage = this.loginPage.login("q4");
         } catch (Exception e) {
             success = false;
             e.printStackTrace();
@@ -33,7 +33,7 @@ public class AccountCreation extends BaseWebDriver{
     public void createAccount() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "AccountCreation.xlsx");
+            eu.execute(this.driver, "AccountCreation.xlsx","Sheet1");
         } catch (Exception e) {
             success = false;
             e.printStackTrace();
@@ -46,7 +46,7 @@ public class AccountCreation extends BaseWebDriver{
     public void createClinicainAccount() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "ClinicianAccount.xlsx");
+            eu.execute(this.driver, "ClinicianAccount.xlsx","Sheet1");
         } catch (Exception e) {
             success = false;
             e.printStackTrace();
@@ -58,7 +58,7 @@ public class AccountCreation extends BaseWebDriver{
     public void SetClinicianrole() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "ClinicianAccountRole.xlsx");
+            eu.execute(this.driver, "ClinicianAccountRole.xlsx","Sheet1");
         } catch (Exception e) {
             success = false;
             e.printStackTrace();

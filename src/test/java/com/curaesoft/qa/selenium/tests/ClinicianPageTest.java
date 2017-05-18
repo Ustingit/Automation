@@ -33,7 +33,7 @@ public class ClinicianPageTest extends BaseWebDriver {
     public void ViewOfficeNotes() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "Clinician Office Notes.xlsx");
+            eu.execute(this.driver, "Clinician.xlsx","OfficeNotes");
         } catch (Exception e) {
             success = false;
             e.printStackTrace();
@@ -45,7 +45,7 @@ public class ClinicianPageTest extends BaseWebDriver {
     public void CreateMyPlan() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "Clinician Task.xlsx");
+            eu.execute(this.driver, "Clinician.xlsx","Myplan");
         } catch (Exception e) {
             success = false;
             e.printStackTrace();
@@ -57,7 +57,7 @@ public class ClinicianPageTest extends BaseWebDriver {
     public void SigninClinician() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "clinicianToDoVisit.xlsx");
+            eu.execute(this.driver, "Clinician.xlsx","Clinician");
         } catch (Exception e) {
             success = false;
             e.printStackTrace();
@@ -69,8 +69,8 @@ public class ClinicianPageTest extends BaseWebDriver {
     public void OASIS_Administrative() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "Clinician - OASIS.xlsx");
-            eu.execute(this.driver, "Clinician - Administrative.xlsx");
+            eu.execute(this.driver, "Clinician.xlsx","oasis");
+            eu.execute(this.driver, "Clinician.xlsx","Administrative");
         } catch (Exception e) {
             success = false;
             e.printStackTrace();
@@ -82,8 +82,8 @@ public class ClinicianPageTest extends BaseWebDriver {
     public void PlanOfCare() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "Clinician - OASIS.xlsx");
-            eu.execute(this.driver, "Clinician - Plan of care.xlsx");
+            eu.execute(this.driver, "Clinician - OASIS.xlsx","oasis");
+            eu.execute(this.driver, "Clinician - Plan of care.xlsx","PlanofCare");
         } catch (Exception e) {
             success = false;
             e.printStackTrace();
