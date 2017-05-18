@@ -28,11 +28,35 @@ public class CQTestPage  extends BaseWebDriver {
 
 
     @Test (priority=8)
-
-    public void CQTesting() {
+    public void complain() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "CQ.xlsx");
+            eu.execute(this.driver, "CQ.xlsx","complain");
+        } catch (Exception e) {
+            success = false;
+            e.printStackTrace();
+            System.out.println("Failed to test CQ.");
+        }
+    }
+
+    @Test (priority=9)
+    public void kudo() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "CQ.xlsx","kudo");
+        } catch (Exception e) {
+            success = false;
+            e.printStackTrace();
+            System.out.println("Failed to test CQ.");
+        }
+    }
+    
+    
+    @Test (priority=10)  
+    public void delete() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "CQ.xlsx","delete");
         } catch (Exception e) {
             success = false;
             e.printStackTrace();
