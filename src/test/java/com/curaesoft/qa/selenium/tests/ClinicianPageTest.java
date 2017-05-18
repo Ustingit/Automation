@@ -30,6 +30,18 @@ public class ClinicianPageTest extends BaseWebDriver {
     }
     @Test (priority=31)
 
+    public void VerifyClinicianAccountforPatient() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "Clinician.xlsx","VerifyClinician");
+        } catch (Exception e) {
+            success = false;
+            e.printStackTrace();
+            System.out.println("Failed to View Office Notes.");
+        }
+    }
+    @Test (priority=32)
+
     public void ViewOfficeNotes() {
         try {
             ExcelUtils eu = new ExcelUtils();
@@ -40,7 +52,7 @@ public class ClinicianPageTest extends BaseWebDriver {
             System.out.println("Failed to View Office Notes.");
         }
     }
-    @Test (priority=32)
+    @Test (priority=33)
 
     public void CreateMyPlan() {
         try {
@@ -53,7 +65,7 @@ public class ClinicianPageTest extends BaseWebDriver {
         }
     }
 
-    @Test (priority=33)
+    @Test (priority=34)
     public void SigninClinician() {
         try {
             ExcelUtils eu = new ExcelUtils();
@@ -64,7 +76,7 @@ public class ClinicianPageTest extends BaseWebDriver {
             System.out.println("Failed to create patient.");
         }
     }
-    @Test (priority=34)
+    @Test (priority=35)
 
     public void OASIS_Administrative() {
         try {
