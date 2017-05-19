@@ -128,7 +128,7 @@ public class AuthzPageTest extends BaseWebDriver {
         try {
             ExcelUtils ev = new ExcelUtils();
             ev.account();
-            ev.execute(this.driver, "Authorization.xlsx","AuthorizationResponseAuthz");
+            ev.execute(this.driver, "Authorization.xlsx","AuthorizationResponseAuthz1");
 
             List<WebElement> downloadContainer = driver.findElements(By.xpath("//*[@id=\"ui-admin-email\"]/md-content/md-card/md-card-content/md-list-item/div[1]/md-card/md-card-content/div/div[1]/md-content[1]/div[7]/md-table-container/table/tbody"));
             int dlCount = downloadContainer.size();
@@ -137,17 +137,19 @@ public class AuthzPageTest extends BaseWebDriver {
 
             //assign visit
             assignVisit(dlCount, 1, "1");
-           // assignVisit(dlCount, 3, "1");
-           // assignVisit(dlCount, 4, "1");
-           // assignVisit(dlCount, 5, "1");
-           // assignVisit(dlCount, 6, "1");
-           // assignVisit(dlCount, 7, "1");
+            assignVisit(dlCount, 2, "1");
+           assignVisit(dlCount, 3, "1");
+           assignVisit(dlCount, 4, "1");
+           assignVisit(dlCount, 5, "1");
+           assignVisit(dlCount, 6, "1");
+           assignVisit(dlCount, 7, "1");
 
             //upload file
             driver.findElement(By.xpath("(//a[@ngf-select=\"vm.upload($files, exchange)\"])[1]")).click();
             Robot r = new Robot();
             sendKeys(r, "D:\\SE\\Documents\\Desktop\\test.png");
 
+            ev.execute(this.driver, "Authorization.xlsx","AuthorizationResponseAuthz2");
 
         } catch (Exception e) {
             success = false;
@@ -202,13 +204,15 @@ public class AuthzPageTest extends BaseWebDriver {
             //click comment
             // this.driver.findElement(By.xpath("//*[@id=\"ui-admin-email\"]/md-content/md-card/md-card-content/md-list-item/div[1]/md-card/md-card-content/div/div[2]/md-content/md-tabs/md-tabs-wrapper/md-tabs-canvas/md-pagination-wrapper/md-tab-item[2]/span[2]")).click();
             //assign visit with approved
-            assignVisit(dlCount2, 1, "18");
-           // assignVisit(dlCount2, 2, "18");
-           // assignVisit(dlCount2, 3, "18");
-          //  assignVisit(dlCount2, 4, "18");
-         //   assignVisit(dlCount2, 5, "18");
-          //  assignVisit(dlCount2, 6, "18");
-          //  assignVisit(dlCount2, 7, "18");
+            assignVisit(dlCount2, 1, "17");
+           assignVisit(dlCount2, 2, "17");
+           assignVisit(dlCount2, 3, "17");
+          assignVisit(dlCount2, 4, "17");
+         assignVisit(dlCount2, 5, "17");
+          assignVisit(dlCount2, 6, "17");
+          assignVisit(dlCount2, 7, "17");
+
+            ev.execute(this.driver, "Authorization.xlsx","authz4");
 
 
         } catch (Exception e) {
@@ -257,9 +261,20 @@ public class AuthzPageTest extends BaseWebDriver {
 
 
     public void assignVisit(int tbody , int column, String value){
-        this.driver.findElement(By.xpath("//*[@id=\"ui-admin-email\"]/md-content/md-card/md-card-content/md-list-item/div[1]/md-card/md-card-content/div/div[1]/md-content[1]/div[7]/md-table-container/table/tbody["+tbody+"]/tr["+column+"]/td[5]/span")).click();
-        this.driver.findElement(By.xpath("//md-edit-dialog//md-input-container/input")).sendKeys(value);
-        this.driver.findElement(By.xpath("/html/body/md-edit-dialog/div[2]/button[2]")).click();
+        try {
+            Thread.sleep(1000);
+            this.driver.findElement(By.xpath("//*[@id=\"ui-admin-email\"]/md-content/md-card/md-card-content/md-list-item/div[1]/md-card/md-card-content/div/div[1]/md-content[1]/div[7]/md-table-container/table/tbody["+tbody+"]/tr["+column+"]/td[5]/span")).click();
+            Thread.sleep(1000 );
+            this.driver.findElement(By.xpath("//md-edit-dialog//md-input-container/input")).sendKeys(value);
+            Thread.sleep(1000 );
+            this.driver.findElement(By.xpath("/html/body/md-edit-dialog/div[2]/button[2]")).click();
+
+        }catch (Exception e) {
+
+                System.out.println("Failed:"+e.toString());
+            }
+
+
     }
     public void sendKeys( Robot robot  ,String keys) {
         StringSelection ss = new StringSelection(keys);
