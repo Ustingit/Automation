@@ -22,6 +22,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
             homePage = this.loginPage.login("qa");
         } catch (Exception e) {
             e.printStackTrace();
+            Assert.fail(e.toString());
             System.out.println("Failed to login into the application !");
         }
     }
@@ -37,6 +38,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
         } catch (Exception e) {
             success = false;
             e.printStackTrace();
+            Assert.fail(e.toString());
             System.out.println("Failed to create patient.");
         }
 
@@ -51,6 +53,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
         }catch (Exception e) {
             success = false;
             e.printStackTrace();
+            Assert.fail(e.toString());
             System.out.println("Failed to create admission for new patient.");
         }
 
@@ -67,6 +70,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
         } catch (Exception e) {
             success = false;
             e.printStackTrace();
+            Assert.fail(e.toString());
             System.out.println("Failed to create patient.");
         }
 
@@ -82,7 +86,9 @@ public class AdmissionPageTest  extends BaseWebDriver {
         }catch (Exception e) {
             success = false;
             e.printStackTrace();
+            Assert.fail(e.toString());
             System.out.println("Failed to create admission for new patient.");
+
         }
 
     }
@@ -97,6 +103,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
         } catch (Exception e) {
             success = false;
             e.printStackTrace();
+            Assert.fail(e.toString());
             System.out.println("Failed to create patient.");
         }
 
@@ -115,6 +122,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
             success = false;
             e.printStackTrace();
             System.out.println("Failed to create patient.");
+            Assert.fail(e.toString());
         }
 
     }
@@ -130,6 +138,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
             success = false;
             e.printStackTrace();
             System.out.println("Failed to create admission for new patient.");
+            Assert.fail(e.toString());
         }
 
     }
@@ -144,6 +153,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
             success = false;
             e.printStackTrace();
             System.out.println("Failed to create admission for new patient.");
+            Assert.fail(e.toString());
         }
 
     }
@@ -159,6 +169,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
             success = false;
             e.printStackTrace();
             System.out.println("Failed to create admission for old patient.");
+            Assert.fail(e.toString());
         }
 
     }
@@ -180,6 +191,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Failed to login into the application");
+            Assert.fail(e.toString());
         }
     }
 }
