@@ -28,7 +28,7 @@ public class ClinicianPageTest extends BaseWebDriver {
             System.out.println("Failed to login into the application !");
         }
     }
-    @Test (priority=31)
+    @Test (priority=41)
 
     public void VerifyClinicianAccountforPatient() {
         try {
@@ -41,7 +41,7 @@ public class ClinicianPageTest extends BaseWebDriver {
         }
     }
 
-    @Test (priority=32)
+    @Test (priority=42)
 
     public void ViewOfficeNotes() {
         try {
@@ -53,7 +53,7 @@ public class ClinicianPageTest extends BaseWebDriver {
             System.out.println("Failed to View Office Notes.");
         }
     }
-    @Test (priority=33)
+    @Test (priority=43)
 
     public void CreateMyPlan() {
         try {
@@ -66,7 +66,7 @@ public class ClinicianPageTest extends BaseWebDriver {
         }
     }
 
-    @Test (priority=34)
+    @Test (priority=44)
     public void SigninClinician() {
         try {
             ExcelUtils eu = new ExcelUtils();
@@ -77,7 +77,7 @@ public class ClinicianPageTest extends BaseWebDriver {
             System.out.println("Failed to create patient.");
         }
     }
-    @Test (priority=35)
+    @Test (priority=45)
 
     public void OasisAdministrative() {
         try {
@@ -90,7 +90,7 @@ public class ClinicianPageTest extends BaseWebDriver {
             System.out.println("Failed to create patient.");
         }
     }
-    @Test (priority=35)
+    @Test (priority=45)
 
     public void OasisGeneral() {
         try {
@@ -103,7 +103,7 @@ public class ClinicianPageTest extends BaseWebDriver {
             System.out.println("Failed to create patient.");
         }
     }
-   // @Test (priority=35)
+   // @Test (priority=45)
 
     public void OasisPlanOfCare() {
         try {
@@ -117,7 +117,7 @@ public class ClinicianPageTest extends BaseWebDriver {
         }
     }
 
-    @Test (priority=36)
+    @Test (priority=46)
 
     public void CreateComm() {
         try {
@@ -129,7 +129,7 @@ public class ClinicianPageTest extends BaseWebDriver {
             System.out.println("Failed to Create Comm.");
         }
     }
-    @Test (priority=37)
+    @Test (priority=47)
 
     public void CreateOrder() {
         try {

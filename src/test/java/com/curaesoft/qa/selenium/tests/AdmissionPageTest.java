@@ -139,7 +139,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
     public void createAdmissionForNewPatient4() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "Admission.xlsx","Non-Admit");
+             eu.execute(this.driver, "Admission.xlsx","Non-Admit");
         }catch (Exception e) {
             success = false;
             e.printStackTrace();
