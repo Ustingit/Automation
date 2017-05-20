@@ -29,7 +29,7 @@ public class ProfilePageTest extends BaseWebDriver {
         }
     }
 
-    @Test (priority=51)
+    @Test (priority=71)
     public void UpdateSettings() {
         try {
             ExcelUtils eu = new ExcelUtils();
@@ -42,7 +42,7 @@ public class ProfilePageTest extends BaseWebDriver {
 
 
     }
-    @Test (priority=52)
+    @Test (priority=72)
     public void UpdatePassword() {
         try {
             ExcelUtils eu = new ExcelUtils();
@@ -55,7 +55,7 @@ public class ProfilePageTest extends BaseWebDriver {
 
 
     }
-    @Test (priority=53)
+    @Test (priority=73)
     public void UpdateNotification() {
         try {
             ExcelUtils eu = new ExcelUtils();

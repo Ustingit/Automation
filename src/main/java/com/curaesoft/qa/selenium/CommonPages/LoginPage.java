@@ -118,7 +118,7 @@ public class LoginPage {
 			menuDropDown.click();
 			Thread.sleep(1000);
 			(new WebDriverWait(driver, 10)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@href=\"#/login\" and @role=\"menuitem\"]"))).click();
-			//driver.navigate().to(Constant.webURL);
+			driver.navigate().to(Constant.webURL);
 		} catch (Exception e) {
 			System.out.println(e);
 			Reporter.log("Failed to logout from the application");
