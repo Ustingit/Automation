@@ -47,6 +47,7 @@ public class AuthzPageTest extends BaseWebDriver {
         } catch (Exception e) {
             success = false;
             e.printStackTrace();
+            Assert.fail(e.toString());
             System.out.println("Failed to create AssignTo");
         }
     }
@@ -60,6 +61,7 @@ public class AuthzPageTest extends BaseWebDriver {
             } catch (Exception e) {
                 success = false;
                 e.printStackTrace();
+                Assert.fail(e.toString());
                 System.out.println("Failed to create DeAssign");
             }
         }
@@ -73,6 +75,7 @@ public class AuthzPageTest extends BaseWebDriver {
         } catch (Exception e) {
             success = false;
             e.printStackTrace();
+            Assert.fail(e.toString());
             System.out.println("Failed to create SendAuthz");
         }
     }
@@ -87,6 +90,7 @@ public class AuthzPageTest extends BaseWebDriver {
 
         } catch (Exception e) {
             e.printStackTrace();
+            Assert.fail(e.toString());
             System.out.println("Failed to login into the application !");
         }
 
@@ -98,9 +102,10 @@ public class AuthzPageTest extends BaseWebDriver {
     public void AddCorrectionDecrease() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "Authorization.xlsx","AuthorizationAddCorrectionDecrease");
+            eu.execute(this.driver, "Authorization.xlsx","AuthorizationAddCorrDecrease");
         } catch (Exception e) {
             e.printStackTrace();
+            Assert.fail(e.toString());
             System.out.println("Failed to login into the application !");
         }
 
@@ -115,6 +120,7 @@ public class AuthzPageTest extends BaseWebDriver {
             eu.execute(this.driver, "Authorization.xlsx","AuthorizationAddComment");
         } catch (Exception e) {
             e.printStackTrace();
+            Assert.fail(e.toString());
             System.out.println("Failed to login into the application !");
         }
 
@@ -154,29 +160,14 @@ public class AuthzPageTest extends BaseWebDriver {
         } catch (Exception e) {
             success = false;
             e.printStackTrace();
+            Assert.fail(e.toString());
             System.out.println("Failed to create WaitResAuths");
         }
     }
 
-    @Test (priority = 28)
-
-    public void SaveResponseAuthz (){
-
-        try {
-            ExcelUtils ev = new ExcelUtils();
-            ev.account();
-            ev.execute(this.driver, "Authorization.xlsx","AuthorizationSaveRes");
-         } catch (Exception e) {
-            //System.out.println(e);
-            success = false;
-            e.printStackTrace();
-            System.out.println("Failed to create patient.");
-        }
 
 
-    }
-
-    @Test(priority = 29)
+    @Test(priority = 28)
 
     public void SendAuthz2() {
         try {
@@ -185,12 +176,13 @@ public class AuthzPageTest extends BaseWebDriver {
         } catch (Exception e) {
             success = false;
             e.printStackTrace();
+            Assert.fail(e.toString());
             System.out.println("Failed to create SendAuthz");
         }
     }
 
 
-    @Test(priority = 30)
+    @Test(priority = 29)
 
     public void MaximizedVisits() {
         try {
@@ -204,13 +196,13 @@ public class AuthzPageTest extends BaseWebDriver {
             //click comment
             // this.driver.findElement(By.xpath("//*[@id=\"ui-admin-email\"]/md-content/md-card/md-card-content/md-list-item/div[1]/md-card/md-card-content/div/div[2]/md-content/md-tabs/md-tabs-wrapper/md-tabs-canvas/md-pagination-wrapper/md-tab-item[2]/span[2]")).click();
             //assign visit with approved
-            assignVisit(dlCount2, 1, "17");
-           assignVisit(dlCount2, 2, "17");
-           assignVisit(dlCount2, 3, "17");
-          assignVisit(dlCount2, 4, "17");
-         assignVisit(dlCount2, 5, "17");
-          assignVisit(dlCount2, 6, "17");
-          assignVisit(dlCount2, 7, "17");
+            assignVisit(dlCount2, 1, "18");
+           assignVisit(dlCount2, 2, "18");
+           assignVisit(dlCount2, 3, "18");
+          assignVisit(dlCount2, 4, "18");
+         assignVisit(dlCount2, 5, "18");
+          assignVisit(dlCount2, 6, "18");
+          assignVisit(dlCount2, 7, "18");
 
             ev.execute(this.driver, "Authorization.xlsx","authz4");
 
@@ -219,28 +211,16 @@ public class AuthzPageTest extends BaseWebDriver {
             //System.out.println(e);
             success = false;
             e.printStackTrace();
+            Assert.fail(e.toString());
             System.out.println("Failed to create patient.");
         }
 
 
     }
 
-    @Test(priority = 31)
 
-    public void SaveResAuthz() {
 
-        try {
-            ExcelUtils ev = new ExcelUtils();
-            ev.account();
-            ev.execute(this.driver, "Authorization.xlsx","AuthorizationSaveResponseAuthz");
-        } catch (Exception e) {
-            success = false;
-            e.printStackTrace();
-            System.out.println("Failed to create SendAuthz");
-        }
-    }
-
-    @Test (priority = 32)
+    @Test (priority = 30)
 
     public void ApprovedTab (){
         try {
@@ -250,6 +230,7 @@ public class AuthzPageTest extends BaseWebDriver {
         } catch (Exception e) {
             success = false;
             e.printStackTrace();
+            Assert.fail(e.toString());
             System.out.println("Failed to create SendAuthz");
         }
     }
@@ -260,18 +241,18 @@ public class AuthzPageTest extends BaseWebDriver {
 
 
 
-    public void assignVisit(int tbody , int column, String value){
+    public void assignVisit(int tbody , int column, String value) {
         try {
-            Thread.sleep(1000);
+
             this.driver.findElement(By.xpath("//*[@id=\"ui-admin-email\"]/md-content/md-card/md-card-content/md-list-item/div[1]/md-card/md-card-content/div/div[1]/md-content[1]/div[7]/md-table-container/table/tbody["+tbody+"]/tr["+column+"]/td[5]/span")).click();
-            Thread.sleep(1000 );
+
             this.driver.findElement(By.xpath("//md-edit-dialog//md-input-container/input")).sendKeys(value);
-            Thread.sleep(1000 );
+
             this.driver.findElement(By.xpath("/html/body/md-edit-dialog/div[2]/button[2]")).click();
 
         }catch (Exception e) {
+            Assert.fail(e.toString());
 
-                System.out.println("Failed:"+e.toString());
             }
 
 
