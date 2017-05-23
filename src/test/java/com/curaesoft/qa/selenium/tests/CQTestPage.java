@@ -27,7 +27,7 @@ public class CQTestPage  extends BaseWebDriver {
     }
 
 
-    @Test (priority=61)
+    @Test (priority=62)
     public void complain() {
         try {
             ExcelUtils eu = new ExcelUtils();
@@ -39,7 +39,7 @@ public class CQTestPage  extends BaseWebDriver {
         }
     }
 
-    @Test (priority=62)
+    @Test (priority=61)
     public void kudo() {
         try {
             ExcelUtils eu = new ExcelUtils();
@@ -64,12 +64,15 @@ public class CQTestPage  extends BaseWebDriver {
         }
     }
 
-
     @AfterMethod
     public void logout() {
+
         try {
-            if (Constant.Debugging == false) {
-                if (success) {
+            if(Constant.Debugging == false){
+                result = this.loginPage.logout();
+                Assert.assertTrue(result);
+            }else{
+                if(Constant.Success){
                     result = this.loginPage.logout();
                     Assert.assertTrue(result);
                 }

@@ -11,6 +11,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.Reporter;
 
 import com.curaesoft.qa.selenium.Config.Constant;
@@ -114,15 +115,17 @@ public class LoginPage {
 
 	public boolean logout() {
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(3000);
 			menuDropDown.click();
 			Thread.sleep(1000);
 			(new WebDriverWait(driver, 10)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@href=\"#/login\" and @role=\"menuitem\"]"))).click();
 			driver.navigate().to(Constant.webURL);
 		} catch (Exception e) {
-			System.out.println(e);
+			driver.navigate().to(Constant.webURL);
 			Reporter.log("Failed to logout from the application");
+			Assert.fail("Failed to logout from the application");
 		}
+
 		return true;
 	}
 
