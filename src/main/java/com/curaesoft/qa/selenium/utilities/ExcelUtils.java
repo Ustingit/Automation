@@ -22,7 +22,7 @@ import org.openqa.selenium.interactions.Actions;
 import com.curaesoft.qa.selenium.Config.Constant;
 import com.curaesoft.qa.selenium.CommonPages.LoginPage;
 import java.util.List;
-
+import java.util.concurrent.TimeUnit;
 public class ExcelUtils {
 	private static FileInputStream ExcelFile;
 	private static XSSFSheet ExcelWSheet;
@@ -55,6 +55,7 @@ public class ExcelUtils {
 	ExcelUtils util;
 
 	public void reader(WebDriver driver, String excel_link, String Sheetname)throws Exception {
+
 		FileInputStream inputStream = new FileInputStream(new File("resources/"+excel_link));
 
 		Workbook workbook = new XSSFWorkbook(inputStream);
@@ -75,8 +76,8 @@ public class ExcelUtils {
 					iformat(rows,4),	//click
 					iformat(rows,5),	//delay before click second
 					iformat(rows,6),	//delay after click second
-					sformat(rows,7),	//Skip on error
-					iformat(rows,8),	//custom_value
+					sformat(rows,7),	//custom_value
+					iformat(rows,8),	//Skip on error
 					sformat(rows,9),	//error notice
 					i
 			);
@@ -482,6 +483,8 @@ public class ExcelUtils {
 
 
 	public void execute(WebDriver driver, String excelPath, String Sheet) {
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 		util = new ExcelUtils();
 
 		try {
