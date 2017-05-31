@@ -1,4 +1,3 @@
-package tests;
 
 import java.util.concurrent.TimeUnit;
 
@@ -212,9 +211,6 @@ public class services {
         	click("//div[@layout='column']/button[@aria-label='Operations']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Operation')]");
         	Thread.sleep(2000);
-        	click("//div[@layout='column']/button[@aria-label='Oasis']");
-        	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Operation')]");
-        	Thread.sleep(2000);
         	click("//div[@layout='column']/button[@aria-label='Filing']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Operation')]");
         	
@@ -222,7 +218,7 @@ public class services {
         	Assert.fail("Oasis Service Test Fail //n"+e);
         }
     }
-	@Test(priority = 10)
+	//@Test(priority = 10)
     public void Signing() {
         try {
         	click("//div[@layout='column']/button[@aria-label='Operations']");
