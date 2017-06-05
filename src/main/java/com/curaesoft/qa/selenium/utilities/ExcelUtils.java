@@ -422,7 +422,8 @@ public class ExcelUtils {
 
 	public void account() {
 		Constant con = new Constant();
-		System.out.println(con.map("lastname"));
+		System.out.println("Firstname:"+con.map("firstname"));
+		System.out.println("Lastname:"+con.map("lastname"));
 	}
 	public void refresh(WebDriver driver) {
 		driver.navigate().refresh();
