@@ -205,7 +205,7 @@ public class ExcelUtils {
 				if(error_notice.equals("")){
 					Assert.fail("Fail to locate xpath on row number "+(rownum+1)+" in "+ srcfile +"("+ sheetn+")"+"\n\n"+e);
 				}else{
-					Assert.fail((rownum+1)+":"+error_notice);
+					Assert.fail(srcfile +"("+ sheetn+") "+(rownum+1)+":"+error_notice);
 				}
 
 				throw e;
