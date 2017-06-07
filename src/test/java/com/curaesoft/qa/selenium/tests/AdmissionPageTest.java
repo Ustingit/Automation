@@ -64,8 +64,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
 
     public void Approval01() {
         try {
-            ExcelUtils eu = new ExcelUtils();
-            eu.account();
+            ExcelUtils eu = new ExcelUtils();         
             eu.execute(this.driver, "Admission.xlsx", "InApproval01");
         } catch (Exception e) {
             success = false;
@@ -98,7 +97,6 @@ public class AdmissionPageTest  extends BaseWebDriver {
     public void AdmissionInApproval2() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.account();
             eu.execute(this.driver, "Admission.xlsx","InApproval02");
         } catch (Exception e) {
             success = false;
@@ -116,7 +114,6 @@ public class AdmissionPageTest  extends BaseWebDriver {
     public void createPatient3() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.account();
             eu.execute(this.driver, "Admission.xlsx","CreatePatient2");
         } catch (Exception e) {
             success = false;

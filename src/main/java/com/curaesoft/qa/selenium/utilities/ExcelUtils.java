@@ -205,7 +205,7 @@ public class ExcelUtils {
 				if(error_notice.equals("")){
 					Assert.fail("Fail to locate xpath on row number "+(rownum+1)+" in "+ srcfile +"("+ sheetn+")"+"\n\n"+e);
 				}else{
-					Assert.fail((rownum+1)+":"+error_notice);
+					Assert.fail(srcfile +"("+ sheetn+") "+(rownum+1)+":"+error_notice);
 				}
 
 				throw e;
@@ -422,7 +422,8 @@ public class ExcelUtils {
 
 	public void account() {
 		Constant con = new Constant();
-		System.out.printf(con.map("lastname"));
+		System.out.println("Firstname:"+con.map("firstname"));
+		System.out.println("Lastname:"+con.map("lastname"));
 	}
 	public void refresh(WebDriver driver) {
 		driver.navigate().refresh();

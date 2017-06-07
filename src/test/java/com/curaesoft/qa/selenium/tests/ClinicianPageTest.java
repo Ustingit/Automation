@@ -22,7 +22,7 @@ public class ClinicianPageTest extends BaseWebDriver {
     public void login() {
 
         try {
-            homePage = this.loginPage.login("st");
+            homePage = this.loginPage.login("pt");
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Failed to login into the application !");
@@ -116,7 +116,33 @@ public class ClinicianPageTest extends BaseWebDriver {
             System.out.println("Failed to create patient.");
         }
     }
+ @Test (priority=45)
 
+    public void OasisRiskPrognosis() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "Clinician.xlsx","oasis");
+            eu.execute(this.driver, "Clinician.xlsx","RiskPrognosis");
+        } catch (Exception e) {
+            success = false;
+            e.printStackTrace();
+            System.out.println("Failed to create patient.");
+        }
+    }
+ @Test (priority=45)
+
+ public void OasisHistoryDiagnoses() {
+     try {
+         ExcelUtils eu = new ExcelUtils();
+         eu.execute(this.driver, "Clinician.xlsx","oasis");
+         eu.execute(this.driver, "Clinician.xlsx","HistoryDiagnoses");
+     } catch (Exception e) {
+         success = false;
+         e.printStackTrace();
+         System.out.println("HistoryDiagnoses to create patient.");
+     }
+ }
+ 
     @Test (priority=46)
 
     public void CreateComm() {

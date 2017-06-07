@@ -351,6 +351,43 @@ public class services {
         	Assert.fail("Scheduling Analyzer Test Fail //n"+e);
         }
     }
+	
+	@Test(priority = 10)
+	public void Clinician_Audti() {
+        try {
+        	click("//div[@layout='column']/button[@aria-label='Clinician Portal']");
+        	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Clinician')]");
+        	Thread.sleep(2000);
+        	click("//div[@layout='column']/button[@aria-label='Audit']");
+        	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Note Audits')]");
+        } catch (Exception e) {
+        	Assert.fail("Clinician_Audti Test Fail //n"+e);
+        }
+    }
+	@Test(priority = 10)
+	public void Clinician_Past_Visit() {
+        try {
+        	click("//div[@layout='column']/button[@aria-label='Clinician Portal']");
+        	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Clinician')]");
+        	Thread.sleep(2000);
+        	click("//div[@layout='column']/button[@aria-label='Past Visit']");
+        	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Past')]");
+        } catch (Exception e) {
+        	Assert.fail("Past Visit Test Fail //n"+e);
+        }
+    }
+	@Test(priority = 10)
+	public void Clinician_To_Do() {
+        try {
+        	click("//div[@layout='column']/button[@aria-label='Clinician Portal']");
+        	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Clinician')]");
+        	Thread.sleep(2000);
+        	click("//div[@layout='column']/button[@aria-label='To-Do Visit']");
+        	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'To-do')]");
+        } catch (Exception e) {
+        	Assert.fail("To-Do Visit Test Fail //n"+e);
+        }
+    }
 	public void input(String xpath, String value) {
 
 		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
