@@ -19,7 +19,7 @@ public class AccountCreation extends BaseWebDriver{
     @BeforeMethod
     public void login() {
         try {
-            homePage = this.loginPage.login("q4");
+            homePage = this.loginPage.login("qateam");
         } catch (Exception e) {
             success = false;
             e.printStackTrace();
