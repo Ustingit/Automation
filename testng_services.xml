@@ -1,8 +1,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="IronMan Auotmation Services Test">
+<suite name="IronMan Auotmation Service Test">
 	<test name="IronMan Auotmation Services Test" parallel="false" preserve-order="true">
 		<classes>
 			<class name="tests.services" />
 		</classes>
 	</test>
-</suite>
+</suite> 

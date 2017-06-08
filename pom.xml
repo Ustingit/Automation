@@ -15,6 +15,7 @@
 		<suiteFile>testng.xml</suiteFile>
 		<suiteFile>testng_services.xml</suiteFile>
 	</properties>
+	
 	<build>
 		<plugins>
 			<plugin>
