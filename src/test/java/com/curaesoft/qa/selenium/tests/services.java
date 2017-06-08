@@ -62,7 +62,7 @@ public class services {
     public void Profile() {
         try {
         	click("//div[@layout='column']/button[@aria-label='Profile']");
-        	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Profile')]");
+        	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Profile1')]");
         } catch (Exception e) {
         	Assert.fail("Profile Service Test Fail //n"+e);
      
@@ -103,7 +103,7 @@ public class services {
     public void Patient_List() {
         try {
         	click("//div[@layout='column']/button[@aria-label='Patient List']");
-        	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Patient')]");
+        	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Patient1')]");
         } catch (Exception e) {
         	Assert.fail("Patient List Service Test Fail //n"+e);
         }
@@ -164,7 +164,7 @@ public class services {
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Operation')]");
         	Thread.sleep(2000);
         	click("//div[@layout='column']/button[@aria-label='Admission']");
-        	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Admissions')]");
+        	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Admissions1')]");
         } catch (Exception e) {
         	Assert.fail("Admissions Service Test Fail //n"+e);
         }
@@ -228,7 +228,7 @@ public class services {
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Operation')]");
         	Thread.sleep(2000);
         	click("//div[@layout='column']/button[@aria-label='Signing']");
-        	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Operation')]");
+        	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Operation1')]");
         	
         } catch (Exception e) {
         	Assert.fail("Signing Test Fail //n"+e);
@@ -359,7 +359,7 @@ public class services {
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Clinician')]");
         	Thread.sleep(2000);
         	click("//div[@layout='column']/button[@aria-label='Audit']");
-        	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Note Audits')]");
+        	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Note Audits1')]");
         } catch (Exception e) {
         	Assert.fail("Clinician_Audti Test Fail //n"+e);
         }
