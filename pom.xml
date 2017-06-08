@@ -25,7 +25,7 @@
 				<configuration>
 					<suiteXmlFiles>
 						<!-- TestNG suite XML files -->
-						<suiteXmlFile>${suiteFile}.xml</suiteXmlFile>
+						<suiteXmlFile>${suiteFile}</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
