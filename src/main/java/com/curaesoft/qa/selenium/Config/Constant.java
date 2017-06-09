@@ -25,7 +25,7 @@ public class Constant {
 	public static final String INTAKE_ROLE = "Intake";
 
 	public static final int width = 1440;
-	public static final int height = 900;
+	public static final int height = 800;
 
 	public static final HashMap<String,String> edata = new HashMap<String, String>();
 
