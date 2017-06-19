@@ -361,7 +361,7 @@ public class services {
         	click("//div[@layout='column']/button[@aria-label='Note Audit']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Audit')]");
         } catch (Exception e) {
-        	Assert.fail("Clinician_Audti Down");
+        	Assert.fail("Clinician_Audit Down");
         }
     }
 	@Test(priority = 10)
