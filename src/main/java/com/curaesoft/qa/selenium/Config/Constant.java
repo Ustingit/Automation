@@ -1,5 +1,6 @@
 package com.curaesoft.qa.selenium.Config;
-
+import java.util.UUID;
+import java.io.*;
 import java.util.Date;
 import java.util.HashMap;
 import java.text.SimpleDateFormat;
@@ -24,7 +25,7 @@ public class Constant {
 	public static final String INTAKE_ROLE = "Intake";
 
 	public static final int width = 1440;
-	public static final int height = 900;
+	public static final int height = 800;
 
 	public static final HashMap<String,String> edata = new HashMap<String, String>();
 
@@ -32,18 +33,20 @@ public class Constant {
 	public static boolean Success= true;
 
 	public static final String lname = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()).toString();
+	public static final String guid = UUID.randomUUID().toString();
 	//public static final String lname ="20170316082058";
 
 	public static String map (String val){
-
+		String fuid=guid.replace("-", "");
 		Date today = new Date();
 		Date tomorrow = new Date(today.getTime() + (1000 * 60 * 60 * 24));
 
-		edata.put("firstname","Test");
-		edata.put("lastname",lname);
+		edata.put("firstname",fuid.substring(0, 16));
+		edata.put("lastname",fuid.substring(16, 32));
 		edata.put("clinician","");
-		//edata.put("lastname","20170520032446");
 
+//		edata.put("firstname","841d943239e54f9a");
+//		edata.put("lastname","ae6d1003c721e8b1");
 		edata.put("date",new SimpleDateFormat("MM-dd-yyyy").format(tomorrow).toString());
 
 
