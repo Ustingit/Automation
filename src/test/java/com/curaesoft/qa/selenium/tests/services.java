@@ -353,7 +353,7 @@ public class services {
     }
 	
 	@Test(priority = 10)
-	public void Clinician_Audti() {
+	public void Clinician_Audit() {
         try {
         	click("//div[@layout='column']/button[@aria-label='Clinician Portal']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Clinician')]");
