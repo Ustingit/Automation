@@ -207,19 +207,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 	         System.out.println("Fail to complete Neurological notes.");
 	     }
 	 }
-	 @Test (priority=45)
-		
-	 public void OasisGastrointestinal() {
-	     try {
-	         ExcelUtils eu = new ExcelUtils();
-	         eu.execute(this.driver, "Clinician.xlsx","oasis");
-	         eu.execute(this.driver, "Clinician.xlsx","Gastrointestinal");
-	     } catch (Exception e) {
-	         success = false;
-	         e.printStackTrace();
-	         System.out.println("Fail to complete Gastrointestinal notes.");
-	     }
-	 }
+	
 	 @Test (priority=45)
 		
 	 public void Integumentary() {
