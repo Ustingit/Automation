@@ -30,7 +30,7 @@ public class Constant {
 	public static final HashMap<String,String> edata = new HashMap<String, String>();
 
 	public static final boolean Debugging  = false;
-	public static final boolean ErrorNotice= true;
+	public static final boolean ErrorNotice= false;
 	public static boolean Success= true;
 
 	public static final String lname = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()).toString();
