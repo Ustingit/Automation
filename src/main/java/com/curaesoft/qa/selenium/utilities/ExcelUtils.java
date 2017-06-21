@@ -193,7 +193,9 @@ public class ExcelUtils {
 				this.signature(driver,xpath);
 
 			}else{
-				System.out.printf("\n"+(rownum+1)+": Action is not registered.", field);
+				if(	Constant.ErrorNotice == true){
+					System.out.printf("\n"+(rownum+1)+": Action is not registered.", field);
+				}
 			}
 
 
@@ -202,7 +204,7 @@ public class ExcelUtils {
 
 			Constant.Success = false;
 			if(skip == 0){
-				if(error_notice.equals("")){
+				if(error_notice.equals("") || Constant.ErrorNotice == true){
 					Assert.fail("Fail to locate xpath on row number "+(rownum+1)+" in "+ srcfile +"("+ sheetn+")"+"\n\n"+e);
 				}else{
 					Assert.fail(srcfile +"("+ sheetn+") "+(rownum+1)+":"+error_notice);

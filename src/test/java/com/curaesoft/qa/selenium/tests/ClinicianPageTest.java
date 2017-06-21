@@ -22,14 +22,16 @@ public class ClinicianPageTest extends BaseWebDriver {
     public void login() {
 
         try {
-            homePage = this.loginPage.login("rn");
+            homePage = this.loginPage.login("pt");
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Failed to login into the application !");
         }
     }
-    @Test (priority=41)
+    
+    
 
+    @Test (priority=41)
     public void VerifyClinicianAccountforPatient() {
         try {
             ExcelUtils eu = new ExcelUtils();
@@ -210,7 +212,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 	
 	 @Test (priority=45)
 		
-	 public void Integumentary() {
+	 public void OasisIntegumentary() {
 	     try {
 	         ExcelUtils eu = new ExcelUtils();
 	         eu.execute(this.driver, "Clinician.xlsx","oasis");
@@ -223,7 +225,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 	 }
 	 @Test (priority=45)
 		
-	 public void Musculoskeletal() {
+	 public void OasisMusculoskeletal() {
 	     try {
 	         ExcelUtils eu = new ExcelUtils();
 	         eu.execute(this.driver, "Clinician.xlsx","oasis");

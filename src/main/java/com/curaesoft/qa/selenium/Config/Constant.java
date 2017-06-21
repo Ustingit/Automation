@@ -30,6 +30,7 @@ public class Constant {
 	public static final HashMap<String,String> edata = new HashMap<String, String>();
 
 	public static final boolean Debugging  = false;
+	public static final boolean ErrorNotice= true;
 	public static boolean Success= true;
 
 	public static final String lname = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()).toString();
@@ -44,9 +45,9 @@ public class Constant {
 		edata.put("firstname",fuid.substring(0, 16));
 		edata.put("lastname",fuid.substring(16, 32));
 		edata.put("clinician","");
-
-//		edata.put("firstname","841d943239e54f9a");
-//		edata.put("lastname","ae6d1003c721e8b1");
+		
+//		edata.put("firstname","1e519b15f4de4a02");
+//		edata.put("lastname","aece06bf0e51346b");
 		edata.put("date",new SimpleDateFormat("MM-dd-yyyy").format(tomorrow).toString());
 
 
