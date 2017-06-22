@@ -15,268 +15,296 @@ import com.curaesoft.qa.selenium.utilities.ExcelUtils;
  */
 public class ClinicianPageTest extends BaseWebDriver {
 
-    HomePage homePage;
-    Boolean result;
-    Boolean success = true;
-    @BeforeMethod
-    public void login() {
+	HomePage homePage;
+	Boolean result;
+	Boolean success = true;
 
-        try {
-            homePage = this.loginPage.login("pt");
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Failed to login into the application !");
-        }
-    }
-    
-    
+	@BeforeMethod
+	public void login() {
 
-    @Test (priority=41)
-    public void VerifyClinicianAccountforPatient() {
-        try {
-            ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "Clinician.xlsx","VerifyClinician");
-        } catch (Exception e) {
-            Constant.Success = false;
-            e.printStackTrace();
-            System.out.println("Failed to View Office Notes.");
-        }
-    }
+		try {
+			homePage = this.loginPage.login("pt");
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Failed to login into the application !");
+		}
+	}
 
-    @Test (priority=42)
+	//@Test(priority = 41)
+	public void VerifyClinicianAccountforPatient() {
+		try {
+			ExcelUtils eu = new ExcelUtils();
+			eu.execute(this.driver, "Clinician.xlsx", "VerifyClinician");
+		} catch (Exception e) {
+			Constant.Success = false;
+			e.printStackTrace();
+			System.out.println("Failed to View Office Notes.");
+		}
+	}
 
-    public void ViewOfficeNotes() {
-        try {
-            ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "Clinician.xlsx","OfficeNotes");
-        } catch (Exception e) {
-            Constant.Success = false;
-            e.printStackTrace();
-            System.out.println("Failed to View Office Notes.");
-        }
-    }
-    @Test (priority=43)
+	@Test(priority = 42)
 
-    public void CreateMyPlan() {
-        try {
-            ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "Clinician.xlsx","Myplan");
-        } catch (Exception e) {
-            Constant.Success = false;
-            e.printStackTrace();
-            System.out.println("Failed to View Office Notes.");
-        }
-    }
+	public void ViewOfficeNotes() {
+		try {
+			ExcelUtils eu = new ExcelUtils();
+			eu.execute(this.driver, "Clinician.xlsx", "OfficeNotes");
+		} catch (Exception e) {
+			Constant.Success = false;
+			e.printStackTrace();
+			System.out.println("Failed to View Office Notes.");
+		}
+	}
 
-    @Test (priority=44)
-    public void SigninClinician() {
-        try {
-            ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "Clinician.xlsx","Clinician");
-        } catch (Exception e) {
-            Constant.Success = false;
-            e.printStackTrace();
-            System.out.println("Failed to Sign in Clinician.");
-        }
-    }
-    @Test (priority=45)
+	@Test(priority = 43)
 
-    public void OasisAdministrative() {
-        try {
-            ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "Clinician.xlsx","oasis");
-            eu.execute(this.driver, "Clinician.xlsx","Administrative");
-        } catch (Exception e) {
-            Constant.Success = false;
-            e.printStackTrace();
-            System.out.println("Fail to complete Administrative notes.");
-        }
-    }
-    @Test (priority=45)
+	public void CreateMyPlan() {
+		try {
+			ExcelUtils eu = new ExcelUtils();
+			eu.execute(this.driver, "Clinician.xlsx", "Myplan");
+		} catch (Exception e) {
+			Constant.Success = false;
+			e.printStackTrace();
+			System.out.println("Failed to View Office Notes.");
+		}
+	}
 
-    public void OasisGeneral() {
-        try {
-            ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "Clinician.xlsx","oasis");
-            eu.execute(this.driver, "Clinician.xlsx","General");
-        } catch (Exception e) {
-            Constant.Success = false;
-            e.printStackTrace();
-            System.out.println("Fail to complete General notes.");
-        }
-    }
-   @Test (priority=45)
+	@Test(priority = 44)
+	public void SigninClinician() {
+		try {
+			ExcelUtils eu = new ExcelUtils();
+			eu.execute(this.driver, "Clinician.xlsx", "Clinician");
+		} catch (Exception e) {
+			Constant.Success = false;
+			e.printStackTrace();
+			System.out.println("Failed to Sign in Clinician.");
+		}
+	}
 
-    public void OasisPlanOfCare() {
-        try {
-            ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "Clinician.xlsx","oasis");
-            eu.execute(this.driver, "Clinician.xlsx","PlanofCare");
-        } catch (Exception e) {
-            success = false;
-            e.printStackTrace();
-            System.out.println("Fail to complete PlanOfCare notes.");
-        }
-    }
-   @Test (priority=45)
+	@Test(priority = 45)
 
-    public void OasisRiskPrognosis() {
-        try {
-            ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "Clinician.xlsx","oasis");
-            eu.execute(this.driver, "Clinician.xlsx","RiskPrognosis");
-        } catch (Exception e) {
-            success = false;
-            e.printStackTrace();
-            System.out.println("Fail to complete RiskPrognosis notes.");
-        }
-    }
-	 @Test (priority=45)
-	
-	 public void OasisHistoryDiagnoses() {
-	     try {
-	         ExcelUtils eu = new ExcelUtils();
-	         eu.execute(this.driver, "Clinician.xlsx","oasis");
-	         eu.execute(this.driver, "Clinician.xlsx","HistoryDiagnoses");
-	     } catch (Exception e) {
-	         success = false;
-	         e.printStackTrace();
-	         System.out.println("Fail to complete HistoryDiagnoses notes.");
-	     }
-	 }
-	 @Test (priority=45)
-		
-	 public void OasisCardiac() {
-	     try {
-	         ExcelUtils eu = new ExcelUtils();
-	         eu.execute(this.driver, "Clinician.xlsx","oasis");
-	         eu.execute(this.driver, "Clinician.xlsx","Cardiac");
-	     } catch (Exception e) {
-	         success = false;
-	         e.printStackTrace();
-	         System.out.println("Fail to complete Cardiac notes.");
-	     }
-	 }
-	 @Test (priority=45)
-		
-	 public void OasisSensory() {
-	     try {
-	         ExcelUtils eu = new ExcelUtils();
-	         eu.execute(this.driver, "Clinician.xlsx","oasis");
-	         eu.execute(this.driver, "Clinician.xlsx","Sensory");
-	     } catch (Exception e) {
-	         success = false;
-	         e.printStackTrace();
-	         System.out.println("Fail to complete Sensory notes.");
-	     }
-	 }
-	 @Test (priority=45)
-		
-	 public void OasisRespiratory() {
-	     try {
-	         ExcelUtils eu = new ExcelUtils();
-	         eu.execute(this.driver, "Clinician.xlsx","oasis");
-	         eu.execute(this.driver, "Clinician.xlsx","Respiratory");
-	     } catch (Exception e) {
-	         success = false;
-	         e.printStackTrace();
-	         System.out.println("Fail to complete Respiratory notes.");
-	     }
-	 }
-	 @Test (priority=45)
-		
-	 public void OasisGastrointestinal() {
-	     try {
-	         ExcelUtils eu = new ExcelUtils();
-	         eu.execute(this.driver, "Clinician.xlsx","oasis");
-	         eu.execute(this.driver, "Clinician.xlsx","Respiratory");
-	     } catch (Exception e) {
-	         success = false;
-	         e.printStackTrace();
-	         System.out.println("Fail to complete Gastrointestinal notes.");
-	     }
-	 }
-	 @Test (priority=45)
-		
-	 public void OasisNeurological() {
-	     try {
-	         ExcelUtils eu = new ExcelUtils();
-	         eu.execute(this.driver, "Clinician.xlsx","oasis");
-	         eu.execute(this.driver, "Clinician.xlsx","Neurological");
-	     } catch (Exception e) {
-	         success = false;
-	         e.printStackTrace();
-	         System.out.println("Fail to complete Neurological notes.");
-	     }
-	 }
-	
-	 @Test (priority=45)
-		
-	 public void OasisIntegumentary() {
-	     try {
-	         ExcelUtils eu = new ExcelUtils();
-	         eu.execute(this.driver, "Clinician.xlsx","oasis");
-	         eu.execute(this.driver, "Clinician.xlsx","Integumentary");
-	     } catch (Exception e) {
-	         success = false;
-	         e.printStackTrace();
-	         System.out.println("Fail to complete Integumentary notes.");
-	     }
-	 }
-	 @Test (priority=45)
-		
-	 public void OasisMusculoskeletal() {
-	     try {
-	         ExcelUtils eu = new ExcelUtils();
-	         eu.execute(this.driver, "Clinician.xlsx","oasis");
-	         eu.execute(this.driver, "Clinician.xlsx","Musculoskeletal");
-	     } catch (Exception e) {
-	         success = false;
-	         e.printStackTrace();
-	         System.out.println("Fail to complete Musculoskeletal notes.");
-	     }
-	 }
-    @Test (priority=46)
+	public void OasisAdministrative() {
+		try {
+			ExcelUtils eu = new ExcelUtils();
+			eu.execute(this.driver, "Clinician.xlsx", "oasis");
+			eu.execute(this.driver, "Clinician.xlsx", "Administrative");
+		} catch (Exception e) {
+			Constant.Success = false;
+			e.printStackTrace();
+			System.out.println("Fail to complete Administrative notes.");
+		}
+	}
 
-    public void CreateComm() {
-        try {
-            ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "Clinician.xlsx","Comm");
-        } catch (Exception e) {
-            Constant.Success = false;
-            e.printStackTrace();
-            System.out.println("Failed to Create Comm.");
-        }
-    }
-    @Test (priority=47)
+	@Test(priority = 45)
 
-    public void CreateOrder() {
-        try {
-            ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "Clinician.xlsx","Order");
-        } catch (Exception e) {
-            Constant.Success = false;
-            e.printStackTrace();
-            System.out.println("Failed to Create Comm.");
-        }
-    }
-    @AfterMethod
-    public void logout() {
+	public void OasisGeneral() {
+		try {
+			ExcelUtils eu = new ExcelUtils();
+			eu.execute(this.driver, "Clinician.xlsx", "oasis");
+			eu.execute(this.driver, "Clinician.xlsx", "General");
+		} catch (Exception e) {
+			Constant.Success = false;
+			e.printStackTrace();
+			System.out.println("Fail to complete General notes.");
+		}
+	}
 
-        try {
-            if(Constant.Debugging == false){
-                result = this.loginPage.logout();
-                Assert.assertTrue(result);
-            }else{
-                if(Constant.Success){
-                    result = this.loginPage.logout();
-                    Assert.assertTrue(result);
-                }
+	@Test(priority = 45)
 
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Failed to login into the application");
-        }
-    }
+	public void OasisPlanOfCare() {
+		try {
+			ExcelUtils eu = new ExcelUtils();
+			eu.execute(this.driver, "Clinician.xlsx", "oasis");
+			eu.execute(this.driver, "Clinician.xlsx", "PlanofCare");
+		} catch (Exception e) {
+			success = false;
+			e.printStackTrace();
+			System.out.println("Fail to complete PlanOfCare notes.");
+		}
+	}
+
+	@Test(priority = 45)
+
+	public void OasisRiskPrognosis() {
+		try {
+			ExcelUtils eu = new ExcelUtils();
+			eu.execute(this.driver, "Clinician.xlsx", "oasis");
+			eu.execute(this.driver, "Clinician.xlsx", "RiskPrognosis");
+		} catch (Exception e) {
+			success = false;
+			e.printStackTrace();
+			System.out.println("Fail to complete RiskPrognosis notes.");
+		}
+	}
+
+	@Test(priority = 45)
+
+	public void OasisHistoryDiagnoses() {
+		try {
+			ExcelUtils eu = new ExcelUtils();
+			eu.execute(this.driver, "Clinician.xlsx", "oasis");
+			eu.execute(this.driver, "Clinician.xlsx", "HistoryDiagnoses");
+		} catch (Exception e) {
+			success = false;
+			e.printStackTrace();
+			System.out.println("Fail to complete HistoryDiagnoses notes.");
+		}
+	}
+
+	@Test(priority = 45)
+
+	public void OasisCardiac() {
+		try {
+			ExcelUtils eu = new ExcelUtils();
+			eu.execute(this.driver, "Clinician.xlsx", "oasis");
+			eu.execute(this.driver, "Clinician.xlsx", "Cardiac");
+		} catch (Exception e) {
+			success = false;
+			e.printStackTrace();
+			System.out.println("Fail to complete Cardiac notes.");
+		}
+	}
+
+	@Test(priority = 45)
+
+	public void OasisSensory() {
+		try {
+			ExcelUtils eu = new ExcelUtils();
+			eu.execute(this.driver, "Clinician.xlsx", "oasis");
+			eu.execute(this.driver, "Clinician.xlsx", "Sensory");
+		} catch (Exception e) {
+			success = false;
+			e.printStackTrace();
+			System.out.println("Fail to complete Sensory notes.");
+		}
+	}
+
+	@Test(priority = 45)
+
+	public void OasisRespiratory() {
+		try {
+			ExcelUtils eu = new ExcelUtils();
+			eu.execute(this.driver, "Clinician.xlsx", "oasis");
+			eu.execute(this.driver, "Clinician.xlsx", "Respiratory");
+		} catch (Exception e) {
+			success = false;
+			e.printStackTrace();
+			System.out.println("Fail to complete Respiratory notes.");
+		}
+	}
+
+	@Test(priority = 45)
+
+	public void OasisGastrointestinal() {
+		try {
+			ExcelUtils eu = new ExcelUtils();
+			eu.execute(this.driver, "Clinician.xlsx", "oasis");
+			eu.execute(this.driver, "Clinician.xlsx", "Gastrointestinal");
+		} catch (Exception e) {
+			success = false;
+			e.printStackTrace();
+			System.out.println("Fail to complete Gastrointestinal notes.");
+		}
+	}
+
+	@Test(priority = 45)
+
+	public void OasisNeurological() {
+		try {
+			ExcelUtils eu = new ExcelUtils();
+			eu.execute(this.driver, "Clinician.xlsx", "oasis");
+			eu.execute(this.driver, "Clinician.xlsx", "Neurological");
+		} catch (Exception e) {
+			success = false;
+			e.printStackTrace();
+			System.out.println("Fail to complete Neurological notes.");
+		}
+	}
+
+	@Test(priority = 45)
+
+	public void OasisIntegumentary() {
+		try {
+			ExcelUtils eu = new ExcelUtils();
+			eu.execute(this.driver, "Clinician.xlsx", "oasis");
+			eu.execute(this.driver, "Clinician.xlsx", "Integumentary");
+		} catch (Exception e) {
+			success = false;
+			e.printStackTrace();
+			System.out.println("Fail to complete Integumentary notes.");
+		}
+	}
+
+	@Test(priority = 45)
+
+	public void OasisMusculoskeletal() {
+		try {
+			ExcelUtils eu = new ExcelUtils();
+			eu.execute(this.driver, "Clinician.xlsx", "oasis");
+			eu.execute(this.driver, "Clinician.xlsx", "Musculoskeletal");
+		} catch (Exception e) {
+			success = false;
+			e.printStackTrace();
+			System.out.println("Fail to complete Musculoskeletal notes.");
+		}
+	}
+
+	@Test(priority = 45)
+
+	public void OasisGenitourinary() {
+		try {
+			ExcelUtils eu = new ExcelUtils();
+			eu.execute(this.driver, "Clinician.xlsx", "oasis");
+			eu.execute(this.driver, "Clinician.xlsx", "Genitourinary");
+		} catch (Exception e) {
+			success = false;
+			e.printStackTrace();
+			System.out.println("Fail to complete Genitourinary notes.");
+		}
+	}
+
+	@Test(priority = 46)
+
+	public void CreateComm() {
+		try {
+			ExcelUtils eu = new ExcelUtils();
+			eu.execute(this.driver, "Clinician.xlsx", "Comm");
+		} catch (Exception e) {
+			Constant.Success = false;
+			e.printStackTrace();
+			System.out.println("Failed to Create Comm.");
+		}
+	}
+
+	@Test(priority = 47)
+
+	public void CreateOrder() {
+		try {
+			ExcelUtils eu = new ExcelUtils();
+			eu.execute(this.driver, "Clinician.xlsx", "Order");
+		} catch (Exception e) {
+			Constant.Success = false;
+			e.printStackTrace();
+			System.out.println("Failed to Create Comm.");
+		}
+	}
+
+	@AfterMethod
+	public void logout() {
+
+		try {
+			if (Constant.Debugging == false) {
+				result = this.loginPage.logout();
+				Assert.assertTrue(result);
+			} else {
+				if (Constant.Success) {
+					result = this.loginPage.logout();
+					Assert.assertTrue(result);
+				}
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Failed to login into the application");
+		}
+	}
 }
