@@ -30,7 +30,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 		}
 	}
 
-	//@Test(priority = 41)
+	@Test(priority = 41)
 	public void VerifyClinicianAccountforPatient() {
 		try {
 			ExcelUtils eu = new ExcelUtils();
@@ -206,6 +206,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 		}
 	}
 
+
 	@Test(priority = 45)
 
 	public void OasisNeurological() {
@@ -261,8 +262,31 @@ public class ClinicianPageTest extends BaseWebDriver {
 			System.out.println("Fail to complete Genitourinary notes.");
 		}
 	}
-
 	@Test(priority = 46)
+
+	public void OasisSubmitNotes() {
+		try {
+			ExcelUtils eu = new ExcelUtils();
+			eu.execute(this.driver, "Clinician.xlsx", "NoteSubmit");
+		} catch (Exception e) {
+			success = false;
+			e.printStackTrace();
+			System.out.println("Fail to Submit Notes.");
+		}
+	}
+	//@Test(priority = 47)
+
+	public void SignOut() {
+		try {
+			ExcelUtils eu = new ExcelUtils();
+			eu.execute(this.driver, "Clinician.xlsx", "Signout");
+		} catch (Exception e) {
+			success = false;
+			e.printStackTrace();
+			System.out.println("Fail to complete Genitourinary notes.");
+		}
+	}
+	@Test(priority = 48)
 
 	public void CreateComm() {
 		try {
@@ -275,7 +299,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 		}
 	}
 
-	@Test(priority = 47)
+	@Test(priority = 49)
 
 	public void CreateOrder() {
 		try {

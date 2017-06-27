@@ -128,6 +128,8 @@ public class ExcelUtils {
 			}else if(action.equals("click")){
 				this.click(driver,field,xpath,value,clicks);
 
+			}else if(action.equals("clickp10")){
+				this.clickp10(driver,field,xpath,value,clicks);
 			}else if(action.equals("dragY")){
 				this.dragY(driver,xpath,value);
 
@@ -245,6 +247,20 @@ public class ExcelUtils {
 					Thread.sleep(1000 * tdelay);
 				}catch (Exception e){System.out.println(e);};
 				element.click();
+			}
+		}
+	}
+	public void clickp10(WebDriver driver, String field, String xpath, String value , int clicks) {
+
+		WebElement element = isExisting(driver,xpath);
+		if(eCheck(element)){
+			for (int x = 0; x < clicks; x++) {
+				try{
+					int tdelay = value.equals("") ? 0 : Integer.parseInt(value);
+					Thread.sleep(1000 * tdelay);
+				}catch (Exception e){System.out.println(e);};
+				Actions builder = new Actions(driver);
+				builder.moveToElement(element,10,10).click().build().perform();
 			}
 		}
 	}
