@@ -262,6 +262,19 @@ public class ClinicianPageTest extends BaseWebDriver {
 			System.out.println("Fail to complete Genitourinary notes.");
 		}
 	}
+	@Test(priority = 45)
+
+	public void OasisSupportive() {
+		try {
+			ExcelUtils eu = new ExcelUtils();
+			eu.execute(this.driver, "Clinician.xlsx", "oasis");
+			eu.execute(this.driver, "Clinician.xlsx", "Supportive");
+		} catch (Exception e) {
+			success = false;
+			e.printStackTrace();
+			System.out.println("Fail to complete Supportive notes.");
+		}
+	}
 	@Test(priority = 46)
 
 	public void OasisSubmitNotes() {
