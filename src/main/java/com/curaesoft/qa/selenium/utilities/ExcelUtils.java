@@ -329,7 +329,7 @@ public class ExcelUtils {
 
 		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
 		if(!eCheck(element)){
-			Assert.fail(grownumber+": Element Not Visible");
+			Assert.fail(srcfile +"("+ sheetn+") "+(grownumber+1)+":"+": Element Not Visible");
 		}
 	}
 
@@ -346,10 +346,10 @@ public class ExcelUtils {
 		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
 
 		if(!value.equals(element.getText())){
-			Assert.fail("Text did not matched on the given value in row "+grownumber+" in "+ srcfile );
+			Assert.fail(srcfile +"("+ sheetn+") "+(grownumber+1)+":"+"Text did not matched the value is '"+element.getText()+"'");
 		}
 		if (Constant.Debugging == true){
-			System.out.println(grownumber+" : Element value is "+element.getText());
+			System.out.println(srcfile +"("+ sheetn+") "+(grownumber+1)+":"+" : Element value is "+element.getText());
 		}
 	}
 	public void match_value(WebDriver driver, String field, String xpath , String value) {
@@ -357,10 +357,10 @@ public class ExcelUtils {
 		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
 
 		if(!value.equals(element.getAttribute("value"))){
-			Assert.fail("Value did not matched on the given value in row "+grownumber+" in "+ srcfile );
+			Assert.fail(srcfile +"("+ sheetn+") "+(grownumber+1)+":"+"Text did not matched the value is '"+element.getAttribute("value")+"'");
 		}
 		if (Constant.Debugging == true){
-			System.out.println(grownumber+" : Element value is "+element.getAttribute("value"));
+			System.out.println(srcfile +"("+ sheetn+") "+(grownumber+1)+":"+" : Element value is "+element.getAttribute("value"));
 		}
 	}
 	public void match_custom(WebDriver driver, String field, String xpath , String value) {
