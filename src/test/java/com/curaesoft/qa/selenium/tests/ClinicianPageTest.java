@@ -275,6 +275,63 @@ public class ClinicianPageTest extends BaseWebDriver {
 			System.out.println("Fail to complete Supportive notes.");
 		}
 	}
+
+	@Test(priority = 45)
+
+	public void OasisSubjective() {
+		try {
+			ExcelUtils eu = new ExcelUtils();
+			eu.execute(this.driver, "Clinician.xlsx", "oasis");
+			eu.execute(this.driver, "Clinician.xlsx", "Subjective");
+		} catch (Exception e) {
+			success = false;
+			e.printStackTrace();
+			System.out.println("Fail to complete Subjective notes.");
+		}
+	}
+
+
+	@Test(priority = 45)
+
+	public void OasisObjective() {
+		try {
+			ExcelUtils eu = new ExcelUtils();
+			eu.execute(this.driver, "Clinician.xlsx", "oasis");
+			eu.execute(this.driver, "Clinician.xlsx", "Objective");
+		} catch (Exception e) {
+			success = false;
+			e.printStackTrace();
+			System.out.println("Fail to complete Objective notes.");
+		}
+	}
+
+
+	@Test(priority = 45)
+
+	public void OasisAssessmentSummary() {
+		try {
+			ExcelUtils eu = new ExcelUtils();
+			eu.execute(this.driver, "Clinician.xlsx", "oasis");
+			eu.execute(this.driver, "Clinician.xlsx", "AssessmentSummary");
+		} catch (Exception e) {
+			success = false;
+			e.printStackTrace();
+			System.out.println("Fail to complete Assessment Summary notes.");
+		}
+	}
+	@Test(priority = 45)
+
+	public void OasisICD10() {
+		try {
+			ExcelUtils eu = new ExcelUtils();
+			eu.execute(this.driver, "Clinician.xlsx", "oasis");
+			eu.execute(this.driver, "Clinician.xlsx", "ICD10");
+		} catch (Exception e) {
+			success = false;
+			e.printStackTrace();
+			System.out.println("Fail to complete ICD10 notes.");
+		}
+	}
 	@Test(priority = 46)
 
 	public void OasisSubmitNotes() {
