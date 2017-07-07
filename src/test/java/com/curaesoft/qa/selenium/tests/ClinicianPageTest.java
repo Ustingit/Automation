@@ -332,6 +332,20 @@ public class ClinicianPageTest extends BaseWebDriver {
 			System.out.println("Fail to complete ICD10 notes.");
 		}
 	}
+
+	@Test(priority = 45)
+
+	public void OasisTreatmentPlanning() {
+		try {
+			ExcelUtils eu = new ExcelUtils();
+			eu.execute(this.driver, "Clinician.xlsx", "oasis");
+			eu.execute(this.driver, "Clinician.xlsx", "TreatmentPlanning");
+		} catch (Exception e) {
+			success = false;
+			e.printStackTrace();
+			System.out.println("Fail to complete ICD10 notes.");
+		}
+	}
 	@Test(priority = 46)
 
 	public void OasisSubmitNotes() {
@@ -342,6 +356,19 @@ public class ClinicianPageTest extends BaseWebDriver {
 			success = false;
 			e.printStackTrace();
 			System.out.println("Fail to Submit Notes.");
+		}
+	}
+	@Test(priority = 46)
+
+	public void OasisVerifyNotes() {
+		try {
+			ExcelUtils eu = new ExcelUtils();
+			eu.execute(this.driver, "Clinician.xlsx", "oasis");
+			eu.execute(this.driver, "Clinician.xlsx", "VerifyNotes");
+		} catch (Exception e) {
+			success = false;
+			e.printStackTrace();
+			System.out.println("Fail to Verify  Notes.");
 		}
 	}
 	//@Test(priority = 47)
