@@ -138,7 +138,7 @@ public class services {
         try {
         	click("//div[@layout='column']/button[@aria-label='Finance']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Welcome')]");
-        	Thread.sleep(1000);
+        	Thread.sleep(3000);
         	click("//div[@layout='column']/button[@aria-label='Billing']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Billing')]");
         } catch (Exception e) {
