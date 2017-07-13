@@ -162,7 +162,7 @@ public class services {
         try {
         	click("//div[@layout='column']/button[@aria-label='Operations']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Operation')]");
-        	Thread.sleep(2000);
+        	Thread.sleep(3000);
         	click("//div[@layout='column']/button[@aria-label='Admission']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Admissions')]");
         } catch (Exception e) {
@@ -174,7 +174,7 @@ public class services {
         try {
         	click("//div[@layout='column']/button[@aria-label='Operations']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Operation')]");
-        	Thread.sleep(2000);
+        	Thread.sleep(3000);
         	click("//div[@layout='column']/button[@aria-label='Admission Analyzer']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Operation')]");
         } catch (Exception e) {
@@ -186,7 +186,7 @@ public class services {
         try {
         	click("//div[@layout='column']/button[@aria-label='Operations']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Operation')]");
-        	Thread.sleep(2000);
+        	Thread.sleep(3000);
         	click("//div[@layout='column']/button[@aria-label='Episode Activity']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Operation')]");
         } catch (Exception e) {
@@ -198,7 +198,7 @@ public class services {
         try {
         	click("//div[@layout='column']/button[@aria-label='Operations']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Operation')]");
-        	Thread.sleep(2000);
+        	Thread.sleep(3000);
         	click("//div[@layout='column']/button[@aria-label='Scheduling']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Episodes')]");
         } catch (Exception e) {
@@ -210,7 +210,7 @@ public class services {
         try {
         	click("//div[@layout='column']/button[@aria-label='Operations']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Operation')]");
-        	Thread.sleep(2000);
+        	Thread.sleep(3000);
         	click("//div[@layout='column']/button[@aria-label='Filing']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Operation')]");
         	
@@ -223,10 +223,10 @@ public class services {
         try {
         	click("//div[@layout='column']/button[@aria-label='Operations']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Operation')]");
-        	Thread.sleep(2000);
+        	Thread.sleep(3000);
         	click("//div[@layout='column']/button[@aria-label='Oasis']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Operation')]");
-        	Thread.sleep(2000);
+        	Thread.sleep(3000);
         	click("//div[@layout='column']/button[@aria-label='Signing']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Operation')]");
         	
@@ -239,10 +239,10 @@ public class services {
         try {
         	click("//div[@layout='column']/button[@aria-label='Operations']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Operation')]");
-        	Thread.sleep(2000);
+        	Thread.sleep(3000);
         	click("//div[@layout='column']/button[@aria-label='Auditing']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Operation')]");
-        	Thread.sleep(2000);
+        	Thread.sleep(3000);
         	click("//div[@layout='column']/button[@aria-label='Checklist']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Operation')]");
         	
@@ -255,10 +255,10 @@ public class services {
         try {
         	click("//div[@layout='column']/button[@aria-label='Operations']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Operation')]");
-        	Thread.sleep(2000);
+        	Thread.sleep(3000);
         	click("//div[@layout='column']/button[@aria-label='Auditing']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Operation')]");
-        	Thread.sleep(2000);
+        	Thread.sleep(3000);
         	click("//div[@layout='column']/button[@aria-label='Note Audit']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Note Audits')]");
         	
@@ -271,10 +271,10 @@ public class services {
         try {
         	click("//div[@layout='column']/button[@aria-label='Operations']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Operation')]");
-        	Thread.sleep(2000);
+        	Thread.sleep(3000);
         	click("//div[@layout='column']/button[@aria-label='Auditing']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Operation')]");
-        	Thread.sleep(2000);
+        	Thread.sleep(3000);
         	click("//div[@layout='column']/button[@aria-label='Order Audit']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Order Audits')]");
         	
@@ -288,7 +288,7 @@ public class services {
         try {
         	click("//div[@layout='column']/button[@aria-label='Operations']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Operation')]");
-        	Thread.sleep(2000);
+        	Thread.sleep(3000);
         	click("//div[@layout='column']/button[@aria-label='Authorization']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Operation')]");
         	
@@ -301,7 +301,7 @@ public class services {
         try {
         	click("//div[@layout='column']/button[@aria-label='Operations']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Operation')]");
-        	Thread.sleep(2000);
+        	Thread.sleep(3000);
         	click("//div[@layout='column']/button[@aria-label='Orders']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Orders')]");
         	
@@ -314,10 +314,10 @@ public class services {
         try {
         	click("//div[@layout='column']/button[@aria-label='Operations']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Operation')]");
-        	Thread.sleep(2000);
+        	Thread.sleep(3000);
         	click("//div[@layout='column']/button[@aria-label='Referral']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Referral')]");
-        	Thread.sleep(2000);
+        	Thread.sleep(3000);
         	click("//div[@layout='column']/button[@aria-label='Account']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Account List')]");
         } catch (Exception e) {
@@ -329,10 +329,10 @@ public class services {
         try {
         	click("//div[@layout='column']/button[@aria-label='Operations']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Operation')]");
-        	Thread.sleep(2000);
+        	Thread.sleep(3000);
         	click("//div[@layout='column']/button[@aria-label='Referral']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Referral')]");
-        	Thread.sleep(2000);
+        	Thread.sleep(3000);
         	click("//div[@layout='column']/button[@aria-label='Contact']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Contact List')]");
         } catch (Exception e) {
@@ -344,7 +344,7 @@ public class services {
         try {
         	click("//div[@layout='column']/button[@aria-label='Operations']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Operation')]");
-        	Thread.sleep(2000);
+        	Thread.sleep(3000);
         	click("//div[@layout='column']/button[@aria-label='Scheduling Analyzer']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Operation')]");
         } catch (Exception e) {
@@ -355,6 +355,7 @@ public class services {
 	@Test(priority = 10)
 	public void Clinician_Audit() {
         try {
+
         	click("//div[@layout='column']/button[@aria-label='Clinician Portal']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Clinician')]");
         	Thread.sleep(3000);
@@ -369,7 +370,7 @@ public class services {
         try {
         	click("//div[@layout='column']/button[@aria-label='Clinician Portal']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Clinician')]");
-        	Thread.sleep(2000);
+        	Thread.sleep(3000);
         	click("//div[@layout='column']/button[@aria-label='Past Visit']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Past')]");
         } catch (Exception e) {
@@ -381,7 +382,7 @@ public class services {
         try {
         	click("//div[@layout='column']/button[@aria-label='Clinician Portal']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'Clinician')]");
-        	Thread.sleep(2000);
+        	Thread.sleep(3000);
         	click("//div[@layout='column']/button[@aria-label='To-Do Visit']");
         	visible("//span/span[@class='ng-scope ng-binding' and contains(text(),'To-do')]");
         } catch (Exception e) {
