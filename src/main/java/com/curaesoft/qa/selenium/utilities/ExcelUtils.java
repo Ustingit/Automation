@@ -120,7 +120,7 @@ public class ExcelUtils {
 			if(action.equals("input")){
 				Constant con = new Constant();
 				if(!deflt.equals("")){
-					this.input(driver,field,xpath,con.map(deflt));
+					this.input(driver,field,xpath, Constant.map(deflt));
 
 				}else{
 					this.input(driver,field,xpath,value);
@@ -130,9 +130,10 @@ public class ExcelUtils {
 
 			}else if(action.equals("clickp10")){
 				this.clickp10(driver,field,xpath,value,clicks);
+			}else if(action.equals("clicky10")){
+				this.clicky10(driver,field,xpath,value,clicks);
 			}else if(action.equals("dragY")){
 				this.dragY(driver,xpath,value);
-
 			}else if(action.equals("click_custom")){
 				this.click_custom(driver,field,xpath,value,clicks);
 
@@ -157,7 +158,7 @@ public class ExcelUtils {
 			}else if(action.equals("match_text")){
 				Constant con = new Constant();
 				if(!deflt.equals("")){
-					this.match_text(driver,field,xpath,con.map(deflt));
+					this.match_text(driver,field,xpath, Constant.map(deflt));
 				}else{
 					this.match_text(driver,field,xpath,value);
 				}
@@ -165,14 +166,21 @@ public class ExcelUtils {
 			}else if(action.equals("match_value")){
 				Constant con = new Constant();
 				if(!deflt.equals("")){
-					this.match_value(driver,field,xpath,con.map(deflt));
+					this.match_value(driver,field,xpath, Constant.map(deflt));
 				}else{
 					this.match_value(driver,field,xpath,value);
+				}
+			}else if(action.equals("validateValue")){
+				Constant con = new Constant();
+				if(!deflt.equals("")){
+					this.validateValue(driver,xpath, Constant.map(deflt));
+				}else{
+					this.validateValue(driver,xpath,value);
 				}
 			}else if(action.equals("match_custom")){
 				Constant con = new Constant();
 				if(!deflt.equals("")){
-					this.match_custom(driver,field,xpath,con.map(deflt));
+					this.match_custom(driver,field,xpath, Constant.map(deflt));
 				}else{
 					this.match_custom(driver,field,xpath,value);
 				}
@@ -246,8 +254,8 @@ public class ExcelUtils {
 				try{
 					int tdelay = value.equals("") ? 0 : Integer.parseInt(value);
 					Thread.sleep(1000 * tdelay);
-				}catch (Exception e){System.out.println(e);};
-				element.click();
+				}catch (Exception e){System.out.println(e);}
+                element.click();
 			}
 		}
 	}
@@ -259,9 +267,23 @@ public class ExcelUtils {
 				try{
 					int tdelay = value.equals("") ? 0 : Integer.parseInt(value);
 					Thread.sleep(1000 * tdelay);
-				}catch (Exception e){System.out.println(e);};
-				Actions builder = new Actions(driver);
+				}catch (Exception e){System.out.println(e);}
+                Actions builder = new Actions(driver);
 				builder.moveToElement(element,10,10).click().build().perform();
+			}
+		}
+	}
+	public void clicky10(WebDriver driver, String field, String xpath, String value , int clicks) {
+
+		WebElement element = isExisting(driver,xpath);
+		if(eCheck(element)){
+			for (int x = 0; x < clicks; x++) {
+				try{
+					int tdelay = value.equals("") ? 0 : Integer.parseInt(value);
+					Thread.sleep(1000 * tdelay);
+				}catch (Exception e){System.out.println(e);}
+                Actions builder = new Actions(driver);
+				builder.moveToElement(element,20 , 100).click().build().perform();
 			}
 		}
 	}
@@ -305,8 +327,8 @@ public class ExcelUtils {
 				try{
 					int tdelay = value.equals("") ? 0 : Integer.parseInt(value);
 					Thread.sleep(1000 * tdelay);
-				}catch (Exception e){System.out.println(e);};
-				element.click();
+				}catch (Exception e){System.out.println(e);}
+                element.click();
 			}
 		}
 	}
@@ -320,8 +342,8 @@ public class ExcelUtils {
 				try{
 					int tdelay = value.equals("") ? 0 : Integer.parseInt(value);
 					Thread.sleep(1000 * tdelay);
-				}catch (Exception e){System.out.println(e);};
-				element.click();
+				}catch (Exception e){System.out.println(e);}
+                element.click();
 			}
 		}
 	}
@@ -358,6 +380,20 @@ public class ExcelUtils {
 		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
 
 		if(!value.equals(element.getAttribute("value"))){
+			Assert.fail(srcfile +"("+ sheetn+") "+(grownumber+1)+":"+"Text did not matched the value is '"+element.getAttribute("value")+"'");
+		}
+		if (Constant.Debugging == true){
+			System.out.println(srcfile +"("+ sheetn+") "+(grownumber+1)+":"+" : Element value is "+element.getAttribute("value"));
+		}
+	}
+	public void validateValue(WebDriver driver, String xpath , String value) {
+
+		WebElement element = (new WebDriverWait(driver, timeout)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		String cvalue = js.executeScript("return "+element.getAttribute("id")+".value").toString();
+
+		if(!value.equals(cvalue)){
 			Assert.fail(srcfile +"("+ sheetn+") "+(grownumber+1)+":"+"Text did not matched the value is '"+element.getAttribute("value")+"'");
 		}
 		if (Constant.Debugging == true){
@@ -441,8 +477,8 @@ public class ExcelUtils {
 
 	public void account() {
 		Constant con = new Constant();
-		System.out.println("Firstname:"+con.map("firstname"));
-		System.out.println("Lastname:"+con.map("lastname"));
+		System.out.println("Firstname:"+ Constant.map("firstname"));
+		System.out.println("Lastname:"+ Constant.map("lastname"));
 	}
 	public void refresh(WebDriver driver) {
 		driver.navigate().refresh();
@@ -494,11 +530,7 @@ public class ExcelUtils {
 	}
 
 	public boolean eCheck(WebElement element){
-		if(element != null && element.isDisplayed()){
-			return true;
-		}else{
-			return  false;
-		}
+        return element != null && element.isDisplayed();
 	}
 
 
