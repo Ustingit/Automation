@@ -15,7 +15,7 @@
 			<class name="tests.CQTestPage" />
 
 			<class name="tests.ProfilePageTest" />
-			<class name="tests.EditPageTest" />
+			<class name="tests.RenamePageTest" />
 
 		</classes>
 	</test>
