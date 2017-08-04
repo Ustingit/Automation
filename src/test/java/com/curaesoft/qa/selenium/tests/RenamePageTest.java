@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 /**
  * Created by SE on 2/17/2017.
  */
-public class EditPageTest  extends BaseWebDriver {
+public class RenamePageTest  extends BaseWebDriver {
     HomePage homePage;
     Boolean result;
     Boolean success = true;
