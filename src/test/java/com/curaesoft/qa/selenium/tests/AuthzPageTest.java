@@ -22,6 +22,7 @@ import com.curaesoft.qa.selenium.utilities.ExcelUtils;
 
 /**
  * Created by SE on 5/5/2017.
+ * priority 201-299
  */
 public class AuthzPageTest extends BaseWebDriver {
     HomePage homePage;
@@ -38,7 +39,7 @@ public class AuthzPageTest extends BaseWebDriver {
         }
     }
 
-    @Test (priority = 21)
+    @Test (priority = 201)
 
     public void AssignTo () {
         try {
@@ -52,7 +53,7 @@ public class AuthzPageTest extends BaseWebDriver {
         }
     }
 
-    @Test (priority = 22)
+    @Test (priority = 202)
 
         public void DeAssign () {
             try {
@@ -66,7 +67,7 @@ public class AuthzPageTest extends BaseWebDriver {
             }
         }
 
-    @Test(priority = 23)
+    @Test(priority = 203)
 
     public void SendAuthz() {
         try {
@@ -81,7 +82,7 @@ public class AuthzPageTest extends BaseWebDriver {
     }
 
 
-    @Test(priority = 24)
+    @Test(priority = 204)
 
     public void AddCorrections() {
         try {
@@ -97,7 +98,7 @@ public class AuthzPageTest extends BaseWebDriver {
 
     }
 
-    @Test(priority = 25)
+    @Test(priority = 205)
 
     public void AddCorrectionDecrease() {
         try {
@@ -112,7 +113,7 @@ public class AuthzPageTest extends BaseWebDriver {
     }
 
 
-    @Test(priority = 26)
+    @Test(priority = 206)
 
     public void AddComment() {
         try {
@@ -128,7 +129,7 @@ public class AuthzPageTest extends BaseWebDriver {
     }
 
 
-    @Test(priority = 27)
+    @Test(priority = 207)
 
     public void WaitResAuthz() {
         try {
@@ -167,7 +168,7 @@ public class AuthzPageTest extends BaseWebDriver {
 
 
 
-    @Test(priority = 28)
+    @Test(priority = 208)
 
     public void SendAuthz2() {
         try {
@@ -182,7 +183,7 @@ public class AuthzPageTest extends BaseWebDriver {
     }
 
 
-    @Test(priority = 29)
+    @Test(priority = 209)
 
     public void MaximizedVisits() {
         try {
@@ -220,7 +221,7 @@ public class AuthzPageTest extends BaseWebDriver {
 
 
 
-    @Test (priority = 30)
+    @Test (priority = 210)
 
     public void ApprovedTab (){
         try {

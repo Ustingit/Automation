@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 
 /**
  * Created by SE on 2/17/2017.
+ * //Priority 701-799
  */
 public class RenamePageTest  extends BaseWebDriver {
     HomePage homePage;
@@ -28,7 +29,7 @@ public class RenamePageTest  extends BaseWebDriver {
     }
 
 
-    @Test(priority=85 , groups = {"patientdetails"})
+    @Test(priority=701 , groups = {"patientdetails"})
 
     public void EditPatient() {
         try {
@@ -43,7 +44,7 @@ public class RenamePageTest  extends BaseWebDriver {
         }
 
     }
-    @Test(priority=86 , groups = {"patientdetails"})
+    @Test(priority=702 , groups = {"patientdetails"})
 
     public void Scheduling() {
         try {
@@ -58,7 +59,7 @@ public class RenamePageTest  extends BaseWebDriver {
         }
 
     }
-    @Test(priority=87 , groups = {"patientdetails"})
+    @Test(priority=703 , groups = {"patientdetails"})
 
     public void AuditingNote() {
         try {
@@ -74,7 +75,7 @@ public class RenamePageTest  extends BaseWebDriver {
 
     }
 
-    @Test(priority=88 , groups = {"patientdetails"})
+    @Test(priority=704 , groups = {"patientdetails"})
 
     public void AuditingOrder() {
         try {
@@ -91,7 +92,7 @@ public class RenamePageTest  extends BaseWebDriver {
     }
 
 
-    @Test(priority=89 , groups = {"patientdetails"})
+    @Test(priority=705 , groups = {"patientdetails"})
 
     public void Authorization() {
         try {
@@ -108,7 +109,7 @@ public class RenamePageTest  extends BaseWebDriver {
     }
 
 
-    @Test(priority=90 , groups = {"patientdetails"})
+    @Test(priority=706 , groups = {"patientdetails"})
 
     public void CQ() {
         try {
