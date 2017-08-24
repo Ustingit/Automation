@@ -13,6 +13,7 @@ import org.testng.annotations.Test;
 
 /**
  * Created by SE on 3/15/2017.
+ * priority 401-499
  */
 public class AuditTestPage  extends BaseWebDriver {
     HomePage homePage;
@@ -30,7 +31,7 @@ public class AuditTestPage  extends BaseWebDriver {
         }
     }
 
-    @Test (priority=6)
+    @Test (priority=401)
 
     public void NoteApproval() {
         try {
@@ -42,7 +43,7 @@ public class AuditTestPage  extends BaseWebDriver {
             System.out.println("Failed to create patient.");
         }
     }
-    @Test(priority=7)
+    @Test(priority=402)
     public void OrderNotes() {
         try {
             ExcelUtils eu = new ExcelUtils();

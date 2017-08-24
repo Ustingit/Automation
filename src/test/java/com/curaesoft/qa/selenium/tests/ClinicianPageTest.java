@@ -12,6 +12,7 @@ import com.curaesoft.qa.selenium.utilities.ExcelUtils;
 
 /**
  * Created by SE on 3/4/2017.
+ * priority 301-399
  */
 public class ClinicianPageTest extends BaseWebDriver {
 
@@ -30,7 +31,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 		}
 	}
 
-	@Test(priority = 41)
+	@Test(priority = 301)
 	public void VerifyClinicianAccountforPatient() {
 		try {
 			ExcelUtils eu = new ExcelUtils();
@@ -42,7 +43,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 		}
 	}
 
-	@Test(priority = 42)
+	@Test(priority = 302)
 
 	public void ViewOfficeNotes() {
 		try {
@@ -55,7 +56,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 		}
 	}
 
-	@Test(priority = 43)
+	@Test(priority = 303)
 
 	public void CreateMyPlan() {
 		try {
@@ -68,7 +69,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 		}
 	}
 
-	@Test(priority = 44)
+	@Test(priority = 304)
 	public void SigninClinician() {
 		try {
 			ExcelUtils eu = new ExcelUtils();
@@ -80,7 +81,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 		}
 	}
 
-	@Test(priority = 45)
+	@Test(priority = 305)
 
 	public void OasisAdministrative() {
 		try {
@@ -94,7 +95,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 		}
 	}
 
-	@Test(priority = 45)
+	@Test(priority = 306)
 
 	public void OasisGeneral() {
 		try {
@@ -108,7 +109,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 		}
 	}
 
-	@Test(priority = 45)
+	@Test(priority = 307)
 
 	public void OasisPlanOfCare() {
 		try {
@@ -122,7 +123,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 		}
 	}
 
-	@Test(priority = 45)
+	@Test(priority = 308)
 
 	public void OasisRiskPrognosis() {
 		try {
@@ -136,7 +137,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 		}
 	}
 
-	@Test(priority = 45)
+	@Test(priority = 309)
 
 	public void OasisHistoryDiagnoses() {
 		try {
@@ -150,7 +151,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 		}
 	}
 
-	@Test(priority = 45)
+	@Test(priority = 310)
 
 	public void OasisCardiac() {
 		try {
@@ -164,7 +165,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 		}
 	}
 
-	@Test(priority = 45)
+	@Test(priority = 311)
 
 	public void OasisSensory() {
 		try {
@@ -178,7 +179,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 		}
 	}
 
-	@Test(priority = 45)
+	@Test(priority = 312)
 
 	public void OasisRespiratory() {
 		try {
@@ -192,7 +193,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 		}
 	}
 
-	@Test(priority = 45)
+	@Test(priority = 313)
 
 	public void OasisGastrointestinal() {
 		try {
@@ -207,7 +208,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 	}
 
 
-	@Test(priority = 45)
+	@Test(priority = 314)
 
 	public void OasisNeurological() {
 		try {
@@ -221,7 +222,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 		}
 	}
 
-	@Test(priority = 45)
+	@Test(priority = 315)
 
 	public void OasisIntegumentary() {
 		try {
@@ -235,7 +236,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 		}
 	}
 
-	@Test(priority = 45)
+	@Test(priority = 316)
 
 	public void OasisMusculoskeletal() {
 		try {
@@ -249,7 +250,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 		}
 	}
 
-	@Test(priority = 45)
+	@Test(priority = 317)
 
 	public void OasisGenitourinary() {
 		try {
@@ -262,7 +263,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 			System.out.println("Fail to complete Genitourinary notes.");
 		}
 	}
-	@Test(priority = 45)
+	@Test(priority = 318)
 
 	public void OasisSupportive() {
 		try {
@@ -276,7 +277,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 		}
 	}
 
-	@Test(priority = 45)
+	@Test(priority = 319)
 
 	public void OasisSubjective() {
 		try {
@@ -291,7 +292,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 	}
 
 
-	@Test(priority = 45)
+	@Test(priority = 320)
 
 	public void OasisObjective() {
 		try {
@@ -306,7 +307,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 	}
 
 
-	@Test(priority = 45)
+	@Test(priority = 321)
 
 	public void OasisAssessmentSummary() {
 		try {
@@ -319,7 +320,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 			System.out.println("Fail to complete Assessment Summary notes.");
 		}
 	}
-	@Test(priority = 45)
+	@Test(priority = 322)
 
 	public void OasisICD10() {
 		try {
@@ -333,7 +334,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 		}
 	}
 
-	@Test(priority = 45)
+	@Test(priority = 323)
 
 	public void OasisTreatmentPlanning() {
 		try {
@@ -346,7 +347,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 			System.out.println("Fail to complete ICD10 notes.");
 		}
 	}
-	@Test(priority = 46)
+	@Test(priority = 324)
 
 	public void OasisSubmitNotes() {
 		try {
@@ -358,7 +359,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 			System.out.println("Fail to Submit Notes.");
 		}
 	}
-	@Test(priority = 46)
+	@Test(priority = 325)
 
 	public void OasisVerifyNotes() {
 		try {
@@ -383,7 +384,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 			System.out.println("Fail to complete Genitourinary notes.");
 		}
 	}
-	@Test(priority = 48)
+	@Test(priority = 326)
 
 	public void CreateComm() {
 		try {
@@ -396,7 +397,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 		}
 	}
 
-	@Test(priority = 49)
+	@Test(priority = 327)
 
 	public void CreateOrder() {
 		try {

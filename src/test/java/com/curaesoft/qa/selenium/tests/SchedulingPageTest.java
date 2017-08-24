@@ -12,6 +12,7 @@ import com.curaesoft.qa.selenium.utilities.ExcelUtils;
 
 /**
  * Created by SE on 3/2/2017.
+ * priority 101-199
  */
 public class SchedulingPageTest extends BaseWebDriver {
 
@@ -29,7 +30,7 @@ public class SchedulingPageTest extends BaseWebDriver {
             System.out.println("Failed to login into the application !");
         }
     }
-    @Test (priority=11)
+    @Test (priority=101)
     public void CheckPreauthVisit() {
         try {
             ExcelUtils eu = new ExcelUtils();
@@ -40,7 +41,7 @@ public class SchedulingPageTest extends BaseWebDriver {
             System.out.println("Failed to set patient schedule.");
         }
     }
-    @Test (priority=12)
+    @Test (priority=102)
     public void SetPatientSchedule() {
         try {
             ExcelUtils eu = new ExcelUtils();
@@ -52,7 +53,7 @@ public class SchedulingPageTest extends BaseWebDriver {
         }
     }
 
-    @Test (priority=13)
+    @Test (priority=103)
     public void SetFrequencyVisit() {
         try {
             ExcelUtils eu = new ExcelUtils();
@@ -64,7 +65,7 @@ public class SchedulingPageTest extends BaseWebDriver {
         }
     }
 
-    @Test (priority=14)
+    @Test (priority=104)
     public void CreateNotes() {
         try {
             ExcelUtils eu = new ExcelUtils();
@@ -75,7 +76,7 @@ public class SchedulingPageTest extends BaseWebDriver {
             System.out.println("Failed to set patient schedule.");
         }
     }
-    @Test (priority=15)
+    @Test (priority=105)
     public void SortVisit() {
         try {
             ExcelUtils eu = new ExcelUtils();

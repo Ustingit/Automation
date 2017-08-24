@@ -12,6 +12,7 @@ import com.curaesoft.qa.selenium.utilities.ExcelUtils;
 
 /**
  * Created by SE on 2/22/2017.
+ * //Priority 601-699
  */
 public class ProfilePageTest extends BaseWebDriver {
     HomePage homePage;
@@ -29,7 +30,7 @@ public class ProfilePageTest extends BaseWebDriver {
         }
     }
 
-    @Test (priority=71)
+    @Test (priority=601)
     public void UpdateSettings() {
         try {
             ExcelUtils eu = new ExcelUtils();
@@ -42,7 +43,7 @@ public class ProfilePageTest extends BaseWebDriver {
 
 
     }
-    @Test (priority=72)
+    @Test (priority=602)
     public void UpdatePassword() {
         try {
             ExcelUtils eu = new ExcelUtils();
