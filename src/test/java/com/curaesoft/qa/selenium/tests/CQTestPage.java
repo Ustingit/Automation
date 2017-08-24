@@ -27,7 +27,7 @@ public class CQTestPage  extends BaseWebDriver {
     }
 
 
-    @Test (priority=62)
+    @Test (priority=501)
     public void complain() {
         try {
             ExcelUtils eu = new ExcelUtils();
@@ -39,7 +39,7 @@ public class CQTestPage  extends BaseWebDriver {
         }
     }
 
-    @Test (priority=61)
+    @Test (priority=502)
     public void kudo() {
         try {
             ExcelUtils eu = new ExcelUtils();
@@ -52,7 +52,7 @@ public class CQTestPage  extends BaseWebDriver {
     }
     
     
-    @Test (priority=63)
+    @Test (priority=503)
     public void delete() {
         try {
             ExcelUtils eu = new ExcelUtils();
