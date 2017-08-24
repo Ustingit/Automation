@@ -111,7 +111,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
 
     @Test(priority=6 , groups = {"patientdetails"})
 
-    public void createPatient3() {
+    public void createPatient2() {
         try {
             ExcelUtils eu = new ExcelUtils();
             eu.execute(this.driver, "Admission.xlsx","CreatePatient2");
@@ -142,7 +142,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
 
     @Test(priority=8,groups = {"patientdetails"})
 
-    public void createAdmissionForNewPatient4() {
+    public void NonAdmit() {
         try {
             ExcelUtils eu = new ExcelUtils();
              eu.execute(this.driver, "Admission.xlsx","Non-Admit");
@@ -156,12 +156,12 @@ public class AdmissionPageTest  extends BaseWebDriver {
     }
 
 
-   // @Test(priority=6 ,dependsOnGroups = "patientdetails" )
+    @Test(priority=9 ,dependsOnGroups = "patientdetails" )
 
-    public void Inscheduling() {
+    public void CreatePatient3() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "AdmissionInApproval2.xlsx","Sheet1");
+            eu.execute(this.driver, "Admission.xlsx","CreatePatient3");
         }catch (Exception e){
             success = false;
             e.printStackTrace();
@@ -170,6 +170,52 @@ public class AdmissionPageTest  extends BaseWebDriver {
         }
 
     }
+
+    @Test(priority=10 ,dependsOnGroups = "patientdetails" )
+
+    public void CreateAdmission3() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "Admission.xlsx","CreateAdmission3");
+        }catch (Exception e){
+            success = false;
+            e.printStackTrace();
+            System.out.println("Failed to create admission for old patient.");
+            Assert.fail(e.toString());
+        }
+
+    }
+
+    @Test(priority=11 ,dependsOnGroups = "patientdetails" )
+
+    public void Checklist() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "Admission.xlsx","Checklist");
+        }catch (Exception e){
+            success = false;
+            e.printStackTrace();
+            System.out.println("Failed to create admission for old patient.");
+            Assert.fail(e.toString());
+        }
+
+    }
+
+    @Test(priority=12 ,dependsOnGroups = "patientdetails" )
+
+    public void Suspend() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "Admission.xlsx","Suspend");
+        }catch (Exception e){
+            success = false;
+            e.printStackTrace();
+            System.out.println("Failed to create admission for old patient.");
+            Assert.fail(e.toString());
+        }
+
+    }
+
 
 
     @AfterMethod
