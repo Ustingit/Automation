@@ -156,7 +156,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
     }
 
 
-    @Test(priority=9 ,dependsOnGroups = "patientdetails" )
+    @Test(priority=9 ,groups = "patientdetails" )
 
     public void CreatePatient3() {
         try {
@@ -171,7 +171,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
 
     }
 
-    @Test(priority=10 ,dependsOnGroups = "patientdetails" )
+    @Test(priority=10 ,groups = "patientdetails" )
 
     public void CreateAdmission3() {
         try {
@@ -186,7 +186,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
 
     }
 
-    @Test(priority=11 ,dependsOnGroups = "patientdetails" )
+    @Test(priority=11 ,groups = "patientdetails" )
 
     public void Checklist() {
         try {
@@ -201,7 +201,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
 
     }
 
-    @Test(priority=12 ,dependsOnGroups = "patientdetails" )
+    @Test(priority=12 ,groups = "patientdetails" )
 
     public void Suspend() {
         try {
