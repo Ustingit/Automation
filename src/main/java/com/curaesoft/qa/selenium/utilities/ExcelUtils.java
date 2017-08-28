@@ -202,6 +202,8 @@ public class ExcelUtils {
 			}else if(action.equals("signature")){
 				this.signature(driver,xpath);
 
+			}else if(action.equals("count")){
+				this.count(driver,field,xpath,value);
 			}else{
 				if(	Constant.ErrorNotice == true){
 					System.out.printf("\n"+(rownum+1)+": Action is not registered.", field);
@@ -238,6 +240,13 @@ public class ExcelUtils {
 		if(eCheck(element)){
 			element.clear();
 			element.sendKeys(value);
+		}
+	}
+	public void count( WebDriver driver,String field, String xpath, String value) {
+
+		int element = driver.findElements(By.xpath(xpath)).size();
+		if(element != Integer.parseInt(value)){
+			Assert.fail(srcfile +"("+ sheetn+") "+(grownumber+1)+":"+": Element count does not match.");
 		}
 	}
 	public void focus( WebDriver driver, String xpath, String value) {
