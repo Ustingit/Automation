@@ -216,6 +216,20 @@ public class AdmissionPageTest  extends BaseWebDriver {
 
     }
 
+   // @Test(priority=13 ,groups = "patientdetails" )
+
+    public void Validate() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "Admission.xlsx","Validate");
+        }catch (Exception e){
+            success = false;
+            e.printStackTrace();
+            System.out.println("Failed to create admission for old patient.");
+            Assert.fail(e.toString());
+        }
+
+    }
 
 
     @AfterMethod
