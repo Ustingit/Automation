@@ -56,6 +56,7 @@ public class ExcelUtils {
 
 	public void reader(WebDriver driver, String excel_link, String Sheetname)throws Exception {
 
+		System.out.println("Reading "+excel_link+"("+Sheetname+").");
 		FileInputStream inputStream = new FileInputStream(new File("resources/"+excel_link));
 
 		Workbook workbook = new XSSFWorkbook(inputStream);
