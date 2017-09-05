@@ -44,12 +44,14 @@ public class Constant {
 
 		edata.put("firstname",fuid.substring(0, 16));
 		edata.put("lastname",fuid.substring(16, 32));
+		edata.put("atests","Atests "+fuid.substring(16, 32));
+		edata.put("fullname",fuid.substring(0, 16)+" "+fuid.substring(16, 32));
 		edata.put("rename","rename"+fuid.substring(0, 16));
 
 		edata.put("clinician","");
-		
-//		edata.put("firstname","0958bc3b4c0545a2");
-//		edata.put("lastname","a60a7011ddb34b60");
+
+//		edata.put("firstname","41093d7822ea4987");
+//		edata.put("lastname","b75c81d5d9210dc0");
 		edata.put("date",new SimpleDateFormat("MM-dd-yyyy").format(tomorrow).toString());
 
 
