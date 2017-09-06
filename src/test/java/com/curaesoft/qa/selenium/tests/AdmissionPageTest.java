@@ -216,7 +216,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
 
     }
 
-   // @Test(priority=13 ,groups = "patientdetails" )
+    @Test(priority=13 ,groups = "patientdetails" )
 
     public void Validate() {
         try {
