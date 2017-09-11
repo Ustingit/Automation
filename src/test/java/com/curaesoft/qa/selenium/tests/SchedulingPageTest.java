@@ -88,6 +88,17 @@ public class SchedulingPageTest extends BaseWebDriver {
         }
     }
     @Test (priority=106)
+    public void CommNotes() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "scheduling.xlsx","CommNotes");
+        } catch (Exception e) {
+            Constant.Success  = false;
+            e.printStackTrace();
+            System.out.println("Failed to set patient schedule.");
+        }
+    }
+    @Test (priority=107)
     public void SortVisit() {
         try {
             ExcelUtils eu = new ExcelUtils();
