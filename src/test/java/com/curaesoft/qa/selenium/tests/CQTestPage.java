@@ -50,9 +50,20 @@ public class CQTestPage  extends BaseWebDriver {
             System.out.println("Failed to test CQ.");
         }
     }
-    
-    
+
     @Test (priority=503)
+    public void CareCoordination() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "CQ.xlsx","CareCoordination");
+        } catch (Exception e) {
+            success = false;
+            e.printStackTrace();
+            System.out.println("Failed to test CQ.");
+        }
+    }
+    
+    @Test (priority=504)
     public void delete() {
         try {
             ExcelUtils eu = new ExcelUtils();
