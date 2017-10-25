@@ -1,4 +1,4 @@
-package tests;
+package com.curaesoft.qa.selenium.tests;
 
 
 import java.util.List;

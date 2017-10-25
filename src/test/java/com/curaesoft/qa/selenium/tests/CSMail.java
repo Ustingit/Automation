@@ -1,5 +1,4 @@
-package tests;
-
+package com.curaesoft.qa.selenium.tests;
 import com.curaesoft.qa.selenium.Config.Constant;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;

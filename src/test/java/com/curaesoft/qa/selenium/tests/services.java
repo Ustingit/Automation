@@ -1,4 +1,4 @@
-package tests;
+package com.curaesoft.qa.selenium.tests;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
