@@ -107,9 +107,23 @@ public class AdmissionPageTest  extends BaseWebDriver {
 
     }
 
-
-
     @Test(priority=6 , groups = {"patientdetails"})
+
+    public void Admissionchecklist1() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "Admission.xlsx","Checklist1");
+        } catch (Exception e) {
+            success = false;
+            e.printStackTrace();
+            Assert.fail(e.toString());
+            System.out.println("Failed to create patient.");
+        }
+
+    }
+
+
+    @Test(priority=7 , groups = {"patientdetails"})
 
     public void createPatient2() {
         try {
@@ -125,7 +139,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
     }
 
 
-    @Test(priority=7,groups = {"patientdetails"})
+    @Test(priority=8,groups = {"patientdetails"})
 
     public void createAdmission2() {
         try {
@@ -140,7 +154,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
 
     }
 
-    @Test(priority=8,groups = {"patientdetails"})
+    @Test(priority=9,groups = {"patientdetails"})
 
     public void NonAdmit() {
         try {
@@ -156,7 +170,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
     }
 
 
-    @Test(priority=9 ,groups = "patientdetails" )
+    @Test(priority=10 ,groups = "patientdetails" )
 
     public void CreatePatient3() {
         try {
@@ -171,7 +185,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
 
     }
 
-    @Test(priority=10 ,groups = "patientdetails" )
+    @Test(priority=11 ,groups = "patientdetails" )
 
     public void CreateAdmission3() {
         try {
@@ -186,7 +200,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
 
     }
 
-    @Test(priority=11 ,groups = "patientdetails" )
+    @Test(priority=12 ,groups = "patientdetails" )
 
     public void Checklist() {
         try {
@@ -201,7 +215,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
 
     }
 
-    @Test(priority=12 ,groups = "patientdetails" )
+    @Test(priority=13 ,groups = "patientdetails" )
 
     public void Suspend() {
         try {
@@ -216,7 +230,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
 
     }
 
-    @Test(priority=13 ,groups = "patientdetails" )
+    @Test(priority=14 ,groups = "patientdetails" )
 
     public void Validate() {
         try {
