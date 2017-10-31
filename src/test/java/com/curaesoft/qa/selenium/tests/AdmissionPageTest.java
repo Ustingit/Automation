@@ -107,9 +107,9 @@ public class AdmissionPageTest  extends BaseWebDriver {
 
     }
 
-    @Test(priority=6 , groups = {"patientdetails"})
+    //@Test(priority=6 , groups = {"patientdetails"})
 
-    public void Admissionchecklist1() {
+    public void AdmissionCheck1() {
         try {
             ExcelUtils eu = new ExcelUtils();
             eu.execute(this.driver, "Admission.xlsx","Checklist1");
