@@ -46,6 +46,21 @@ public class AdmissionPageTest  extends BaseWebDriver {
 
     @Test(priority=2,groups = {"patientdetails"})
 
+    public void createAdmissionForNewPatient2() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "Admission.xlsx","FirstPatientNewAdmission");
+        }catch (Exception e) {
+            success = false;
+            e.printStackTrace();
+            Assert.fail(e.toString());
+            System.out.println("Failed to create admission for new patient.");
+        }
+
+    }
+
+    //@Test(priority=2,groups = {"patientdetails"})
+
     public void createAdmissionForNewPatient() {
         try {
             ExcelUtils eu = new ExcelUtils();
@@ -60,7 +75,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
     }
 
 
-    @Test(priority=3 , groups = {"patientdetails"})
+    //@Test(priority=3 , groups = {"patientdetails"})
 
     public void Approval01() {
         try {
@@ -76,7 +91,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
     }
 
 
-    @Test(priority=4,groups = {"patientdetails"})
+   //@Test(priority=4,groups = {"patientdetails"})
 
     public void InProcessing02() {
         try {
@@ -92,7 +107,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
 
     }
 
-    @Test(priority=5 , groups = {"patientdetails"})
+    //@Test(priority=5 , groups = {"patientdetails"})
 
     public void AdmissionInApproval2() {
         try {
