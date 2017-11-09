@@ -63,7 +63,7 @@ public class CQTestPage  extends BaseWebDriver {
         }
     }
     
-    @Test (priority=504)
+   // @Test (priority=504)
     public void delete() {
         try {
             ExcelUtils eu = new ExcelUtils();
