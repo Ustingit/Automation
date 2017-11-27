@@ -44,7 +44,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
 
     }
 
-    @Test(priority=2,groups = {"patientdetails"})
+    //@Test(priority=2,groups = {"patientdetails"})
 
     public void createAdmissionForNewPatient2() {
         try {
@@ -59,7 +59,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
 
     }
 
-    //@Test(priority=2,groups = {"patientdetails"})
+    @Test(priority=2,groups = {"patientdetails"})
 
     public void createAdmissionForNewPatient() {
         try {
@@ -75,7 +75,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
     }
 
 
-    //@Test(priority=3 , groups = {"patientdetails"})
+    @Test(priority=3 , groups = {"patientdetails"})
 
     public void Approval01() {
         try {
@@ -91,7 +91,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
     }
 
 
-   //@Test(priority=4,groups = {"patientdetails"})
+   @Test(priority=4,groups = {"patientdetails"})
 
     public void InProcessing02() {
         try {
@@ -107,7 +107,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
 
     }
 
-    //@Test(priority=5 , groups = {"patientdetails"})
+    @Test(priority=5 , groups = {"patientdetails"})
 
     public void AdmissionInApproval2() {
         try {
