@@ -13,7 +13,9 @@ public class Constant {
 	//Dev Site secure
 	//public static final String webURL = "https://104.199.117.46/#/login";
 
-	public static final String webURL = "https://35.185.205.136/";
+	public static final String webURL = "http://test.curaesoft.com:9999";
+	//public static final String webURL = "http://dock.curaesoft.com:9999/";
+
 
 	public static final String browserType = "*chrome";
 	public static final String File_TestData = "resources/Testdata.xlsx";
@@ -50,11 +52,12 @@ public class Constant {
 
 		edata.put("clinician","");
 
-//		edata.put("firstname","b49063c5aa134053");
-//		edata.put("lastname","ba004bd0385fce9e");
-//		edata.put("fullname","b49063c5aa134053 ba004bd0385fce9e");
-		edata.put("date",new SimpleDateFormat("MM-dd-yyyy").format(tomorrow).toString());
 
+
+//		edata.put("firstname","19be183c361445a0");
+//		edata.put("lastname","a1e71d58de40b900");
+//		edata.put("fullname","19be183c361445a0 a1e71d58de40b900");
+		edata.put("date",new SimpleDateFormat("MM-dd-yyyy").format(tomorrow).toString());
 
 		return edata.get(val);
 	}
