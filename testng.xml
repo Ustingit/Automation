@@ -13,6 +13,8 @@
 
 			<class name="com.curaesoft.qa.selenium.tests.ClinicianPageTest" />
 
+			<class name="com.curaesoft.qa.selenium.tests.AuditTestPage" />
+
 			<class name="com.curaesoft.qa.selenium.tests.CQTestPage" />
 
 			<class name="com.curaesoft.qa.selenium.tests.ProfilePageTest" />
