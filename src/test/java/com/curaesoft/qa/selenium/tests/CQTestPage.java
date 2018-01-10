@@ -27,19 +27,9 @@ public class CQTestPage  extends BaseWebDriver {
     }
 
 
-    @Test (priority=501)
-    public void complain() {
-        try {
-            ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "CQ.xlsx","complain");
-        } catch (Exception e) {
-            success = false;
-            e.printStackTrace();
-            System.out.println("Failed to test CQ.");
-        }
-    }
 
-    @Test (priority=502)
+
+    @Test (priority=501)
     public void kudo() {
         try {
             ExcelUtils eu = new ExcelUtils();
@@ -51,6 +41,17 @@ public class CQTestPage  extends BaseWebDriver {
         }
     }
 
+    @Test (priority=502)
+    public void complain() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "CQ.xlsx","complain");
+        } catch (Exception e) {
+            success = false;
+            e.printStackTrace();
+            System.out.println("Failed to test CQ.");
+        }
+    }
     @Test (priority=503)
     public void CareCoordination() {
         try {
