@@ -33,7 +33,7 @@ public class AuditTestPage  extends BaseWebDriver {
 
     @Test (priority=401)
 
-    public void OrderNotes() {
+    public void NoteAudit() {
         try {
             ExcelUtils eu = new ExcelUtils();
             eu.execute(this.driver, "NoteAudit.xlsx","notes");
@@ -44,6 +44,18 @@ public class AuditTestPage  extends BaseWebDriver {
         }
     }
 
+    @Test (priority=402)
+
+    public void OrderAudit() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "NoteAudit.xlsx","assign");
+        } catch (Exception e) {
+            success = true;
+            e.printStackTrace();
+            System.out.println("Failed to create patient.");
+        }
+    }
 
     @AfterMethod
     public void logout() {
