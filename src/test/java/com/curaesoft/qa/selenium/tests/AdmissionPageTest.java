@@ -122,7 +122,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
 
     }
 
-    @Test(priority=6 , groups = {"patientdetails"})
+    //@Test(priority=6 , groups = {"patientdetails"})
 
     public void AdmissionCheck1() {
         try {
