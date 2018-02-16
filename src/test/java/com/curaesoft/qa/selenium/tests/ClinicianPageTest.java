@@ -347,7 +347,22 @@ public class ClinicianPageTest extends BaseWebDriver {
 			System.out.println("Fail to complete ICD10 notes.");
 		}
 	}
+
 	@Test(priority = 324)
+
+	public void OasisWound() {
+		try {
+			ExcelUtils eu = new ExcelUtils();
+			eu.execute(this.driver, "Clinician.xlsx", "oasis");
+			eu.execute(this.driver, "Clinician.xlsx", "Wound");
+		} catch (Exception e) {
+			success = false;
+			e.printStackTrace();
+			System.out.println("Fail to complete Wound notes.");
+		}
+	}
+
+	@Test(priority = 325)
 
 	public void OasisSubmitNotes() {
 		try {
@@ -359,7 +374,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 			System.out.println("Fail to Submit Notes.");
 		}
 	}
-	@Test(priority = 325)
+	@Test(priority = 326)
 
 	public void OasisVerifyNotes() {
 		try {
@@ -384,7 +399,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 			System.out.println("Fail to complete Genitourinary notes.");
 		}
 	}
-	@Test(priority = 326)
+	@Test(priority = 327)
 
 	public void CreateComm() {
 		try {
@@ -397,7 +412,7 @@ public class ClinicianPageTest extends BaseWebDriver {
 		}
 	}
 
-	@Test(priority = 327)
+	@Test(priority = 328)
 
 	public void CreateOrder() {
 		try {
