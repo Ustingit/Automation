@@ -31,6 +31,17 @@ public class SchedulingPageTest extends BaseWebDriver {
         }
     }
     @Test (priority=101)
+    public void SetPatientToActive() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "scheduling.xlsx","SetActive");
+        } catch (Exception e) {
+            Constant.Success  = false;
+            e.printStackTrace();
+            System.out.println("Failed to set patient schedule.");
+        }
+    }
+    @Test (priority=102)
     public void CheckPreauthVisit() {
         try {
             ExcelUtils eu = new ExcelUtils();
@@ -41,7 +52,7 @@ public class SchedulingPageTest extends BaseWebDriver {
             System.out.println("Failed to set patient schedule.");
         }
     }
-    @Test (priority=102)
+    @Test (priority=103)
     public void AddandDeleteSchedule() {
         try {
             ExcelUtils eu = new ExcelUtils();
@@ -52,7 +63,8 @@ public class SchedulingPageTest extends BaseWebDriver {
             System.out.println("Failed to set patient schedule.");
         }
     }
-    @Test (priority=103)
+
+    @Test (priority=104)
     public void SetPatientSchedule() {
         try {
             ExcelUtils eu = new ExcelUtils();
@@ -64,7 +76,7 @@ public class SchedulingPageTest extends BaseWebDriver {
         }
     }
 
-    @Test (priority=104)
+    @Test (priority=105)
     public void SetFrequencyVisit() {
         try {
             ExcelUtils eu = new ExcelUtils();
@@ -76,7 +88,7 @@ public class SchedulingPageTest extends BaseWebDriver {
         }
     }
 
-    @Test (priority=105)
+    @Test (priority=106)
     public void CreateNotes() {
         try {
             ExcelUtils eu = new ExcelUtils();
@@ -87,7 +99,7 @@ public class SchedulingPageTest extends BaseWebDriver {
             System.out.println("Failed to set patient schedule.");
         }
     }
-    @Test (priority=106)
+    @Test (priority=107)
     public void CommNotes() {
         try {
             ExcelUtils eu = new ExcelUtils();
