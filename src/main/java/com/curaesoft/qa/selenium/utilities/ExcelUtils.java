@@ -205,6 +205,8 @@ public class ExcelUtils {
 
 			}else if(action.equals("count")){
 				this.count(driver,field,xpath,value);
+			}else if(action.equals("jsclick")){
+				this.jsclick(driver,field,xpath,value,clicks);
 			}else{
 				if(	Constant.ErrorNotice == true){
 					System.out.printf("\n"+(rownum+1)+": Action is not registered.", field);
@@ -266,6 +268,19 @@ public class ExcelUtils {
 					Thread.sleep(1000 * tdelay);
 				}catch (Exception e){System.out.println(e);}
                 element.click();
+			}
+		}
+	}
+	public void jsclick(WebDriver driver, String field, String xpath, String value , int clicks) {
+
+		WebElement element = isExisting(driver,xpath);
+		if(eCheck(element)){
+			for (int x = 0; x < clicks; x++) {
+				try{
+					int tdelay = value.equals("") ? 0 : Integer.parseInt(value);
+					Thread.sleep(1000 * tdelay);
+				}catch (Exception e){System.out.println(e);}
+				((JavascriptExecutor)driver).executeScript(xpath);
 			}
 		}
 	}

@@ -26,8 +26,8 @@ public class Constant {
 	public static final String MANAGER_ROLE = "manager";
 	public static final String INTAKE_ROLE = "Intake";
 
-	public static final int width = 1440;
-	public static final int height = 800;
+	public static final int width = 0;
+	public static final int height = 0;
 
 	public static final HashMap<String,String> edata = new HashMap<String, String>();
 
@@ -54,9 +54,9 @@ public class Constant {
 
 
 
-//		edata.put("firstname","b673de5c67b54517");
-//		edata.put("lastname","b9c41c89f7f9125d");
-//		edata.put("fullname","b673de5c67b54517 b9c41c89f7f9125d");
+//		edata.put("firstname","f832a15227ec45ff");
+//		edata.put("lastname","b59e5d64b09fc728");
+//		edata.put("fullname","Atests 94699365e6969064");
 		edata.put("date",new SimpleDateFormat("MM-dd-yyyy").format(tomorrow).toString());
 
 		return edata.get(val);
