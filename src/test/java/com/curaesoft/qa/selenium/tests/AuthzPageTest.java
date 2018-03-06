@@ -151,10 +151,10 @@ public class AuthzPageTest extends BaseWebDriver {
            assignVisit(dlCount, 6, "1");
            assignVisit(dlCount, 7, "1");
 
-            //upload file
-            driver.findElement(By.xpath("(//a[@ngf-select=\"vm.upload($files, exchange)\"])[1]")).click();
-            Robot r = new Robot();
-            sendKeys(r, "D:\\SE\\Documents\\Desktop\\test.png");
+//            //upload file
+//            driver.findElement(By.xpath("(//a[@ngf-select=\"vm.upload($files, exchange)\"])[1]")).click();
+//            Robot r = new Robot();
+//            sendKeys(r, "D:\\SE\\Documents\\Desktop\\test.png");
 
             ev.execute(this.driver, "Authorization.xlsx","AuthorizationResponseAuthz2");
 
