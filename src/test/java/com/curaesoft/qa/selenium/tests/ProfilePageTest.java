@@ -30,7 +30,7 @@ public class ProfilePageTest extends BaseWebDriver {
         }
     }
 
-    @Test (priority=601)
+    //@Test (priority=601)
     public void UpdateSettings() {
         try {
             ExcelUtils eu = new ExcelUtils();
