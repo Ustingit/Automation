@@ -83,19 +83,19 @@ public class ClinicianPageTest extends BaseWebDriver {
 
 	@Test(priority = 305)
 
-	public void OasisAdministrative() {
-		try {
-			ExcelUtils eu = new ExcelUtils();
-			eu.execute(this.driver, "Clinician.xlsx", "oasis");
-			eu.execute(this.driver, "Clinician.xlsx", "Administrative");
-		} catch (Exception e) {
-			Constant.Success = false;
-			e.printStackTrace();
-			System.out.println("Fail to complete Administrative notes.");
-		}
-	}
-
-	@Test(priority = 306)
+//	public void OasisAdministrative() {
+//		try {
+//			ExcelUtils eu = new ExcelUtils();
+//			eu.execute(this.driver, "Clinician.xlsx", "oasis");
+//			eu.execute(this.driver, "Clinician.xlsx", "Administrative");
+//		} catch (Exception e) {
+//			Constant.Success = false;
+//			e.printStackTrace();
+//			System.out.println("Fail to complete Administrative notes.");
+//		}
+//	}
+//
+//	@Test(priority = 306)
 
 	public void OasisGeneral() {
 		try {
