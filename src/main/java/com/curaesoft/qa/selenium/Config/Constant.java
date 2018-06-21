@@ -49,7 +49,7 @@ public class Constant {
 		edata.put("atests","Atests "+fuid.substring(16, 32));
 		edata.put("fullname",fuid.substring(0, 16)+" "+fuid.substring(16, 32));
 		edata.put("rename","rename"+fuid.substring(0, 16));
-		edata.put("editname","Editedname"+fuid.substring(16, 32));
+		edata.put("editname","Editedname "+fuid.substring(16, 32));
 		edata.put("clinician","");
 
 
