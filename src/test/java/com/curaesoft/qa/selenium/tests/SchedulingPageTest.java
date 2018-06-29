@@ -42,6 +42,17 @@ public class SchedulingPageTest extends BaseWebDriver {
         }
     }
     @Test (priority=102)
+    public void SetAllergen() {
+        try {
+            ExcelUtils eu = new ExcelUtils();
+            eu.execute(this.driver, "scheduling.xlsx","Allergen");
+        } catch (Exception e) {
+            Constant.Success  = false;
+            e.printStackTrace();
+            System.out.println("Failed to set patient schedule.");
+        }
+    }
+    @Test (priority=102)
     public void CheckPreauthVisit() {
         try {
             ExcelUtils eu = new ExcelUtils();
