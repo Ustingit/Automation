@@ -14,8 +14,8 @@ public class Constant {
 	//public static final String webURL = "https://104.199.117.46/#/login";
 
 	//public static final String webURL = "http://test.curaesoft.com:9999";
-	//public static final String webURL = "http://dock.curaesoft.com:9999/";
-	public static final String webURL = "https://june.curaesoft.com/";
+	public static final String webURL = "https://june.curaesoft.com";
+	//public static final String webURL = "http://35.232.210.17:9999/#/login";
 
 
 	public static final String browserType = "*chrome";
@@ -55,10 +55,10 @@ public class Constant {
 
 
 
-//		edata.put("firstname","rename7ea451573f0844c0");
-//		edata.put("lastname","ba0c2f0b12cbc7ca");
-//		edata.put("fullname","rename7ea451573f0844c0 ba0c2f0b12cbc7ca");
-		edata.put("date",new SimpleDateFormat("MM-dd-yyyy").format(tomorrow).toString());
+//		edata.put("firstname","rename09a96269b2dc4639");
+//		edata.put("lastname","9b341ba8d4ff0ac9");
+//		edata.put("fullname","rename09a96269b2dc4639 9b341ba8d4ff0ac9");
+		edata.put("date",new SimpleDateFormat("MM-dd-yyyy").format(today).toString());
 
 		return edata.get(val);
 	}
