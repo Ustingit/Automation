@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.Date;
 import java.util.HashMap;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 public class Constant {
 
 	//QA Site
@@ -58,11 +59,15 @@ public class Constant {
 //		edata.put("firstname","rename09a96269b2dc4639");
 //		edata.put("lastname","9b341ba8d4ff0ac9");
 //		edata.put("fullname","rename09a96269b2dc4639 9b341ba8d4ff0ac9");
-		edata.put("date",new SimpleDateFormat("MM-dd-yyyy").format(today).toString());
+		edata.put("date",new SimpleDateFormat("MM-dd-yyyy").format(yesterday()).toString());
 
 		return edata.get(val);
 	}
-
+	private static Date yesterday() {
+		Calendar calendar = Calendar.getInstance(); // this would default to now
+		calendar.add(Calendar.DAY_OF_MONTH, -1);
+		return calendar.getTime();
+	}
 
 
 }
