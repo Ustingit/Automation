@@ -1,4 +1,6 @@
 package com.curaesoft.qa.selenium.Config;
+import org.apache.poi.ss.formula.functions.Today;
+
 import java.util.UUID;
 import java.io.*;
 import java.util.Date;
@@ -59,7 +61,7 @@ public class Constant {
 //		edata.put("firstname","rename09a96269b2dc4639");
 //		edata.put("lastname","9b341ba8d4ff0ac9");
 //		edata.put("fullname","rename09a96269b2dc4639 9b341ba8d4ff0ac9");
-		edata.put("date",new SimpleDateFormat("MM-dd-yyyy").format(yesterday()).toString());
+		edata.put("date",new SimpleDateFormat("MM-dd-yyyy").format(today).toString());
 
 		return edata.get(val);
 	}
