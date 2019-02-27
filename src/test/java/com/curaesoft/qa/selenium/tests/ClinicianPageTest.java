@@ -56,18 +56,18 @@ public class ClinicianPageTest extends BaseWebDriver {
 		}
 	}
 
-	@Test(priority = 303)
-
-	public void CreateMyPlan() {
-		try {
-			ExcelUtils eu = new ExcelUtils();
-			eu.execute(this.driver, "Clinician.xlsx", "Myplan");
-		} catch (Exception e) {
-			Constant.Success = false;
-			e.printStackTrace();
-			System.out.println("Failed to View Office Notes.");
-		}
-	}
+//	@Test(priority = 303)
+//
+//	public void CreateMyPlan() {
+//		try {
+//			ExcelUtils eu = new ExcelUtils();
+//			eu.execute(this.driver, "Clinician.xlsx", "Myplan");
+//		} catch (Exception e) {
+//			Constant.Success = false;
+//			e.printStackTrace();
+//			System.out.println("Failed to View Office Notes.");
+//		}
+//	}
 
 	@Test(priority = 304)
 	public void SigninClinician() {
