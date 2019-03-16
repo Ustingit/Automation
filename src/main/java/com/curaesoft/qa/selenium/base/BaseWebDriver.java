@@ -6,10 +6,10 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-
+import io.github.bonigarcia.wdm.WebDriverManager;
 import com.curaesoft.qa.selenium.CommonPages.LoginPage;
 import com.curaesoft.qa.selenium.Config.Constant;
-
+import org.openqa.selenium.chrome.ChromeOptions;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import org.openqa.selenium.Dimension;
@@ -21,10 +21,14 @@ public class BaseWebDriver {
 	public void setUp() {
 
 		if (Constant.browserType.equals("*firefox")) {
-			FirefoxDriverManager.getInstance().setup();
+//			FirefoxDriverManager.getInstance().setup();
 			driver = new FirefoxDriver();
 		}else if (Constant.browserType.equals("*chrome")) {
-			ChromeDriverManager.getInstance().setup();
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--disable-gpu");
+			WebDriverManager.chromedriver().version("73");
+			WebDriverManager.chromedriver().setup();
+//			ChromeDriverManager.getInstance().setup();
 			driver = new ChromeDriver();
 		}
 
