@@ -27,7 +27,7 @@ public class services {
 	@BeforeClass
 	public void setUp() {
 
-		ChromeDriverManager.getInstance().setup();
+//		ChromeDriverManager.getInstance().setup();
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get(url);
