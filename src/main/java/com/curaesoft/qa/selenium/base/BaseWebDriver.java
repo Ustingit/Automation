@@ -26,7 +26,7 @@ public class BaseWebDriver {
 		}else if (Constant.browserType.equals("*chrome")) {
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--disable-gpu");
-			WebDriverManager.chromedriver().version("73");
+//			WebDriverManager.chromedriver().version("73");
 			WebDriverManager.chromedriver().setup();
 //			ChromeDriverManager.getInstance().setup();
 			driver = new ChromeDriver();
