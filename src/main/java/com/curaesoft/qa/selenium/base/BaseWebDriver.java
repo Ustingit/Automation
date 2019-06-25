@@ -13,6 +13,9 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import org.openqa.selenium.Dimension;
+
+import javax.swing.*;
+
 public class BaseWebDriver {
 	protected WebDriver driver;
 	protected LoginPage loginPage;
@@ -26,7 +29,7 @@ public class BaseWebDriver {
 		}else if (Constant.browserType.equals("*chrome")) {
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--disable-gpu");
-//			WebDriverManager.chromedriver().version("73");
+			WebDriverManager.chromedriver().version("74");
 			WebDriverManager.chromedriver().setup();
 //			ChromeDriverManager.getInstance().setup();
 			driver = new ChromeDriver();
@@ -35,6 +38,7 @@ public class BaseWebDriver {
 		driver.get(Constant.webURL);
 		if(Constant.width != 0 && Constant.height !=0){
 			driver.manage().window().setSize(new Dimension(Constant.width,Constant.height));
+
 		}else{
 			driver.manage().window().maximize();
 		}
