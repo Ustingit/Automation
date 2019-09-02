@@ -122,6 +122,7 @@ public class SchedulingPageTest extends BaseWebDriver {
             System.out.println("Failed to set patient schedule.");
         }
     }
+    //
     //@Test (priority=107)
     public void SortVisit() {
         try {
