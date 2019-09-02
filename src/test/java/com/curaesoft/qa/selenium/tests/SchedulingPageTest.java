@@ -78,7 +78,7 @@ public class SchedulingPageTest extends BaseWebDriver {
     public void AddandDeleteSchedule() {
         try {
             ExcelUtils eu = new ExcelUtils();
-            eu.execute(this.driver, "scheduling.xlsx","AddSched");
+                eu.execute(this.driver, "scheduling.xlsx","AddSched");
         } catch (Exception e) {
             Constant.Success  = false;
             e.printStackTrace();
