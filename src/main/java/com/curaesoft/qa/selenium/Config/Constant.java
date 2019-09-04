@@ -39,8 +39,8 @@ public class Constant {
 	public static final boolean Debugging  = false;
 	public static final boolean ErrorNotice= false;
 	public static boolean Success= true;
-
 	public static final String lname = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()).toString();
+
 	public static final String guid = UUID.randomUUID().toString();
 	//public static final String lname ="20170316082058";
 
@@ -53,6 +53,7 @@ public class Constant {
 		edata.put("lastname",fuid.substring(16, 32));
 		edata.put("atests","Atests "+fuid.substring(16, 32));
 		edata.put("fullname",fuid.substring(0, 16)+" "+fuid.substring(16, 32));
+		//edata.put("fullname",fuid.substring(0, 16));
 		edata.put("rename","rename"+fuid.substring(0, 16));
 		edata.put("editname","Editedname "+fuid.substring(16, 32));
 		edata.put("clinician","");
