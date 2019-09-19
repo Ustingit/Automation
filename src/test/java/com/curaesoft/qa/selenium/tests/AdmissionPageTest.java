@@ -47,7 +47,7 @@ public class AdmissionPageTest  extends BaseWebDriver {
     @Test(priority=2,groups = {"patientdetails"})
 
     public void createAdmissionForNewPatient2() {
-        try {
+        try {            
             ExcelUtils eu = new ExcelUtils();
             eu.execute(this.driver, "Admission.xlsx","FirstPatientNewAdmission");
         }catch (Exception e) {
