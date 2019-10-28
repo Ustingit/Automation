@@ -15,6 +15,7 @@ import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import org.openqa.selenium.Dimension;
 
 import javax.swing.*;
+import java.util.concurrent.TimeUnit;
 
 public class BaseWebDriver {
 	protected WebDriver driver;
@@ -33,6 +34,7 @@ public class BaseWebDriver {
 			WebDriverManager.chromedriver().setup();
 //			ChromeDriverManager.getInstance().setup();
 			driver = new ChromeDriver();
+			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		}
 
 		driver.get(Constant.webURL);
