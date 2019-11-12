@@ -1,6 +1,7 @@
 package com.curaesoft.qa.selenium.Config;
 import org.apache.poi.ss.formula.functions.Today;
 
+import java.sql.Timestamp;
 import java.util.UUID;
 import java.io.*;
 import java.util.Date;
@@ -19,7 +20,7 @@ public class Constant {
 	//public static final String webURL = "http://test.curaesoft.com:9999";
 //	public static final String webURL = "https://june.curaesoft.com";
 	//public static final String webURL = "http://35.232.210.17:9999/#/login";
-	public static final String webURL = "http://34.68.75.255:9999";
+	public static final String webURL = "http://34.68.75.255:9999/";
 
 
 	public static final String browserType = "*chrome";
@@ -48,6 +49,8 @@ public class Constant {
 		String fuid=guid.replace("-", "");
 		Date today = new Date();
 		Date tomorrow = new Date(today.getTime() + (1000 * 60 * 60 * 24));
+		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+		String ts = String.valueOf(timestamp.getTime());
 
 		edata.put("firstname",fuid.substring(0, 16));
 		edata.put("lastname",fuid.substring(16, 32));
@@ -57,9 +60,15 @@ public class Constant {
 		edata.put("rename","rename"+fuid.substring(0, 16));
 		edata.put("editname","Editedname "+fuid.substring(16, 32));
 		edata.put("clinician","");
-
-
-
+		edata.put("hic",ts+'1');
+		edata.put("med",ts+'1');
+		edata.put("kai",ts+'1');
+		edata.put("hic2",ts+'2');
+		edata.put("med2",ts+'2');
+		edata.put("kai2",ts+'2');
+		edata.put("hic3",ts+'3');
+		edata.put("med3",ts+'3');
+		edata.put("kai3",ts+'3');
 //		edata.put("firstname","ade534bf50b04e1e");
 //		edata.put("lastname","91a76c11d5599090");
 //		edata.put("fullname","ade534bf50b04e1e 91a76c11d5599090");
@@ -72,6 +81,4 @@ public class Constant {
 		calendar.add(Calendar.DAY_OF_MONTH, -1);
 		return calendar.getTime();
 	}
-
-
 }
