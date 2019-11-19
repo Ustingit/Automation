@@ -2,6 +2,7 @@ package com.curaesoft.qa.selenium.Config;
 import org.apache.poi.ss.formula.functions.Today;
 
 import java.sql.Timestamp;
+import java.text.DateFormat;
 import java.util.UUID;
 import java.io.*;
 import java.util.Date;
@@ -48,6 +49,8 @@ public class Constant {
 	public static String map (String val){
 		String fuid=guid.replace("-", "");
 		Date today = new Date();
+		DateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
+		Date date = new Date();
 		Date tomorrow = new Date(today.getTime() + (1000 * 60 * 60 * 24));
 		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 		String ts = String.valueOf(timestamp.getTime());
@@ -72,8 +75,9 @@ public class Constant {
 //		edata.put("firstname","ade534bf50b04e1e");
 //		edata.put("lastname","91a76c11d5599090");
 //		edata.put("fullname","ade534bf50b04e1e 91a76c11d5599090");
-		edata.put("date",new SimpleDateFormat("MM-dd-yyyy").format(today).toString());
-
+		edata.put("date",dateFormat.format(date));
+		edata.put("datetom", dateFormat.format(tomorrow));
+		//System.out.println("DateTpoday"+dateFormat.format(date));
 		return edata.get(val);
 	}
 	private static Date yesterday() {
