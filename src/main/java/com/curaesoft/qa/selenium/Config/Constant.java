@@ -21,7 +21,8 @@ public class Constant {
 	//public static final String webURL = "http://test.curaesoft.com:9999";
 //	public static final String webURL = "https://june.curaesoft.com";
 	//public static final String webURL = "http://35.232.210.17:9999/#/login";
-	public static final String webURL = "http://34.68.75.255:9999/";
+	//public static final String webURL = "http://34.68.75.255:9999/";
+	public static final String webURL = "http://35.232.210.17:9999/#/login";
 
 
 	public static final String browserType = "*chrome";
