@@ -143,13 +143,13 @@ public class AuthzPageTest extends BaseWebDriver {
             //this.driver.findElement(By.xpath("//*[@id=\"ui-admin-email\"]/md-content/md-card/md-card-content/md-list-item/div[1]/md-card/md-card-content/div/div[2]/md-content/md-tabs/md-tabs-wrapper/md-tabs-canvas/md-pagination-wrapper/md-tab-item[2]/span[2]")).click();
 
             //assign visit
-            assignVisit(dlCount, 1, "1");
-            assignVisit(dlCount, 2, "1");
-           assignVisit(dlCount, 3, "1");
-           assignVisit(dlCount, 4, "1");
-           assignVisit(dlCount, 5, "1");
-           assignVisit(dlCount, 6, "1");
-           assignVisit(dlCount, 7, "1");
+//            assignVisit(dlCount, 1, "1");
+//            assignVisit(dlCount, 2, "1");
+//           assignVisit(dlCount, 3, "1");
+//           assignVisit(dlCount, 4, "1");
+//           assignVisit(dlCount, 5, "1");
+//           assignVisit(dlCount, 6, "1");
+//           assignVisit(dlCount, 7, "1");
 
 //            //upload file
 //            driver.findElement(By.xpath("(//a[@ngf-select=\"vm.upload($files, exchange)\"])[1]")).click();
