@@ -6,7 +6,7 @@
 			<class name="com.curaesoft.qa.selenium.tests.LoginPageTest" />
 
 			<class name="com.curaesoft.qa.selenium.tests.AdmissionPageTest" />
-			
+
 			<class name="com.curaesoft.qa.selenium.tests.SchedulingPageTest" />
 
 			<class name="com.curaesoft.qa.selenium.tests.AuthzPageTest" />
