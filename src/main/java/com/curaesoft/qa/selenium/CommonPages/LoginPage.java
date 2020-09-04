@@ -17,7 +17,7 @@ import org.testng.Reporter;
 import com.curaesoft.qa.selenium.Config.Constant;
 import com.curaesoft.qa.selenium.utilities.ExcelUtils;
 
-import io.github.bonigarcia.wdm.ChromeDriverManager;
+//import io.github.bonigarcia.wdm.ChromeDriverManager;
 
 import java.util.*;
 

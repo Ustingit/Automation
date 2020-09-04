@@ -10,8 +10,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import com.curaesoft.qa.selenium.CommonPages.LoginPage;
 import com.curaesoft.qa.selenium.Config.Constant;
 import org.openqa.selenium.chrome.ChromeOptions;
-import io.github.bonigarcia.wdm.ChromeDriverManager;
-import io.github.bonigarcia.wdm.FirefoxDriverManager;
+//import io.github.bonigarcia.wdm.ChromeDriverManager;
+//import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import org.openqa.selenium.Dimension;
 
 import javax.swing.*;
@@ -30,11 +30,12 @@ public class BaseWebDriver {
 		}else if (Constant.browserType.equals("*chrome")) {
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--disable-gpu");
-			WebDriverManager.chromedriver().version("78");
+//			WebDriverManager.chromedriver().version("83");
 			WebDriverManager.chromedriver().setup();
 //			ChromeDriverManager.getInstance().setup();
 			driver = new ChromeDriver();
 			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+
 		}
 
 		driver.get(Constant.webURL);

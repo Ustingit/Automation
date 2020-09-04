@@ -55,6 +55,7 @@ public class Constant {
 		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 		String ts = String.valueOf(timestamp.getTime());
 
+		edata.put("rname","rname"+fuid.substring(0, 16));
 		edata.put("firstname",fuid.substring(0, 16));
 		edata.put("lastname",fuid.substring(16, 32));
 		edata.put("atests","Atests "+fuid.substring(16, 32));
@@ -72,8 +73,8 @@ public class Constant {
 		edata.put("hic3",ts+'3');
 		edata.put("med3",ts+'3');
 		edata.put("kai3",ts+'3');
-//		edata.put("firstname","ade534bf50b04e1e");
-//		edata.put("lastname","91a76c11d5599090");
+//		edata.put("firstname","0734e18aa57649f8");
+//		edata.put("lastname","Snowman");
 //		edata.put("fullname","ade534bf50b04e1e 91a76c11d5599090");
 		edata.put("date",dateFormat.format(date));
 		edata.put("datetom", dateFormat.format(tomorrow));
